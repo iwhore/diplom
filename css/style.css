@@ -606,5 +606,140 @@ p {
   top: 15px;
   right: 15px;
 }
+/*-------FAQ SECTION--------*/
 
+.faq-container {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.faq-title h1 {
+  font-family: "Lora", sans-serif;
+  font-weight: 600;
+  font-size: 64px;
+  color: #000;
+  text-align: center;
+}
+
+.faq-title p {
+  font-size: 1.2rem;
+  color: var(--color--primary-dark);
+  text-align: center;
+  padding-top: 20px;
+}
+.faq-contact-form h3 {
+  font-family: "Lora", sans-serif;
+  font-weight: 600;
+  font-size: 48px;
+  color: #000;
+  display: flex;
+  text-align: center;
+}
+.faq-category h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  color: #000;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.faq-item {
+  margin-bottom: 15px;
+}
+
+.faq-question {
+  width: 100%;
+  height: 100px;
+  text-align: left;
+  padding: 20px;
+  border: none;
+  color: #fff;
+  background: #978466;
+  font-weight: 400;
+  font-size: 28px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.3s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-answer {
+  display: none;
+  padding: 20px;
+  background-color: #fafafa;
+  border: 1px solid #d3cfc7;
+  margin-top: 10px;
+  border-radius: 20px;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 28px;
+color: #000;
+}
+
+.faq-question.active + .faq-answer {
+  display: block;
+}
+.faq-contact-form h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.faq-contact-form {
+  margin-top: 30px;
+  width: 1064px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.faq-contact-form input,
+.faq-contact-form textarea {
+  width: 1064px;
+  margin-bottom: 32px;
+  padding: 32px;
+  border: 1px solid #bfbbaf;
+  border-radius: 30px;
+  font-size: 24px;
+}
+
+.faq-contact-form input {
+  height: 100px;
+}
+
+.faq-contact-form textarea {
+  height: 250px;
+  resize: none;
+}
+
+.faq-contact-form button {
+  width: 1064px;
+  height: 112px;
+  border: none;
+  border-radius: 60px;
+  background: #978466;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 48px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.faq-contact-form button:hover {
+  background: #000;
+}
 
