@@ -27,6 +27,7 @@ h2{
   font-weight: 600;
   font-size: 64px;
   line-height: 100%;
+  padding-top: 30px;
   margin: 40px 0;
 }
 
@@ -155,8 +156,9 @@ body {
   color: #978466;
 }
 
-.icons {
+.header-icons {
   display: flex;
+  flex-direction: row;
   gap: 15px;
   align-items: center;
 }
@@ -534,6 +536,7 @@ body {
 /*------------ВІДГУКИ-------------*/
 .reviews-section{
   background-color: #f7f2ef;
+  margin-top: 40px;
 }
 
 .testimonials {
@@ -549,8 +552,8 @@ body {
   padding: 10px;
   height: 250px;
   width: 420px;
+  margin-bottom: 50px;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   position: relative;
 }
 
@@ -607,4 +610,242 @@ p {
   right: 15px;
 }
 
+/*-----------НОВИНИ--------*/
+.news-upper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 80px;
+}
 
+.news-upper h3{
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.news-btn{
+  width: 298px;
+  height: 80px;
+  top: 42px;
+  left: 1062px;
+  border-radius: 60px;
+  border-color: transparent;
+  color: white;
+  background-color: #978466;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+
+.news-section {
+  margin-top: 100px;
+  margin-bottom: 40px;
+}
+
+.news-card {
+  background: #fff;
+  border-radius: 15px;
+  border-width: 1px;
+  border-color: #000;
+  overflow: hidden;
+  width: 400px;
+  height: 520px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #000000;
+  position: relative;
+}
+
+.news-img{
+  height: 280px;
+}
+
+.news-content {
+  padding: 15px;
+  text-align: center;
+}
+
+.news-date {
+  position: absolute;
+  top:253px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #f0ebe5;
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  z-index: 999;
+}
+
+.news-title {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.news-text {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 10%;
+  text-align: justify;
+}
+
+.news-link {
+  display: block;
+  position: absolute;
+  bottom: 20px;
+  left: 18%;
+  transform: translateX(-50%);
+  color: #c07f43;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: left;
+}
+
+.news-link:hover {
+  text-decoration: underline;
+}
+
+.card-container{
+  display: flex;
+  gap: 20px;
+}
+
+/*-----------НОВИНИ--------*/
+.footer {
+  background: #f8f5f2;
+  padding: 40px 0;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-logo{
+  margin-bottom: 25px;
+  width: 150px;
+  height: 60px;
+}
+
+.footer-logo-container{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-logo h2 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+
+.footer-logo p {
+  font-size: 14px;
+  color: #555;
+}
+
+.footer-links {
+  display: flex;
+  gap: 40px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.footer-links ul {
+  list-style: none;
+  margin-top: 30px;
+}
+
+.footer-links li {
+  margin-bottom: 42px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-subscribe p {
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  margin-bottom: 15px;
+  margin-top: 30px;
+}
+
+.input{
+  width: 230px;
+  height: 38px;
+  border-radius: 15px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #978466;
+  background-color: #f8f5f2;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.send-btn{
+  width: 40px;
+  height: 40px;
+  border-radius: 9px;
+  background-color: #978466;
+  background-color: #f8f5f2;
+}
+
+.subscribe-box {
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  margin-bottom: 40px;
+}
+
+.subscribe-box button {
+  background-color: #978466;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+}
+
+.icons-btn{
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  border-color: transparent;
+  background-color: #978466;
+}
