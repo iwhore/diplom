@@ -1,0 +1,159 @@
+.about-us {
+    text-align: center;
+    padding: 60px 0;
+}
+
+.about-us h1 {
+    font-family: Lora;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    margin-bottom: 25px;
+}
+
+.subtitle {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.about-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    text-align: left;
+    max-width: 700px;
+}
+
+.about-text p {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: justify;
+}
+
+.highlight {
+    color: #978466;
+    font-weight: bold;
+}
+
+.about-text h3 {
+    color: #978466;
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: 0%;
+}
+
+.about-text ul {
+    list-style: none;
+    padding: 0;
+    padding-left: 15px;
+}
+
+.about-text img{
+
+}
+
+.about-text li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 100%;
+    letter-spacing: 0%;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 10px;
+}
+
+@media (max-width: 1024px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-text {
+        max-width: 100%;
+        text-align: center;
+    }
+    .about-text ul {
+        display: inline-block;
+        text-align: left;
+    }
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+  
+.gallery-item {
+    background-color: #d3d3d3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 30px;
+}
+  
+.large {
+    grid-column: span 1;
+    grid-row: span 2;
+    height: 480px;
+    width: 740px;
+}
+  
+.small {
+    height: 230px;
+    width: 520px;
+}
+
+.team{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.team-card{
+    text-align: center;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    border: 1px solid #BFBBAF;
+    border-radius: 30px;
+}
+
+.team-card img{
+    width: 410px;
+    height: 350px;
+}
+
+.team-card p{
+    margin: 20px 0;
+}

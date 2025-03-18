@@ -176,7 +176,9 @@ body {
 
 .hero {
   margin-top: 60px;
+  padding: 50px 0;
   text-align: center;
+  background-color: #f3f3f3;
 }
 
 .hero-content {
@@ -310,7 +312,6 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background: #f7f2ef;
   border-radius: 20px;
   padding: 20px;
   width: 100%;
@@ -318,6 +319,7 @@ body {
   height: 350px;
   text-align: center;
   position: relative;
+  border: 1px solid #c5ad86;
 }
 
 .category-image img {
@@ -347,7 +349,7 @@ body {
   font-weight: 600;
   font-size: 16px;
   gap: 5px;
-  border: 1px solid #000;
+  border: 1px solid #c5ad86;
   border-radius: 60px;
   width: 160px;
   height: 40px;
@@ -396,7 +398,7 @@ body {
 
 /* акційні товари*/
 .sales{
-  background: #F7F2EF;
+
 }
 
 .sales h2{
@@ -421,6 +423,7 @@ body {
   border-radius: 10px;
   text-align: center;
   position: relative;
+  border: 1px solid #c5ad86;
 }
 
 .disc-img {
@@ -519,6 +522,7 @@ body {
   font-size: 18px;
   font-weight: bold;
   border-radius: 20px;
+  border: 1px solid #c5ad86;
 }
 
 .large {
@@ -535,7 +539,7 @@ body {
 
 /*------------ВІДГУКИ-------------*/
 .reviews-section{
-  background-color: #f7f2ef;
+  background-color: #f3f3f3;
   margin-top: 40px;
 }
 
@@ -580,6 +584,7 @@ body {
   font-weight: 600;
   font-size: 14px;
   text-align: start;
+  
 }
 
 /* Ім'я */
@@ -721,9 +726,8 @@ p {
   gap: 20px;
 }
 
-/*-----------НОВИНИ--------*/
 .footer {
-  background: #f8f5f2;
+  background: #f3f3f3;
   padding: 40px 0;
 }
 
