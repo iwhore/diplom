@@ -119,7 +119,7 @@
     font-weight: bold;
     border-radius: 30px;
 }
-  
+
 .large {
     grid-column: span 1;
     grid-row: span 2;
