@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign up</title>
-    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="/styless.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -45,16 +45,25 @@
             <input type="text" id="name" placeholder="ім'я" required />
             <input type="email" id="email" placeholder="e-mail" required />
             <div class="password-container">
-              <input type="password" id="password" placeholder="пароль" required />
+              <input
+                type="password"
+                id="password"
+                placeholder="пароль"
+                required
+              />
               <span class="toggle-password">
-                <img src="images/eye-icon.svg" alt="Показати пароль" id="togglePassword" />
+                <img
+                  src="images/eye-icon.svg"
+                  alt="Показати пароль"
+                  id="togglePassword"
+                />
               </span>
             </div>
             <button type="submit" class="login">Зареєструватися</button>
           </form>
           <p>
             Вже маєте обліковий запис?
-            <a href="sign up">Увійти</a>
+            <a href="./login.html">Увійти</a>
           </p>
         </div>
         <div class="image-container-signup">
@@ -101,13 +110,27 @@
             <div class="subscribe-box">
               <input class="input" type="email" placeholder="your email..." />
               <button class="send-btn">
-                <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  width="26"
+                  height="26"
+                  viewBox="0 0 26 26"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <g clip-path="url(#clip0_25_139)">
-                    <path d="M10.7365 4.28681C10.3792 4.09735 9.96915 4.03192 9.57067 4.10082C9.17219 4.16971 8.80789 4.36902 8.53498 4.66743C8.21065 5.03088 8.04225 5.5073 8.06613 5.99384L8.14269 9.4168L4.79727 12.9131L8.29141 16.2564L8.36673 19.7197C8.37057 19.9577 8.42158 20.1926 8.51681 20.4108C8.61204 20.6289 8.74959 20.826 8.92151 20.9907C9.03459 21.0988 9.16108 21.1919 9.29788 21.2678C9.57462 21.4247 9.88801 21.5056 10.2062 21.502C10.5243 21.4984 10.8358 21.4106 11.1089 21.2475L26.0136 12.4367L10.7365 4.28681ZM10.3225 6.63209L19.3988 11.476L9.06735 11.705L10.402 10.3101L10.3225 6.63209ZM10.5937 18.9328L10.5118 15.267L9.11646 13.9318L19.442 13.7004L10.5937 18.9328Z" fill="white" />
+                    <path
+                      d="M10.7365 4.28681C10.3792 4.09735 9.96915 4.03192 9.57067 4.10082C9.17219 4.16971 8.80789 4.36902 8.53498 4.66743C8.21065 5.03088 8.04225 5.5073 8.06613 5.99384L8.14269 9.4168L4.79727 12.9131L8.29141 16.2564L8.36673 19.7197C8.37057 19.9577 8.42158 20.1926 8.51681 20.4108C8.61204 20.6289 8.74959 20.826 8.92151 20.9907C9.03459 21.0988 9.16108 21.1919 9.29788 21.2678C9.57462 21.4247 9.88801 21.5056 10.2062 21.502C10.5243 21.4984 10.8358 21.4106 11.1089 21.2475L26.0136 12.4367L10.7365 4.28681ZM10.3225 6.63209L19.3988 11.476L9.06735 11.705L10.402 10.3101L10.3225 6.63209ZM10.5937 18.9328L10.5118 15.267L9.11646 13.9318L19.442 13.7004L10.5937 18.9328Z"
+                      fill="white"
+                    />
                   </g>
                   <defs>
                     <clipPath id="clip0_25_139">
-                      <rect width="18" height="18" fill="white" transform="translate(13) rotate(43.7366)" />
+                      <rect
+                        width="18"
+                        height="18"
+                        fill="white"
+                        transform="translate(13) rotate(43.7366)"
+                      />
                     </clipPath>
                   </defs>
                 </svg>
@@ -164,22 +187,21 @@
         }
       });
     </script>
-     <script>
+    <script>
       document.addEventListener("DOMContentLoaded", function () {
-          const togglePassword = document.getElementById("togglePassword");
-          const passwordInput = document.getElementById("password");
-        
-          togglePassword.addEventListener("click", function () {
-            if (passwordInput.type === "password") {
-              passwordInput.type = "text";
-              togglePassword.src = "images/open-eye.svg"; 
-            } else {
-              passwordInput.type = "password";
-              togglePassword.src = "images/vector.svg"; 
-            }
-          });
+        const togglePassword = document.getElementById("togglePassword");
+        const passwordInput = document.getElementById("password");
+
+        togglePassword.addEventListener("click", function () {
+          if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            togglePassword.src = "images/open-eye.svg";
+          } else {
+            passwordInput.type = "password";
+            togglePassword.src = "images/vector.svg";
+          }
         });
-        
-        </script>
+      });
+    </script>
   </body>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Log in</title>
-    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="/styless.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -38,33 +38,45 @@
       </div>
     </header>
     <div class="container">
-        <div class="form-container">
-            <div class="image-container">
-              <img src="./images/log_in_furniture.jpg" alt="Image sofa" />
+      <div class="form-container">
+        <div class="image-container">
+          <img src="./images/log_in_furniture.jpg" alt="Image sofa" />
+        </div>
+        <div class="form-content">
+          <h2>Вхід</h2>
+          <form id="signup-form">
+            <input type="text" id="name" placeholder="ім'я" required />
+            <div class="password-container">
+              <input
+                type="password"
+                id="password"
+                placeholder="пароль"
+                required
+              />
+              <span class="toggle-password">
+                <img
+                  src="images/eye-icon.svg"
+                  alt="Показати пароль"
+                  id="togglePassword"
+                />
+              </span>
             </div>
-            <div class="form-content">
-              <h2>Вхід</h2>
-              <form id="signup-form">
-                <input type="text" id="name" placeholder="ім'я" required />
-                <div class="password-container">
-                  <input type="password" id="password" placeholder="пароль" required />
-                  <span class="toggle-password">
-                    <img src="images/eye-icon.svg" alt="Показати пароль" id="togglePassword" />
-                  </span>
-                </div>
-                <div class="form-options">
-                  <label class="checkbox-container">
-                    <input type="checkbox" id="remember-me" />
-                    <span class="checkmark"></span>
-                    Запам'ятати мене
-                  </label>
-                  <a href="#" class="forgot-password">Забули пароль?</a>
-                </div>
-                <button type="submit" class="login">Увійти</button>
-              </form>
-              <p>Не маєте облікового запису?  <a href="sign up">Зареєструватися</a></p>
+            <div class="form-options">
+              <label class="checkbox-container">
+                <input type="checkbox" id="remember-me" />
+                <span class="checkmark"></span>
+                Запам'ятати мене
+              </label>
+              <a href="#" class="forgot-password">Забули пароль?</a>
             </div>
-          </div>
+            <button type="submit" class="login">Увійти</button>
+          </form>
+          <p>
+            Не маєте облікового запису?
+            <a href="./signup.html">Зареєструватися</a>
+          </p>
+        </div>
+      </div>
     </div>
     <footer class="footer">
       <div class="container">
@@ -72,11 +84,19 @@
           <div class="footer-logo-container">
             <img src="./images/logo black.svg" alt="" class="footer-logo" />
             <p>
-              <img src="./images/fi-bs-phone-call black.svg" alt="" class="footer-contacts" />
+              <img
+                src="./images/fi-bs-phone-call black.svg"
+                alt=""
+                class="footer-contacts"
+              />
               +38 (067) 478 12 54
             </p>
             <p>
-              <img src="./images/fi-bs-marker black.svg" alt="" class="footer-contacts" />
+              <img
+                src="./images/fi-bs-marker black.svg"
+                alt=""
+                class="footer-contacts"
+              />
               проспект В'ячеслава Чорновола, 101, Львів, Україна
             </p>
           </div>
@@ -97,13 +117,27 @@
             <div class="subscribe-box">
               <input class="input" type="email" placeholder="your email..." />
               <button class="send-btn">
-                <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  width="26"
+                  height="26"
+                  viewBox="0 0 26 26"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <g clip-path="url(#clip0_456_1083)">
-                    <path d="M10.7365 4.28584C10.3792 4.09637 9.96915 4.03095 9.57067 4.09984C9.17219 4.16873 8.80789 4.36804 8.53498 4.66646C8.21065 5.02991 8.04225 5.50633 8.06613 5.99287L8.14269 9.41582L4.79727 12.9121L8.29141 16.2555L8.36673 19.7188C8.37057 19.9568 8.42158 20.1916 8.51681 20.4098C8.61204 20.628 8.74959 20.8251 8.9215 20.9897C9.03459 21.0978 9.16108 21.1909 9.29788 21.2668C9.57461 21.4238 9.88801 21.5046 10.2062 21.501C10.5243 21.4974 10.8358 21.4096 11.1089 21.2465L26.0136 12.4357L10.7365 4.28584ZM10.3225 6.63111L19.3988 11.4751L9.06735 11.704L10.402 10.3092L10.3225 6.63111ZM10.5937 18.9318L10.5118 15.266L9.11646 13.9308L19.442 13.6994L10.5937 18.9318Z" fill="white" />
+                    <path
+                      d="M10.7365 4.28584C10.3792 4.09637 9.96915 4.03095 9.57067 4.09984C9.17219 4.16873 8.80789 4.36804 8.53498 4.66646C8.21065 5.02991 8.04225 5.50633 8.06613 5.99287L8.14269 9.41582L4.79727 12.9121L8.29141 16.2555L8.36673 19.7188C8.37057 19.9568 8.42158 20.1916 8.51681 20.4098C8.61204 20.628 8.74959 20.8251 8.9215 20.9897C9.03459 21.0978 9.16108 21.1909 9.29788 21.2668C9.57461 21.4238 9.88801 21.5046 10.2062 21.501C10.5243 21.4974 10.8358 21.4096 11.1089 21.2465L26.0136 12.4357L10.7365 4.28584ZM10.3225 6.63111L19.3988 11.4751L9.06735 11.704L10.402 10.3092L10.3225 6.63111ZM10.5937 18.9318L10.5118 15.266L9.11646 13.9308L19.442 13.6994L10.5937 18.9318Z"
+                      fill="white"
+                    />
                   </g>
                   <defs>
                     <clipPath id="clip0_456_1083">
-                      <rect width="18" height="18" fill="white" transform="translate(13) rotate(43.7366)" />
+                      <rect
+                        width="18"
+                        height="18"
+                        fill="white"
+                        transform="translate(13) rotate(43.7366)"
+                      />
                     </clipPath>
                   </defs>
                 </svg>
@@ -145,21 +179,20 @@
       });
     </script>
     <script>
-    document.addEventListener("DOMContentLoaded", function () {
+      document.addEventListener("DOMContentLoaded", function () {
         const togglePassword = document.getElementById("togglePassword");
         const passwordInput = document.getElementById("password");
-      
+
         togglePassword.addEventListener("click", function () {
           if (passwordInput.type === "password") {
             passwordInput.type = "text";
-            togglePassword.src = "images/open-eye.svg"; 
+            togglePassword.src = "images/open-eye.svg";
           } else {
             passwordInput.type = "password";
-            togglePassword.src = "images/vector.svg"; 
+            togglePassword.src = "images/vector.svg";
           }
         });
       });
-      
-      </script>
+    </script>
   </body>
 </html>
