@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ Секції</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="sidebar">
+      <button class="tab" data-category="general">Загальна інформація</button>
+      <button class="tab" data-category="payment">Оплата та знижки</button>
+      <button class="tab" data-category="return">Повернення та обмін</button>
+      <button class="tab" data-category="delivery">
+        Замовлення та доставка
+      </button>
+      <button class="tab" data-category="account">Особистий кабінет</button>
+    </div>
+    <div class="container" id="faq-container">
+      <!-- GENERAL ------------------->
+      <div class="faq-section" data-category="general">
+        <div class="faq-question">
+          Які у вас години роботи?
+          <span class="icon-toggle">
+            <svg
+              class="icon-plus"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 10.5H13.5V0H10.5V10.5H0V13.5H10.5V24H13.5V13.5H24V10.5Z"
+                fill="#978466"
+              />
+            </svg>
+          </span>
+        </div>
+        <div class="faq-answer">
+          Магазин працює з 9:00 до 19:00 з понеділка по суботу. У неділю – з
+          10:00 до 17:00.
+        </div>
+      </div>
+      <div class="faq-section" data-category="general">
+        <div class="faq-question">
+          Де розташований ваш магазин?
+          <span class="icon-toggle">
+            <svg
+              class="icon-plus"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 10.5H13.5V0H10.5V10.5H0V13.5H10.5V24H13.5V13.5H24V10.5Z"
+                fill="#978466"
+              />
+            </svg>
+          </span>
+        </div>
+        <div class="faq-answer">
+          Наш фізичний магазин знаходиться за адресою проспект В'ячеслава
+          Чорновола 101, Львів. Також ви можете зробити замовлення онлайн.
+        </div>
+      </div>
+      <div class="faq-section" data-category="general">
+        <div class="faq-question">
+          Як оформити замовлення?
+          <span class="icon-toggle">
+            <svg
+              class="icon-plus"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 10.5H13.5V0H10.5V10.5H0V13.5H10.5V24H13.5V13.5H24V10.5Z"
+                fill="#978466"
+              />
+            </svg>
+          </span>
+        </div>
+        <div class="faq-answer">
+          Оформити замовлення можна на сайті, вибравши потрібні товари та
+          додавши їх у кошик...
+        </div>
+      </div>
+
+      <!-- Payment ------------------->
+      <div class="faq-section" data-category="payment">
+        <div class="faq-question">
+          Які способи оплати ви приймаєте?
+          <span class="icon-toggle">
+            <svg
+              class="icon-plus"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 10.5H13.5V0H10.5V10.5H0V13.5H10.5V24H13.5V13.5H24V10.5Z"
+                fill="#978466"
+              />
+            </svg>
+          </span>
+        </div>
+        <div class="faq-answer">
+          Ми приймаємо оплату карткою (Visa, MasterCard), готівкою при
+          отриманні, банківський переказ та оплату через онлайн-банкінг.
+        </div>
+      </div>
+      <div class="faq-section" data-category="payment">
+        <div class="faq-question">
+          Чи надаєте ви знижки для постійних клієнтів?
+          <span class="icon-toggle">
+            <svg
+              class="icon-plus"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 10.5H13.5V0H10.5V10.5H0V13.5H10.5V24H13.5V13.5H24V10.5Z"
+                fill="#978466"
+              />
+            </svg>
+          </span>
+        </div>
+        <div class="faq-answer">
+          Так, ми маємо програму лояльності для наших клієнтів. Також регулярно
+          проводимо акції та розпродажі.
+        </div>
+      </div>
+      <div class="faq-section" data-category="payment">
+        <div class="faq-question">
+          Як використовувати промокод?
+          <span class="icon-toggle">
+            <svg
+              class="icon-plus"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 10.5H13.5V0H10.5V10.5H0V13.5H10.5V24H13.5V13.5H24V10.5Z"
+                fill="#978466"
+              />
+            </svg>
+          </span>
+        </div>
+        <div class="faq-answer">
+          При оформленні замовлення введіть промокод у спеціальне поле, і знижка
+          застосується автоматично.
+        </div>
+      </div>
+      <div class="faq-section" data-category="payment">
+        <div class="faq-question">
+          Чи можна оплатити при отриманні?
+          <span class="icon-toggle">
+            <svg
+              class="icon-plus"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 10.5H13.5V0H10.5V10.5H0V13.5H10.5V24H13.5V13.5H24V10.5Z"
+                fill="#978466"
+              />
+            </svg>
+          </span>
+        </div>
+        <div class="faq-answer">
+          Так, ви можете оплатити готівкою або карткою при отриманні у
+          відділенні пошти чи кур’єру.
+        </div>
+      </div>
+
+      <!-- Return ------------------->
+      <div class="faq-section" data-category="return">
+        <div class="faq-question">
+          Яка ваша політика повернення?
+          <span class="icon-toggle">
+            <svg
+              class="icon-plus"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 10.5H13.5V0H10.5V10.5H0V13.5H10.5V24H13.5V13.5H24V10.5Z"
+                fill="#978466"
+              />
+            </svg>
+          </span>
+        </div>
+        <div class="faq-answer">
+          Ви можете повернути товар протягом 14 днів після покупки, якщо він не
+          був у використанні, має оригінальне пакування та чек.
+        </div>
+      </div>
+      <div class="faq-section" data-category="return">
+        <div class="faq-question">
+          Як оформити повернення товару?
+          <span class="icon-toggle">
+            <svg
+              class="icon-plus"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 10.5H13.5V0H10.5V10.5H0V13.5H10.5V24H13.5V13.5H24V10.5Z"
+                fill="#978466"
+              />
+            </svg>
+          </span>
+        </div>
+        <div class="faq-answer">
+          Зв’яжіться з нашим менеджером, заповніть заявку на повернення та
+          відправте товар на наш склад. Після перевірки товару ми повернемо
+          кошти.
+        </div>
+      </div>
+      <div class="faq-section" data-category="return">
+        <div class="faq-question">
+          Скільки часу триває повернення коштів?
+          <span class="icon-toggle">
+            <svg
+              class="icon-plus"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 10.5H13.5V0H10.5V10.5H0V13.5H10.5V24H13.5V13.5H24V10.5Z"
+                fill="#978466"
+              />
+            </svg>
+          </span>
+        </div>
+        <div class="faq-answer">
+          Повернення коштів здійснюється протягом 5-10 робочих днів після
+          отримання та перевірки товару.
+        </div>
+      </div>
+      <div class="faq-section" data-category="return">
+        <div class="faq-question">
+          Які товари не підлягають поверненню?
+          <span class="icon-toggle">
+            <svg
+              class="icon-plus"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 10.5H13.5V0H10.5V10.5H0V13.5H10.5V24H13.5V13.5H24V10.5Z"
+                fill="#978466"
+              />
+            </svg>
+          </span>
+        </div>
+        <div class="faq-answer">
+          До таких товарів належать вироби, виготовлені на замовлення, а також
+          ті, що мають сліди експлуатації.
+        </div>
+      </div>
+
+      <!-- Delivery ------------------->
+      <div class="faq-section" data-category="delivery">
+        <div class="faq-question">
+          Які варіанти доставки доступні?
+          <span class="icon-toggle">
+            <svg
+              class="icon-plus"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 10.5H13.5V0H10.5V10.5H0V13.5H10.5V24H13.5V13.5H24V10.5Z"
+                fill="#978466"
+              />
+            </svg>
+          </span>
+        </div>
+        <div class="faq-answer">
+          Ми пропонуємо доставку кур’єром, поштовими службами (Нова Пошта,
+          Укрпошта) та самовивіз із нашого складу.
+        </div>
+      </div>
+      <div class="faq-section" data-category="delivery">
+        <div class="faq-question">
+          Скільки часу займає доставка?
+          <span class="icon-toggle">
+            <svg
+              class="icon-plus"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 10.5H13.5V0H10.5V10.5H0V13.5H10.5V24H13.5V13.5H24V10.5Z"
+                fill="#978466"
+              />
+            </svg>
+          </span>
+        </div>
+        <div class="faq-answer">
+          Стандартний термін доставки – від 2 до 7 днів, залежно від вашого
+          регіону та наявності товару на складі.
+        </div>
+      </div>
+      <div class="faq-section" data-category="delivery">
+        <div class="faq-question">
+          Як перевірити статус мого замовлення?
+          <span class="icon-toggle">
+            <svg
+              class="icon-plus"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 10.5H13.5V0H10.5V10.5H0V13.5H10.5V24H13.5V13.5H24V10.5Z"
+                fill="#978466"
+              />
+            </svg>
+          </span>
+        </div>
+        <div class="faq-answer">
+          Після оформлення замовлення ви отримаєте SMS або e-mail із номером
+          накладної.
+        </div>
+      </div>
+      <div class="faq-section" data-category="delivery">
+        <div class="faq-question">
+          Чи можна оплатити при отриманні?
+          <span class="icon-toggle">
+            <svg
+              class="icon-plus"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 10.5H13.5V0H10.5V10.5H0V13.5H10.5V24H13.5V13.5H24V10.5Z"
+                fill="#978466"
+              />
+            </svg>
+          </span>
+        </div>
+        <div class="faq-answer">
+          Так, ви можете оплатити готівкою або карткою при отриманні у
+          відділенні пошти чи кур’єру.
+        </div>
+      </div>
+
+      <!-- Account ------------------->
+      <div class="faq-section" data-category="account">
+        <div class="faq-question">
+          Як зареєструватися на сайті?
+          <span class="icon-toggle">
+            <svg
+              class="icon-plus"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 10.5H13.5V0H10.5V10.5H0V13.5H10.5V24H13.5V13.5H24V10.5Z"
+                fill="#978466"
+              />
+            </svg>
+          </span>
+        </div>
+        <div class="faq-answer">
+          Перейдіть у розділ "Реєстрація", введіть ваш e-mail та придумайте
+          пароль. Далі підтвердьте свою електронну пошту.
+        </div>
+      </div>
+      <div class="faq-section" data-category="account">
+        <div class="faq-question">
+          Як змінити особисті дані в акаунті?
+          <span class="icon-toggle">
+            <svg
+              class="icon-plus"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 10.5H13.5V0H10.5V10.5H0V13.5H10.5V24H13.5V13.5H24V10.5Z"
+                fill="#978466"
+              />
+            </svg>
+          </span>
+        </div>
+        <div class="faq-answer">
+          Увійдіть у свій акаунт, перейдіть до налаштувань профілю та внесіть
+          необхідні зміни.
+        </div>
+      </div>
+      <div class="faq-section" data-category="account">
+        <div class="faq-question">
+          Як видалити акаунт?
+          <span class="icon-toggle">
+            <svg
+              class="icon-plus"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 10.5H13.5V0H10.5V10.5H0V13.5H10.5V24H13.5V13.5H24V10.5Z"
+                fill="#978466"
+              />
+            </svg>
+          </span>
+        </div>
+        <div class="faq-answer">
+          Напишіть у службу підтримки, і ми видалимо ваш акаунт протягом 24
+          годин.
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.querySelectorAll(".faq-question").forEach((item) => {
+        item.addEventListener("click", () => {
+          const answer = item.nextElementSibling;
+          const iconContainer = item.querySelector(".icon-toggle");
+
+          if (answer.style.display === "block") {
+            answer.style.display = "none";
+            iconContainer.innerHTML = `
+                <svg class="icon-plus" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 10.5H13.5V0H10.5V10.5H0V13.5H10.5V24H13.5V13.5H24V10.5Z" fill="#978466"/>
+                </svg>
+            `;
+          } else {
+            answer.style.display = "block";
+            iconContainer.innerHTML = `
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_497_477)">
+                        <path d="M24 10.5H0V13.5H24V10.5Z" fill="#978466" />
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_497_477">
+                            <rect width="24" height="24" fill="white" />
+                        </clipPath>
+                    </defs>
+                </svg>
+            `;
+          }
+        });
+      });
+
+      function showSection(category) {
+        document.querySelectorAll(".faq-section").forEach((section) => {
+          section.style.display =
+            section.dataset.category === category ? "block" : "none";
+        });
+      }
+
+      document.querySelectorAll(".tab").forEach((tab) => {
+        tab.addEventListener("click", function () {
+          document
+            .querySelectorAll(".tab")
+            .forEach((btn) => btn.classList.remove("active"));
+          this.classList.add("active");
+          showSection(this.dataset.category);
+        });
+      });
+
+      showSection("general");
+    </script>
+  </body>
+</html>
