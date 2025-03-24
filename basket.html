@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кошик</title>
+    <link rel="stylesheet" href="./css/basic.css">
+    <link rel="stylesheet" href="./css/basket.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+          <div class="header-bottom">
+            <a href="./MAIN.html" class="logo">
+              <img src="./images/logo.svg" alt="Логотип меблевого магазину" />
+            </a>
+            <nav class="nav-menu">
+              <ul>
+                <li><a class="link" href="./about-us.html">Про нас</a></li>
+                <li><a class="link" href="living-room-modular.html">Каталог</a></li>
+                <li><a class="link" href="./contact-us.html">Контакти</a></li>
+                <li><a class="link" href="blog.html">Блог</a></li>
+                <li><a class="link" href="FAQ.html">FAQ</a></li>
+              </ul>
+            </nav>
+            <div class="header-icons">
+              <a href="search.html" class="icon-link"><img src="./images/icon-search.svg" alt="Пошук" /></a>
+              <a href="favorites.html" class="icon-link"><img src="./images/icon-heart.svg" alt="Додати в обране" /></a>
+              <a href="cart.html" class="icon-link"><img src="./images/icon-shopping-cart.svg" alt="Додати в кошик" /></a>
+              <a href="personal office.html" class="icon-link"><img src="./images/icon-user.svg" alt="Особистий кабінет" /></a>
+            </div>
+          </div>
+        </div>
+    </header>
+    <section class="cart-section container">
+        <div class="cart-items">
+            <div class="cart-item">
+                <button class="remove-item"><img src="./images/cross-basket.svg" alt=""></button>
+                <img src="images/product-placeholder.png" alt="Товар">
+                <div>
+                    <p>Ім'я</p>
+                    <span>Колір: ...</span>
+                </div>
+                <span>0.00</span>
+                <div class="quantity-control">
+                    <button class="minus">-</button>
+                    <p class="quantity">1</p>
+                    <button class="plus">+</button>
+                </div>
+            </div>
+            <div class="cart-item">
+                <button class="remove-item"><img src="./images/cross-basket.svg" alt=""></button>
+                <img src="images/product-placeholder.png" alt="Товар">
+                <span>Колір: ...</span>
+                <span>0.00</span>
+                <div class="quantity-control">
+                    <button class="minus">-</button>
+                    <p class="quantity">2</p>
+                    <button class="plus">+</button>
+                </div>
+            </div>
+            <div class="cart-item">
+                <button class="remove-item"><img src="./images/cross-basket.svg" alt=""></button>
+                <img src="images/product-placeholder.png" alt="Товар">
+                <span>Колір: ...</span>
+                <span>0.00</span>
+                <div class="quantity-control">
+                    <button class="minus">-</button>
+                    <p class="quantity">2</p>
+                    <button class="plus">+</button>
+                </div>
+            </div>
+            <div class="cart-item">
+                <button class="remove-item"><img src="./images/cross-basket.svg" alt=""></button>
+                <img src="images/product-placeholder.png" alt="Товар">
+                <span>Колір: ...</span>
+                <span>0.00</span>
+                <div class="quantity-control">
+                    <button class="minus">-</button>
+                    <p class="quantity">2</p>
+                    <button class="plus">+</button>
+                </div>
+            </div>
+            <div class="coupon-actions">
+                <input type="text" placeholder="Код купону" class="coupon-input">
+                <button class="apply-btn">Застосувати</button>
+                <button class="clear-cart">Очистити кошик</button>
+            </div>
+        </div>
+        <aside class="order-summary">
+            <h2 class="zam">Замовлення</h2>
+            <p>Кількість: <span>0.00</span></p>
+            <p>Сума: <span>0.00</span></p>
+            <p>Доставка: <span>0.00</span></p>
+            <p>Знижка: <span>0.00</span></p>
+            <div class="check-out">
+                <p class="result">Всього: <span>0.00</span></p>
+                <button class="checkout-btn">Оформити замовлення</button>
+            </div>
+        </aside>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>ALIYA</h2>
+                    <p>furniture store</p>
+                    <p>📞 +38 (067) 478 12 54</p>
+                    <p>📍 проспект В'ячеслава Чорновола, 101, Львів, Україна</p>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="#">Про нас</a></li>
+                        <li><a href="#">Каталог</a></li>
+                        <li><a href="#">Контакти</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">Блог</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Особистий кабінет</a></li>
+                    </ul>
+                </div>
+                <div class="footer-subscribe">
+                    <p>Підписка на електронну пошту</p>
+                    <input type="email" placeholder="your email ...">
+                    <button>➤</button>
+                    <div class="social-icons">
+                        <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
+                        <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
+                        <a href="#"><img src="images/youtube.png" alt="YouTube"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
