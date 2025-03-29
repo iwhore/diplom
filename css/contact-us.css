@@ -1,6 +1,7 @@
 .contacts {
     text-align: center;
     padding: 60px 0;
+    margin-bottom: 90px;
 }
 
 h1 {
@@ -129,4 +130,8 @@ h1 {
     .contact-info {
         text-align: center;
     }
+}
+
+.footer{
+    margin-top: 60px;
 }
