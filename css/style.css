@@ -189,10 +189,11 @@ body {
   background-image: url('/images/hero.png');
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 50px 0;
+  padding-bottom: 50px;
   text-align: center;
   background-color: #f3f3f3;
   height: 1224px;
+  margin-bottom: 50px;
 }
 
 .hero-content {
@@ -697,6 +698,21 @@ p {
   text-align: center;
 }
 
+.icon-container{
+  background-color: #534139;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-container img{
+  max-width: 30px;
+  max-height: 30px;
+}
+
 .news-date {
   position: absolute;
   top:253px;
@@ -767,14 +783,13 @@ p {
 .footer-logo{
   margin-bottom: 25px;
   width: 150px;
-  height: 60px;
+  height: 90px;
 }
 
 .footer-logo-container{
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-top: 20px;
 }
 
 .footer-logo h2 {
