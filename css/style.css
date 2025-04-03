@@ -1,7 +1,7 @@
 :root {
   --color-primary-brand: #ffffff;
   --color--primary-dark: #040404;
-  --color-brand-primary: #978466;
+  --color-brand-primary: #534139;
   --color-background-card: #f7f2ef;
   --color-brand-secondary: #1e1e1e;
   --color-stroke: #000000;
@@ -44,7 +44,7 @@ ul {
 :root {
   --color-primary-brand: #ffffff;
   --color-primary-dark: #040404;
-  --color-brand-primary: #978466;
+  --color-brand-primary: #534139;
   --color-background-card: ;
   --color-brand-secondary: ;
   --color-stroke: ;
@@ -76,6 +76,7 @@ body {
   background: var(--color-brand-primary);
   padding: 10px 0;
   color: var(--color-primary-brand);
+  height: 90px;
 }
 
 .header-top .container{
@@ -84,11 +85,16 @@ body {
 }
 
 .contact-info a {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
   font-family: "Poppins", sans-serif;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 20px;
   color: #f7f2ef;
-  gap: 16px;
   text-decoration: none;
   color: var(--color-primary-brand);
 }
@@ -114,14 +120,19 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 30px;
+  margin-bottom: 100px;
+
 }
+
 .nav-menu ul {
   list-style: none;
   display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
   gap: 20px;
   margin: 0;
   padding: 0;
+  width: 700px;
 }
 
 .nav-menu ul li {
@@ -132,7 +143,7 @@ body {
   text-decoration: none;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 28px;
   color: #000;
   position: relative;
 }
@@ -144,7 +155,7 @@ body {
   bottom: -5px;
   width: 0;
   height: 3px;
-  background-color: #978466;
+  background-color: #534139;
   transition: width 0.3s ease-in-out;
 }
 
@@ -153,7 +164,7 @@ body {
 }
 
 .nav-menu ul li a:hover {
-  color: #978466;
+  color: #534139;
 }
 
 .header-icons {
@@ -175,20 +186,27 @@ body {
 }
 
 .hero {
-  margin-top: 60px;
+  background-image: url('/images/hero.png');
+  background-repeat: no-repeat;
+  background-size: cover;
   padding: 50px 0;
   text-align: center;
   background-color: #f3f3f3;
+  height: 1224px;
 }
 
 .hero-content {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
-.hero-text {
-  max-width: 50%;
+.hero-text{
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
 }
 
 .hero-text h1 {
@@ -198,7 +216,8 @@ body {
   line-height: 1.4;
   color: #000;
   margin-bottom: 60px;
-  text-align: left;
+  width: 1200px;
+  text-align: center;
 }
 
 .hero-text p {
@@ -215,17 +234,18 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #a0845c;
-  color: white;
+  gap: 25px;
+  background: transparent;
+  width: 425px;
+  height: 90px;
+  top: 489px;
+  left: 507px;
   border-radius: 60px;
-  text-decoration: none;
-  font-weight: bold;
-  width: 509px;
-  height: 121px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-size: 32px;
-  color: #fff;
+  border-width: 1px;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 150%;
+  letter-spacing: 0%;
 }
 
 .hero-image img {
@@ -238,19 +258,17 @@ body {
 /*----------ADVANTAGE SECTION*/
 .advantages-container {
   display: flex;
+  flex-direction: row;
+  gap: 0px;
   justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 0;
 }
 
 .advantages-item {
   display: flex;
-  flex-direction: column;
   align-items: center;
   text-align: center;
-  width: 33%;
+  gap: 15px;
 }
 
 .advantages-item img {
@@ -263,15 +281,18 @@ body {
 .advantages-text {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .title {
   font-family: "Poppins", sans-serif;
   font-weight: 800;
   font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
   color: #000;
   margin-bottom: 10px;
+  text-align: left;
+  width: 320px;
 }
 
 .description {
@@ -279,6 +300,8 @@ body {
   font-weight: 500;
   font-size: 14px;
   color: #555;
+  width: 280px;
+  text-align: left;
 }
 @media (max-width: 1024px) {
   .advantages-container {
@@ -319,7 +342,7 @@ body {
   height: 350px;
   text-align: center;
   position: relative;
-  border: 1px solid #c5ad86;
+  border: 1px solid #534139;
 }
 
 .category-image img {
@@ -349,7 +372,7 @@ body {
   font-weight: 600;
   font-size: 16px;
   gap: 5px;
-  border: 1px solid #c5ad86;
+  border: 1px solid #534139;
   border-radius: 60px;
   width: 160px;
   height: 40px;
@@ -423,7 +446,7 @@ body {
   border-radius: 10px;
   text-align: center;
   position: relative;
-  border: 1px solid #c5ad86;
+  border: 1px solid #534139;
 }
 
 .disc-img {
@@ -440,7 +463,7 @@ body {
   height: 28px;
   top: 10px;
   left: 10px;
-  background: #a0845c;
+  background: #534139;
   color: white;
   padding: 5px 10px;
   border-radius: 20px;
@@ -467,7 +490,7 @@ body {
 .price-container span {
   text-decoration: line-through;
   text-decoration-color: #000;
-  color: #978466;
+  color: #534139;
   font-weight: 700;
   font-size: 24px;
   font-weight: bold;
@@ -522,7 +545,7 @@ body {
   font-size: 18px;
   font-weight: bold;
   border-radius: 20px;
-  border: 1px solid #c5ad86;
+  border: 1px solid #534139;
 }
 
 .large {
@@ -609,7 +632,7 @@ p {
 /* Іконка цитати */
 .quote-icon {
   font-size: 28px;
-  color: #a1835e;
+  color: #534139;
   position: absolute;
   top: 15px;
   right: 15px;
@@ -639,7 +662,7 @@ p {
   border-radius: 60px;
   border-color: transparent;
   color: white;
-  background-color: #978466;
+  background-color: #534139;
   font-weight: 600;
   font-size: 24px;
   line-height: 100%;
@@ -679,13 +702,15 @@ p {
   top:253px;
   left: 50%;
   transform: translateX(-50%);
-  background: #f0ebe5;
+  background: #534139;
+  color: white;
   display: inline-block;
   padding: 5px 15px;
   border-radius: 20px;
   font-weight: bold;
   font-size: 14px;
   z-index: 999;
+  width: 193px;
 }
 
 .news-title {
@@ -711,7 +736,7 @@ p {
   bottom: 20px;
   left: 18%;
   transform: translateX(-50%);
-  color: #c07f43;
+  color: #000;
   font-weight: bold;
   text-decoration: none;
   text-align: left;
@@ -810,7 +835,7 @@ p {
   border-radius: 10px;
   border-width: 1px;
   border-style: solid;
-  border-color: #978466;
+  border-color: #534139;
   color: #f8f5f2;
   font-weight: 600;
   font-size: 16px;
@@ -823,7 +848,7 @@ p {
   height: 38px;
   border-radius: 9px;
   margin-left: -25px;
-  background-color: #978466;
+  background-color: #534139;
   background-color: #f8f5f2;
 }
 
@@ -835,7 +860,7 @@ p {
 }
 
 .subscribe-box button {
-  background-color: #978466;
+  background-color: #534139;
   color: white;
   border: none;
   cursor: pointer;
@@ -858,7 +883,7 @@ p {
   height: 50px;
   border-radius: 50px;
   border-color: transparent;
-  background-color: #978466;
+  background-color: #534139;
 }
 
 .social-icons img {

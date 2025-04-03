@@ -1,0 +1,107 @@
+/* Секція оформлення замовлення */
+.checkout-section .container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  
+  .checkout-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  .checkout-form {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .checkout-form .row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .form-group label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .form-group input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    font-size: 14px;
+  }
+  
+  .order-details {
+    flex: 1;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 20px;
+    min-width: 280px;
+    max-width: 340px;
+    height: fit-content;
+  }
+  
+  .order-details h3 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  
+  .order-details hr {
+    margin: 10px 0;
+    border: none;
+    border-top: 1px solid #ccc;
+  }
+  
+  .order-details p {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+    font-size: 15px;
+  }
+  
+  .order-details p strong {
+    font-weight: bold;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .button-group button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    .checkout-wrapper {
+      flex-direction: column;
+    }
+    .order-details {
+      margin-top: 20px;
+      width: 100%;
+    }
+  }
+  
