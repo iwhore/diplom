@@ -73,12 +73,12 @@ body {
 }
 
 .tab:hover {
-  background: #978466;
+  background: #534139;
   color: white;
 }
 
 .tab.active {
-  background: #978466;
+  background: #534139;
   color: white;
 }
 
@@ -111,7 +111,7 @@ body {
 
 .faq-answer {
   display: none;
-  background: #978466;
+  background: #534139;
   color: white;
   border-radius: 30px;
   padding: 20px;
