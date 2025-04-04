@@ -4,56 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AliyaStore Diploma</title>
-    <link rel="stylesheet" href="./css/details.css" />
     <link rel="stylesheet" href="./css/basic.css" />
+    <link rel="stylesheet" href="./css/details.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+     
   </head>
   <body>
     <header>
-      <div class="header-top">
-        <div class="container">
-          <div class="contact-info">
-            <a href="tel:+380967891207">
-              <img src="./images/icon-phone.svg" alt="Іконка телефону" width="20" height="20" />
-              +38 (067) 478 12 54
-            </a>
-            <a href="mailto:aliyastore@gmail.com">
-              <img src="./images/icon-envelope.svg" alt="Іконка пошти" width="20" height="20" />
-              aliyastore@gmail.com
-            </a>
-          </div>
-          <div class="social-links">
-            <a href="#"><img src="./images/icon-instagram.svg" alt="Instagram" width="30" height="30" /></a>
-            <a href="#"><img src="./images/icon-facebook.svg" alt="Facebook" width="30" height="30" /></a>
-            <a href="#"><img src="./images/icon-twitter.svg" alt="Twitter" width="30" height="30" /></a>
-          </div>
-        </div>
-      </div>
       <div class="container">
         <div class="header-bottom">
-          <a href="./index.html" class="logo">
+          <a href="./MAIN.html" class="logo">
             <img src="./images/logo.svg" alt="Логотип меблевого магазину" />
           </a>
-          <nav class="nav-menu">
-            <ul>
-              <li><a class="link" href="./about-us.html">Про нас</a></li>
-              <li><a class="link" href="living-room-modular.html">Каталог</a></li>
-              <li><a class="link" href="./contact-us.html">Контакти</a></li>
-              <li><a class="link" href="blog.html">Блог</a></li>
-              <li><a class="link" href="FAQ.html">FAQ</a></li>
-            </ul>
-          </nav>
+          <h1>Кошик</h1>
           <div class="header-icons">
-            <a href="search.html" class="icon-link"><img src="./images/icon-search.svg" alt="Пошук" /></a>
-            <a href="favorites.html" class="icon-link"><img src="./images/icon-heart.svg" alt="Додати в обране" /></a>
-            <a href="cart.html" class="icon-link"><img src="./images/icon-shopping-cart.svg" alt="Додати в кошик" /></a>
-            <a href="personal office.html" class="icon-link"><img src="./images/icon-user.svg" alt="Особистий кабінет" /></a>
+            <a href="search.html" class="icon-link"><img src="./images/white/search.svg" alt="Пошук" /></a>
+            <a href="favorites.html" class="icon-link"><img src="./images/white/heart.svg" alt="Додати в обране" /></a>
+            <a href="cart.html" class="icon-link"><img src="./images/white/basket.svg" alt="Додати в кошик" /></a>
+            <a href="personal office.html" class="icon-link"><img src="./images/white/user.svg" alt="Особистий кабінет" /></a>
           </div>
         </div>
       </div>
-    </header>
+  </header>
     <section>
         <div class="container">
             <div class="checkout-wrapper">
@@ -82,37 +56,43 @@
                 </div>
         
                 <div class="row">
-                  <div class="form-group">
+                  <div class="form-group small">
                     <label for="city">Місто</label>
-                    <input type="text" id="city" placeholder="">
+                    <input type="text" id="city" placeholder="Місто">
                   </div>
-                  <div class="form-group">
+                  <div class="form-group small">
                     <label for="address">Адреса</label>
-                    <input type="text" id="address" placeholder="">
+                    <input type="text" id="address" placeholder="Адреса">
                   </div>
-                  <div class="form-group">
+                  <div class="form-group small">
                     <label for="index">Індекс</label>
-                    <input type="text" id="index" placeholder="">
+                    <input type="text" id="index" placeholder="Індекс">
                   </div>
                 </div>
               </form>
         
               <!-- Права частина: деталі замовлення -->
-              <aside class="order-details">
-                <h3>Деталі замовлення</h3>
-                <hr>
-                <p>Сума <span>0.00</span></p>
-                <p>Доставка <span>0.00</span></p>
-                <hr>
-                <p><strong>Всього:</strong> <span>0.00</span></p>
-        
-                <div class="button-group">
-                  <button type="submit">Підтвердити платіж</button>
-                  <button type="button">Скасувати</button>
+              <aside class="order-summary">
+                <h2 class="zam">Деталі замовлення</h2>
+                <p>Сума: <span>0.00</span></p>
+                <p>Доставка: <span>0.00</span></p>
+                <div class="check-out">
+                    <p class="result">Всього: <span>0.00</span></p>
+                    <button class="checkout-btn">Оформити замовлення</button>
                 </div>
-              </aside>
-        
-            </div>
+            </aside>
+        </div>
+        <div class="radio-input">
+          <input type="radio" id="value-1" name="value-radio" value="value-1">
+           <div class="circle">
+            </div> 
+          <input checked="" type="radio" id="value-2" name="value-radio" value="value-2">
+           <div class="circle">
+           </div> 
+          <input type="radio" id="value-3" name="value-radio" value="value-3">
+           <div class="circle">
+           </div>
+         </div>  
         </div>
     </section>
     <footer class="footer">
@@ -121,7 +101,7 @@
             <div class="footer-logo-container">
               <img src="./images/logo.svg" alt="" class="footer-logo">
               <p> <img src="./images/phone.svg" alt="" class="footer-contacts"> +38 (067) 478 12 54</p>
-              <p> <img src="./images/marker.png" alt="" class="footer-contacts"> проспект Вячеслава Чорновола, 93, Львів, Україна</p>
+              <p> <img src="./images/marker.png" alt="" class="footer-contacts"> проспект Вячеслава Чорновола, 101, Львів, Україна</p>
             </div>
             <div class="footer-links">
                 <ul>
