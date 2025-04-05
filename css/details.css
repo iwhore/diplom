@@ -227,47 +227,86 @@ section{
   margin: 0px;
 }
 
+.payment-section {
+  margin: 0 auto;
+  margin-top: 30px;
+}
 
-.radio-input {
+.payment-section h3 {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.payment-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.payment-methods label {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 15px;
+  font-size: 16px;
+  font-weight: 500;
 }
 
-.radio-input input {
+.payment-methods span{
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.payment-methods input[type="radio"] {
   appearance: none;
-  width: 2em;
-  height: 2em;
-  background-color: white;
-
+  width: 60px;
+  height: 60px;
+  border: 1px solid #3f2a1d;
   border-radius: 50%;
-  transition: .4s ease-in-out;
-}
-
-.radio-input input:hover {
-  scale: 1.2;
-  cursor: pointer;
-  box-shadow: none;
-}
-
-.radio-input .circle {
   position: relative;
-  top: 0.01em;
-  left: -1.1em;
-  width: 0.6em;
-  height: 0.6em;
-  background-color: #534139;
-  scale: 0;
-  border-radius: 10px;
-  transition: .4s ease-in-out;
+  cursor: pointer;
 }
 
-.radio-input input:checked {
-  box-shadow: none;
-  border: 1px solid #534139;
+.payment-methods input[type="radio"]:checked::before {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  width: 40px;
+  height: 40px;
+  background: #3f2a1d;
+  border-radius: 50%;
 }
 
-.radio-input input:checked + .circle {
-  transform: rotate(360deg);
-  scale: 1;
+.card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  font-size: 14px;
 }
