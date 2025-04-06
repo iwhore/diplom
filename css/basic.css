@@ -86,6 +86,7 @@ body {
   background: var(--color-brand-primary);
   padding: 10px 0;
   color: #ffffff;
+  height: 90px;
 }
 
 .header-top .container {

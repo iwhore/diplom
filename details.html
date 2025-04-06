@@ -39,79 +39,70 @@
       </div>
     </header>
     <section>
-      <div class="container">
-        <div class="checkout-wrapper">
-          <!-- Ліва частина: форма -->
-          <form class="checkout-form">
-            <div class="row">
-              <div class="form-group">
-                <label for="name">Ім’я</label>
-                <input type="text" id="name" placeholder="ім’я" />
-              </div>
-              <div class="form-group">
-                <label for="surname">Прізвище</label>
-                <input type="text" id="surname" placeholder="прізвище" />
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="form-group">
-                <label for="phone">Номер телефону</label>
-                <input type="text" id="phone" placeholder="номер телефону" />
-              </div>
-              <div class="form-group">
-                <label for="email">E-mail</label>
-                <input type="email" id="email" placeholder="e-mail" />
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="form-group small">
-                <label for="city">Місто</label>
-                <input type="text" id="city" placeholder="місто" />
-              </div>
-              <div class="form-group small">
-                <label for="address">Адреса</label>
-                <input type="text" id="address" placeholder="адреса" />
-              </div>
-              <div class="form-group small">
-                <label for="index">Індекс</label>
-                <input type="text" id="index" placeholder="індекс" />
-              </div>
-            </div>
-          </form>
-          <aside class="order-summary">
-            <h2 class="zam">Деталі замовлення</h2>
-            <p>Сума: <span>0.00</span></p>
-            <p>Доставка: <span>0.00</span></p>
-            <div class="check-out">
-              <p class="result">Всього: <span>0.00</span></p>
-              <button class="checkout-btn">Оформити замовлення</button>
-            </div>
-          </aside>
+        <div class="container">
+            <div class="checkout-wrapper">
+              <!-- Ліва частина: форма -->
+              <form class="checkout-form">
+                <div class="row">
+                  <div class="form-group">
+                    <label for="name">Ім’я</label>
+                    <input type="text" id="name" placeholder="Ім’я">
+                  </div>
+                  <div class="form-group">
+                    <label for="surname">Прізвище</label>
+                    <input type="text" id="surname" placeholder="Прізвище">
+                  </div>
+                </div>
+        
+                <div class="row">
+                  <div class="form-group">
+                    <label for="phone">Номер телефону</label>
+                    <input type="text" id="phone" placeholder="Номер телефону">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="e-mail">
+                  </div>
+                </div>
+        
+                <div class="row">
+                  <div class="form-group small">
+                    <label for="city">Місто</label>
+                    <input type="text" id="city" placeholder="Місто">
+                  </div>
+                  <div class="form-group small">
+                    <label for="address">Адреса</label>
+                    <input type="text" id="address" placeholder="Адреса">
+                  </div>
+                  <div class="form-group small">
+                    <label for="index">Індекс</label>
+                    <input type="text" id="index" placeholder="Індекс">
+                  </div>
+                </div>
+              </form>
+        
+              <!-- Права частина: деталі замовлення -->
+              <aside class="order-summary">
+                <h2 class="zam">Деталі замовлення</h2>
+                <p>Сума: <span>0.00</span></p>
+                <p>Доставка: <span>0.00</span></p>
+                <div class="check-out">
+                    <p class="result">Всього: <span>0.00</span></p>
+                    <button class="checkout-btn">Оформити замовлення</button>
+                </div>
+            </aside>
         </div>
-        <div class="payment-method-wrapper">
-          <h2 class="payment-method-title">
-            Як би ви хотіли здійснити оплату?
-          </h2>
-
-          <label class="payment-option">
-            <input type="radio" name="payment" checked />
-            <span class="custom-radio"></span>
-            Оплата з картки
-          </label>
-
-          <label class="payment-option">
-            <input type="radio" name="payment" />
-            <span class="custom-radio"></span>
-            Оплата з PayPal
-          </label>
-
-          <label class="payment-option">
-            <input type="radio" name="payment" />
-            <span class="custom-radio"></span>
-            Оплата при отриманні
-          </label>
+        <div class="radio-input">
+          <input type="radio" id="value-1" name="value-radio" value="value-1">
+           <div class="circle">
+            </div> 
+          <input checked="" type="radio" id="value-2" name="value-radio" value="value-2">
+           <div class="circle">
+           </div> 
+          <input type="radio" id="value-3" name="value-radio" value="value-3">
+           <div class="circle">
+           </div>
+         </div>  
         </div>
         <form class="checkout-form">
           <div class="row">
@@ -165,65 +156,35 @@
     <footer class="footer">
       <div class="container">
         <div class="footer-top">
-          <div class="footer-logo-container">
-            <img src="./images/logo-footer.svg" alt="" class="footer-logo" />
-            <p>
-              <img
-                src="./images/fi-bs-phone-call--footer.svg"
-                alt=""
-                class="footer-contacts"
-              />
-              +38 (067) 478 12 54
-            </p>
-            <p>
-              <img
-                src="./images/fi-bs-marker--footer.svg"
-                alt=""
-                class="footer-contacts"
-              />
-              проспект В'ячеслава Чорновола 101, Львів, Україна
-            </p>
-          </div>
-          <div class="footer-links">
-            <ul>
-              <li><a href="#">Про нас</a></li>
-              <li><a href="#">Каталог</a></li>
-              <li><a href="#">Контакти</a></li>
-            </ul>
-            <ul>
-              <li><a href="#">Особистий кабінет</a></li>
-              <li><a href="#">Блог</a></li>
-              <li><a href="#">FAQ</a></li>
-            </ul>
-          </div>
-          <div class="footer-subscribe">
-            <p>Підписатися на електронну пошту</p>
-            <div class="subscribe-box">
-              <input
-                class="input"
-                type="email"
-                placeholder="       your email..."
-              />
-              <button class="send-btn">
-                <img src="./images/send.svg" alt="" />
-              </button>
+            <div class="footer-logo-container">
+              <img src="./images/logo.svg" alt="" class="footer-logo">
+              <p> <img src="./images/phone.svg" alt="" class="footer-contacts"> +38 (067) 478 12 54</p>
+              <p> <img src="./images/marker.png" alt="" class="footer-contacts"> проспект Вячеслава Чорновола, 101, Львів, Україна</p>
             </div>
-            <div class="social-icons">
-              <div class="icon-container">
-                <img
-                  class="dsh"
-                  src="./images/icon-instagram.svg"
-                  alt="іконка інстаграму"
-                />
-              </div>
-              <div class="icon-container">
-                <img src="./images/icon-facebook.svg" alt="іконка фейсбуку" />
-              </div>
-              <div class="icon-container">
-                <img src="./images/icon-twitter.svg" alt="іконка твітеру" />
-              </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#">Про нас</a></li>
+                    <li><a href="#">Каталог</a></li>
+                    <li><a href="#">Контакти</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Особистий кабінет</a></li>
+                    <li><a href="#">Блог</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
             </div>
-          </div>
+            <div class="footer-subscribe">
+                <p>Підписатися на електронну пошту</p>
+                <div class="subscribe-box">
+                    <input class="input" type="email" placeholder="       your email...">
+                    <button class="send-btn"><img src="./images/send.svg" alt=""></button>
+                </div>
+                <div class="social-icons">
+                  <button class="icons-btn"><img src="./images/icon-instagram.svg" alt=""></button>
+                  <button class="icons-btn"><img src="./images/icon-facebook.svg" alt=""></button>
+                  <button class="icons-btn"><img src="./images/icon-twitter.svg" alt=""></button>
+                </div>
+            </div>
         </div>
       </div>
     </footer>
