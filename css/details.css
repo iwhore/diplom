@@ -24,7 +24,6 @@ header h1 {
   gap: 10px;
 }
 
-/* Секція оформлення замовлення */
 .checkout-section .container {
   display: flex;
   justify-content: center;
@@ -268,7 +267,7 @@ section {
   font-weight: 500;
 }
 
-.payment-methods span{
+.payment-methods span {
   font-weight: 600;
   font-size: 24px;
   line-height: 100%;
@@ -323,15 +322,18 @@ section {
   display: none;
 }
 
+input[type="radio"] {
+  appearance: none;
+  display: none;
+}
+
 .custom-radio {
   width: 30px;
   height: 30px;
   border-radius: 50%;
   border: 2px solid #4b3a34;
   margin-right: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
   transition: 0.3s ease;
 }
 
@@ -349,6 +351,13 @@ input[type="radio"]:checked + .custom-radio::after {
   transform: scale(1);
 }
 
+.filter-block label {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
 label {
   font-weight: bold;
   font-size: 18px;
@@ -360,7 +369,6 @@ label {
   color: #000;
   text-align: left;
   margin-bottom: 20px;
-
 }
 
 .card-row {

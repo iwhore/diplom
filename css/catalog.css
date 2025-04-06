@@ -79,7 +79,6 @@
   left: 3px;
 }
 
-/* Діапазон ціни (дві ручки) з центральною лінією */
 .range-slider {
   position: relative;
   height: 40px;
@@ -152,12 +151,12 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.favorite svg{
+.favorite svg {
   width: 30px;
   height: 30px;
 }
 
-.favorite{
+.favorite {
   width: 50px;
   height: 50px;
 }
@@ -179,7 +178,7 @@
   font-weight: 500;
 }
 
-.product-container{
+.product-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -188,7 +187,7 @@
   text-align: left;
 }
 
-.product-container img{
+.product-container img {
   max-width: 230px;
   max-height: 170px;
   margin-bottom: 35px;

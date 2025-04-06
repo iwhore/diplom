@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+     <script type="module" src="https://unpkg.com/@google/model-viewer"></script>
   </head>
   <body>
     <header>
@@ -68,10 +69,12 @@
           <nav class="nav-menu">
             <ul>
               <li><a class="link" href="./about-us.html">Про нас</a></li>
-              <li><a class="link" href="living-room-modular.html">Каталог</a></li>
+              <li>
+                <a class="link" href="./catalog.html">Каталог</a>
+              </li>
               <li><a class="link" href="./contact-us.html">Контакти</a></li>
-              <li><a class="link" href="blog.html">Блог</a></li>
-              <li><a class="link" href="/faq.html">FAQ</a></li>
+              <li><a class="link" href="./blog.html">Блог</a></li>
+              <li><a class="link" href="./faq.html">FAQ</a></li>
             </ul>
           </nav>
           <div class="header-icons">
@@ -145,10 +148,17 @@
               <div class="product-card">
                 <button class="favorite"><img src="./images/brown-heart.png" alt=""></button>
                 <div class="product-container">
-                  <img src="./images/product.png" alt="Товар">
-                  <p class="title">Шафа-купе Гербор</p>
-                  <p class="price">17 460грн</p>
-                </div>
+  <model-viewer
+    src="Стол.glb"
+    alt="3D модель меблів"
+    auto-rotate
+    camera-controls
+    ar
+  ></model-viewer>
+  <p class="title">Шафа-купе Гербор</p>
+  <p class="price">17 460грн</p>
+</div>
+
                 <button class="add-to-cart"><img src="./images/brown-shoping.png" alt=""></button>
               </div>
               <div class="product-card">
