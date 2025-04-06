@@ -61,7 +61,6 @@
     </div>
   </div>
 </div>
-
             </div>
           </div>
         </header>
@@ -69,7 +68,8 @@
             <div class="hero-text">
               <h1>Затишок починається з деталей. Оберіть меблі, що дарують комфорт</h1>
             </div>
-            <button class="header-btn">Переглянути товари <img src="./images/search.svg" alt=""></button>
+            <a href="catalog.html" class="header-btn">Переглянути товари</a>
+
         </div>
     </section>
   <section class="advantages container">
@@ -436,10 +436,11 @@
 
     <section class="news-section"> 
       <div class="container">
-        <div class="news-upper">
-          <h3 class=>Наші останні новини</h3>
-          <button class="news-btn">Переглянути все</button>
-        </div>
+       <div class="news-upper">
+  <h3>Наші останні новини</h3>
+  <a href="./blog.html" class="news-btn">Переглянути все</a>
+</div>
+
         <div class="card-container">
           <div class="news-card">
               <img src="./images/1news-image.png" alt="Новина 1" class="news-img">
@@ -481,22 +482,32 @@
             </div>
             <div class="footer-links">
                 <ul>
-                    <li><a href="#">Про нас</a></li>
+                    <li><a href="./about-us.html">Про нас</a></li>
                     <li><a href="#">Каталог</a></li>
-                    <li><a href="#">Контакти</a></li>
+                    <li><a href="./contact-us.html">Контакти</a></li>
                 </ul>
                 <ul>
-                    <li><a href="#">Особистий кабінет</a></li>
-                    <li><a href="#">Блог</a></li>
-                    <li><a href="#">FAQ</a></li>
+                    <li><a href="./personalinfo.html">Особистий кабінет</a></li>
+                    <li><a href="./blog.html">Блог</a></li>
+                    <li><a href="./faq.html">FAQ</a></li>
                 </ul>
             </div>
             <div class="footer-subscribe">
                 <p>Підписатися на електронну пошту</p>
                 <div class="subscribe-box">
-                    <input class="input" type="email" placeholder="       your email...">
-                    <button class="send-btn"><img src="./images/send.svg" alt=""></button>
-                </div>
+  <input class="input" type="email" placeholder="       your email..." />
+  <button class="send-btn" id="subscribe-btn">
+    <img src="./images/send.svg" alt="send" />
+  </button>
+</div>
+<div class="modal-overlay" id="modal">
+  <div class="modal-message fancy">
+    <button class="modal-close" id="modal-close">×</button>
+    <div class="modal-icon"><img src="./images/checkmark.svg"></div>
+    <h2 class="modal-title">Дякуємо за підписку!</h2>
+  </div>
+</div>
+
                 <div class="social-icons">
                   <div class="icon-container"><img class="dsh" src="./images/icon-instagram.svg" alt=""></div>
                   <div class="icon-container"><img src="./images/icon-facebook.svg" alt=""></div>
@@ -542,6 +553,48 @@ function updateSlider() {
 window.addEventListener('resize', updateSlider);
 
 
+</script>
+<script>
+  const modal = document.getElementById('modal');
+  const closeBtn = document.getElementById('modal-close');
+
+  document.getElementById('subscribe-btn').addEventListener('click', function () {
+    const emailInput = document.querySelector('.input').value.trim();
+
+    if (emailInput === "") {
+      alert("Будь ласка, введіть email");
+      return;
+    }
+
+    modal.classList.add('show');
+    modal.classList.remove('hide');
+
+    setTimeout(() => {
+      closeModal();
+    }, 6000);
+
+    document.querySelector('.input').value = "";
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+
+  function closeModal() {
+    modal.classList.add('hide');
+    modal.classList.remove('show');
+
+    setTimeout(() => {
+      modal.style.display = 'none';
+    }, 300); // Чекаємо завершення fadeOut
+  }
+
+  // Показ при додаванні класу show
+  const observer = new MutationObserver(() => {
+    if (modal.classList.contains('show')) {
+      modal.style.display = 'flex';
+    }
+  });
+
+  observer.observe(modal, { attributes: true });
 </script>
 
   </body>
