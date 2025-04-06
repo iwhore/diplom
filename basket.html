@@ -1,156 +1,352 @@
 <!DOCTYPE html>
 <html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Кошик</title>
-    <link rel="stylesheet" href="./css/basic.css">
-    <link rel="stylesheet" href="./css/basket.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./css/basic.css" />
+    <link rel="stylesheet" href="./css/basket.css" />
+  </head>
+  <body>
     <header>
-        <div class="container">
-          <div class="header-bottom">
-            <a href="./MAIN.html" class="logo">
-              <img src="./images/logo.svg" alt="Логотип меблевого магазину" />
-            </a>
-            <h1>Кошик</h1>
-            <div class="header-icons">
-              <a href="search.html" class="icon-link"><img src="./images/white/search.svg" alt="Пошук" /></a>
-              <a href="favorites.html" class="icon-link"><img src="./images/white/heart.svg" alt="Додати в обране" /></a>
-              <a href="cart.html" class="icon-link"><img src="./images/white/basket.svg" alt="Додати в кошик" /></a>
-              <a href="personal office.html" class="icon-link"><img src="./images/white/user.svg" alt="Особистий кабінет" /></a>
+      <div class="container">
+        <div class="header-bottom">
+          <img src="/images/arrow_basket.svg" />
+          <h1>Кошик</h1>
+          <div class="header-icons">
+            <a href="search.html" class="icon-link"
+              ><img src="./images/white/search.svg" alt="Пошук"
+            /></a>
+            <a href="favorites.html" class="icon-link"
+              ><img src="./images/white/heart.svg" alt="Додати в обране"
+            /></a>
+            <a href="cart.html" class="icon-link"
+              ><img src="./images/white/basket.svg" alt="Додати в кошик"
+            /></a>
+            <a href="personalinfo.html" class="icon-link"
+              ><img src="./images/white/user.svg" alt="Особистий кабінет"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section class="cart-section container">
+      <div class="cart-items">
+        <div class="cart-item">
+          <button class="remove-item">
+            <img src="./images/cross-basket.svg" alt="" />
+          </button>
+          <div class="img">
+            <img src="images/product-placeholder.png" alt="Товар" />
+            <div class="description">
+              <p>Назва</p>
+              <span>Колір: ...</span>
+            </div>
+          </div>
+          <span>0.00</span>
+          <div class="quantity-control">
+            <button class="minus">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_205_306)">
+                  <path d="M16 7H0V9H16V7Z" fill="#534139" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_205_306">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </button>
+            <p class="quantity">1</p>
+            <button class="plus">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_205_305)">
+                  <path d="M16 7H9V0H7V7H0V9H7V16H9V9H16V7Z" fill="#534139" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_205_305">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="cart-item">
+          <button class="remove-item">
+            <img src="./images/cross-basket.svg" alt="" />
+          </button>
+          <div class="img">
+            <img src="images/product-placeholder.png" alt="Товар" />
+            <div class="description">
+              <p>Назва</p>
+              <span>Колір: ...</span>
+            </div>
+          </div>
+          <span>0.00</span>
+          <div class="quantity-control">
+            <button class="minus">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_205_306)">
+                  <path d="M16 7H0V9H16V7Z" fill="#534139" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_205_306">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </button>
+            <p class="quantity">1</p>
+            <button class="plus">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_205_305)">
+                  <path d="M16 7H9V0H7V7H0V9H7V16H9V9H16V7Z" fill="#534139" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_205_305">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="cart-item">
+          <button class="remove-item">
+            <img src="./images/cross-basket.svg" alt="" />
+          </button>
+          <div class="img">
+            <img src="images/product-placeholder.png" alt="Товар" />
+            <div class="description">
+              <p>Назва</p>
+              <span>Колір: ...</span>
+            </div>
+          </div>
+          <span>0.00</span>
+          <div class="quantity-control">
+            <button class="minus">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_205_306)">
+                  <path d="M16 7H0V9H16V7Z" fill="#534139" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_205_306">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </button>
+            <p class="quantity">1</p>
+            <button class="plus">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_205_305)">
+                  <path d="M16 7H9V0H7V7H0V9H7V16H9V9H16V7Z" fill="#534139" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_205_305">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="cart-item">
+          <button class="remove-item">
+            <img src="./images/cross-basket.svg" alt="" />
+          </button>
+          <div class="img">
+            <img src="images/product-placeholder.png" alt="Товар" />
+            <div class="description">
+              <p>Назва</p>
+              <span>Колір: ...</span>
+            </div>
+          </div>
+          <span>0.00</span>
+          <div class="quantity-control">
+            <button class="minus">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_205_306)">
+                  <path d="M16 7H0V9H16V7Z" fill="#534139" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_205_306">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </button>
+            <p class="quantity">1</p>
+            <button class="plus">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_205_305)">
+                  <path d="M16 7H9V0H7V7H0V9H7V16H9V9H16V7Z" fill="#534139" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_205_305">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="coupon-actions">
+          <input type="text" placeholder="Код купону" class="coupon-input" />
+          <button class="apply-btn">Застосувати</button>
+          <button class="clear-cart">Очистити кошик</button>
+        </div>
+      </div>
+      <aside class="order-summary">
+        <h2 class="zam">Замовлення</h2>
+        <p>Кількість: <span>0.00</span></p>
+        <p>Сума: <span>0.00</span></p>
+        <p>Доставка: <span>0.00</span></p>
+        <p>Знижка: <span>0.00</span></p>
+        <div class="check-out">
+          <p class="result">Всього: <span>0.00</span></p>
+          <button class="checkout-btn">Оформити замовлення</button>
+        </div>
+      </aside>
+    </section>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-logo-container">
+            <img src="./images/logo-footer.svg" alt="" class="footer-logo" />
+            <p>
+              <img
+                src="./images/fi-bs-phone-call--footer.svg"
+                alt=""
+                class="footer-contacts"
+              />
+              +38 (067) 478 12 54
+            </p>
+            <p>
+              <img
+                src="./images/fi-bs-marker--footer.svg"
+                alt=""
+                class="footer-contacts"
+              />
+              проспект В'ячеслава Чорновола, 101, Львів, Україна
+            </p>
+          </div>
+          <div class="footer-links">
+            <ul>
+              <li><a href="#">Про нас</a></li>
+              <li><a href="#">Каталог</a></li>
+              <li><a href="#">Контакти</a></li>
+            </ul>
+            <ul>
+              <li><a href="#">Особистий кабінет</a></li>
+              <li><a href="#">Блог</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-subscribe">
+            <p>Підписатися на електронну пошту</p>
+            <div class="subscribe-box">
+              <input
+                class="input"
+                type="email"
+                placeholder="       your email..."
+              />
+              <button class="send-btn">
+                <img src="./images/send.svg" alt="" />
+              </button>
+            </div>
+            <div class="social-icons">
+              <div class="icon-container">
+                <img class="dsh" src="./images/icon-instagram.svg" alt="" />
+              </div>
+              <div class="icon-container">
+                <img src="./images/icon-facebook.svg" alt="" />
+              </div>
+              <div class="icon-container">
+                <img src="./images/icon-twitter.svg" alt="" />
+              </div>
             </div>
           </div>
         </div>
-    </header>
-    <section class="cart-section container">
-        <div class="cart-items">
-            <div class="cart-item">
-                <button class="remove-item"><img src="./images/cross-basket.svg" alt=""></button>
-                <div class="img">
-                    <img src="images/product-placeholder.png" alt="Товар">
-                    <div class="description">
-                        <p>Ім'я</p>
-                        <span>Колір: ...</span>
-                    </div>
-                </div>
-                <span>0.00</span>
-                <div class="quantity-control">
-                    <button class="minus">-</button>
-                    <p class="quantity">1</p>
-                    <button class="plus">+</button>
-                </div>
-            </div>
-            <div class="cart-item">
-                <button class="remove-item"><img src="./images/cross-basket.svg" alt=""></button>
-                <div class="img">
-                    <img src="images/product-placeholder.png" alt="Товар">
-                    <div class="description">
-                        <p>Ім'я</p>
-                        <span>Колір: ...</span>
-                    </div>
-                </div>
-                <span>0.00</span>
-                <div class="quantity-control">
-                    <button class="minus">-</button>
-                    <p class="quantity">1</p>
-                    <button class="plus">+</button>
-                </div>
-            </div>
-            <div class="cart-item">
-                <button class="remove-item"><img src="./images/cross-basket.svg" alt=""></button>
-                <div class="img">
-                    <img src="images/product-placeholder.png" alt="Товар">
-                    <div class="description">
-                        <p>Ім'я</p>
-                        <span>Колір: ...</span>
-                    </div>
-                </div>
-                <span>0.00</span>
-                <div class="quantity-control">
-                    <button class="minus">-</button>
-                    <p class="quantity">1</p>
-                    <button class="plus">+</button>
-                </div>
-            </div>
-            <div class="cart-item">
-                <button class="remove-item"><img src="./images/cross-basket.svg" alt=""></button>
-                <div class="img">
-                    <img src="images/product-placeholder.png" alt="Товар">
-                    <div class="description">
-                        <p>Ім'я</p>
-                        <span>Колір: ...</span>
-                    </div>
-                </div>
-                <span>0.00</span>
-                <div class="quantity-control">
-                    <button class="minus">-</button>
-                    <p class="quantity">1</p>
-                    <button class="plus">+</button>
-                </div>
-            </div>
-            <div class="coupon-actions">
-                <input type="text" placeholder="Код купону" class="coupon-input">
-                <button class="apply-btn">Застосувати</button>
-                <button class="clear-cart">Очистити кошик</button>
-            </div>
-        </div>
-        <aside class="order-summary">
-            <h2 class="zam">Замовлення</h2>
-            <p>Кількість: <span>0.00</span></p>
-            <p>Сума: <span>0.00</span></p>
-            <p>Доставка: <span>0.00</span></p>
-            <p>Знижка: <span>0.00</span></p>
-            <div class="check-out">
-                <p class="result">Всього: <span>0.00</span></p>
-                <button class="checkout-btn">Оформити замовлення</button>
-            </div>
-        </aside>
-    </section>
-    <footer class="footer">
-        <div class="container">
-          <div class="footer-top">
-              <div class="footer-logo-container">
-                <img src="./images/logo.svg" alt="" class="footer-logo">
-                <p> <img src="./images/phone.svg" alt="" class="footer-contacts"> +38 (067) 478 12 54</p>
-                <p> <img src="./images/marker.png" alt="" class="footer-contacts"> проспект Вячеслава Чорновола, 93, Львів, Україна</p>
-              </div>
-              <div class="footer-links">
-                  <ul>
-                      <li><a href="#">Про нас</a></li>
-                      <li><a href="#">Каталог</a></li>
-                      <li><a href="#">Контакти</a></li>
-                  </ul>
-                  <ul>
-                      <li><a href="#">Особистий кабінет</a></li>
-                      <li><a href="#">Блог</a></li>
-                      <li><a href="#">FAQ</a></li>
-                  </ul>
-              </div>
-              <div class="footer-subscribe">
-                  <p>Підписатися на електронну пошту</p>
-                  <div class="subscribe-box">
-                      <input class="input" type="email" placeholder="       your email...">
-                      <button class="send-btn"><img src="./images/send.svg" alt=""></button>
-                  </div>
-                  <div class="social-icons">
-                    <img
-                      src="./images/Icon Footer Instagram.svg"
-                      alt="іконка інстаграму"
-                    />
-                    <img
-                      src="./images/Icon Footer Facebook.svg"
-                      alt="іконка фейсбук"
-                    />
-                    <img
-                      src="./images/Icon Footer Twitter.svg"
-                      alt="іконка твітеру"
-                    />
-                  </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </footer>
-</body>
+    <!--для +/- товарів -->
+    <script>
+      const quantityControls = document.querySelectorAll(".quantity-control");
+      quantityControls.forEach((control) => {
+        const minusButton = control.querySelector(".minus");
+        const plusButton = control.querySelector(".plus");
+        const quantityDisplay = control.querySelector(".quantity");
+        minusButton.addEventListener("click", () => {
+          let quantity = parseInt(quantityDisplay.textContent);
+          if (quantity > 1) {
+            quantityDisplay.textContent = quantity - 1;
+          }
+        });
+        plusButton.addEventListener("click", () => {
+          let quantity = parseInt(quantityDisplay.textContent);
+          quantityDisplay.textContent = quantity + 1;
+        });
+      });
+    </script>
+    <!-- для видалення товарів з кошика -->
+    <script>
+      const removeButtons = document.querySelectorAll(".remove-item");
+      removeButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          const cartItem = button.closest(".cart-item");
+          cartItem.remove();
+        });
+      });
+    </script>
+  </body>
 </html>
