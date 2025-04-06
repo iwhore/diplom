@@ -1,0 +1,250 @@
+.catalog {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.catalog-wrapper {
+  display: flex;
+  gap: 40px;
+}
+
+/* Фільтри */
+.filters {
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.filter-block {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.03);
+}
+
+.filter-block h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.filter-block label {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 5px 15px;
+  cursor: pointer;
+  background-color: #fff;
+  transition: 0.3s ease;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.filter-block input[type="radio"] {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #5b4433;
+  border-radius: 50%;
+  position: relative;
+}
+
+.filter-block input[type="radio"]:checked::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #5b4433;
+  border-radius: 50%;
+  top: 3px;
+  left: 3px;
+}
+
+/* Діапазон ціни (дві ручки) з центральною лінією */
+.range-slider {
+  position: relative;
+  height: 40px;
+  margin-top: 10px;
+}
+
+.range-slider input[type="range"] {
+  position: absolute;
+  pointer-events: none;
+  -webkit-appearance: none;
+  z-index: 3;
+  height: 4px;
+  width: 100%;
+  background: none;
+  top: 18px;
+}
+
+.range-slider input[type="range"]::-webkit-slider-thumb {
+  pointer-events: all;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #3f2a1d;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.range-slider .slider-track {
+  position: absolute;
+  height: 4px;
+  border-radius: 3px;
+  background-color: #eee;
+  width: 100%;
+  top: 18px;
+  z-index: 1;
+}
+
+.range-slider .range-between {
+  position: absolute;
+  height: 4px;
+  border-radius: 3px;
+  background-color: #3f2a1d;
+  top: 18px;
+  z-index: 2;
+}
+
+/* Товари */
+.products {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.product-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 20px 15px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+  height: 320px;
+}
+
+.product-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.favorite svg{
+  width: 30px;
+  height: 30px;
+}
+
+.favorite{
+  width: 50px;
+  height: 50px;
+}
+
+.product-card img {
+  max-width: 100%;
+  max-height: 140px;
+  object-fit: contain;
+}
+
+.product-card .title {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.product-card .price {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.product-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin-top: 40px;
+  text-align: left;
+}
+
+.product-container img{
+  max-width: 230px;
+  max-height: 170px;
+  margin-bottom: 35px;
+}
+
+.product-card .favorite,
+.product-card .add-to-cart {
+  position: absolute;
+  background: none;
+  border: 2px solid #5b4433;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #5b4433;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.product-card .favorite {
+  top: 12px;
+  right: 12px;
+}
+
+.product-card .add-to-cart {
+  bottom: 12px;
+  right: 12px;
+}
+
+.product-card.empty {
+  background: none;
+  border: 1px solid #eee;
+  height: 240px;
+  border-radius: 15px;
+}
+
+/* Пагінація */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  gap: 10px;
+  font-size: 16px;
+}
+
+.pagination button {
+  background: none;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.pagination .active {
+  text-decoration: underline;
+}
