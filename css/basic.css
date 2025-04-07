@@ -22,8 +22,8 @@ p {
 }
 
 a {
-  text-decoration: none; /* Забирає підкреслення */
-  color: inherit; /* Використовує колір батьківського елемента */
+  text-decoration: none;
+  color: inherit; 
   background: none;
   border: none;
   padding: 0;
@@ -206,6 +206,12 @@ body {
   max-height: 30px;
 }
 
+*FOOTER*/
+.footer {
+  background: #fafafa;
+  padding: 40px 0;
+}
+
 .footer-top {
   display: flex;
   justify-content: space-between;
@@ -285,18 +291,19 @@ body {
   border-width: 1px;
   border-style: solid;
   border-color: #534139;
-  color: #f8f5f2;
+  color: #0d0d0d;
   font-weight: 600;
   font-size: 16px;
   line-height: 100%;
   letter-spacing: 0%;
+  padding-left: 16px;
 }
 
 .send-btn {
   width: 40px;
   height: 38px;
   border-radius: 9px;
-  margin-left: -25px;
+  margin-left: -36px;
   background-color: #534139;
   background-color: #f8f5f2;
 }
@@ -320,6 +327,9 @@ body {
   border: none;
   cursor: pointer;
   border-radius: 10px;
+}
+.input::placeholder {
+  text-indent: -24px;
 }
 
 .social-icons {
@@ -346,8 +356,8 @@ body {
   height: 50px;
 }
 
-
 /*модальне вікно футер*/
+/**/
 .modal-overlay {
   position: fixed;
   top: 0;

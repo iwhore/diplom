@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Блог</title>
 
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/basic.css" />
     <link rel="stylesheet" href="./css/blog_d.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -125,9 +125,6 @@
             </ul>
           </nav>
           <div class="header-icons">
-            <a href="search.html" class="icon-link"
-              ><img src="./images/icon-search.svg" alt="Пошук"
-            /></a>
             <a href="favorites.html" class="icon-link"
               ><img src="./images/icon-heart.svg" alt="Додати в обране"
             /></a>
@@ -477,28 +474,15 @@
       <div class="container">
         <div class="footer-top">
           <div class="footer-logo-container">
-            <img src="./images/logo-footer.svg" alt="" class="footer-logo" />
-            <p>
-              <img
-                src="./images/fi-bs-phone-call--footer.svg"
-                alt=""
-                class="footer-contacts"
-              />
-              +38 (067) 478 12 54
-            </p>
-            <p>
-              <img
-                src="./images/fi-bs-marker--footer.svg"
-                alt=""
-                class="footer-contacts"
-              />
-              проспект В'ячеслава Чорновола, 101, Львів, Україна
-            </p>
+            <img src="./images/logo-footer.svg" alt="" class="footer-logo">
+            <p> <img src="./images/fi-bs-phone-call--footer.svg" alt="" class="footer-contacts"> +38 (067) 478 12 54</p>
+            <p> <img src="./images/fi-bs-marker--footer.svg" alt="" class="footer-contacts"> проспект В'ячеслава Чорновола,
+              101, Львів, Україна</p>
           </div>
           <div class="footer-links">
             <ul>
               <li><a href="./about-us.html">Про нас</a></li>
-              <li><a href="#">Каталог</a></li>
+              <li><a href="./catalog.html">Каталог</a></li>
               <li><a href="./contact-us.html">Контакти</a></li>
             </ul>
             <ul>
@@ -510,11 +494,7 @@
           <div class="footer-subscribe">
             <p>Підписатися на електронну пошту</p>
             <div class="subscribe-box">
-              <input
-                class="input"
-                type="email"
-                placeholder="       your email..."
-              />
+              <input class="input" type="email" placeholder="       your email..." />
               <button class="send-btn" id="subscribe-btn">
                 <img src="./images/send.svg" alt="send" />
               </button>
@@ -522,28 +502,61 @@
             <div class="modal-overlay" id="modal">
               <div class="modal-message fancy">
                 <button class="modal-close" id="modal-close">×</button>
-                <div class="modal-icon">
-                  <img src="./images/checkmark.svg" />
-                </div>
+                <div class="modal-icon"><img src="./images/checkmark.svg"></div>
                 <h2 class="modal-title">Дякуємо за підписку!</h2>
               </div>
             </div>
-
+    
             <div class="social-icons">
-              <div class="icon-container">
-                <img class="dsh" src="./images/icon-instagram.svg" alt="" />
-              </div>
-              <div class="icon-container">
-                <img src="./images/icon-facebook.svg" alt="" />
-              </div>
-              <div class="icon-container">
-                <img src="./images/icon-twitter.svg" alt="" />
-              </div>
+              <div class="icon-container"><img class="dsh" src="./images/icon-instagram.svg" alt=""></div>
+              <div class="icon-container"><img src="./images/icon-facebook.svg" alt=""></div>
+              <div class="icon-container"><img src="./images/icon-twitter.svg" alt=""></div>
             </div>
           </div>
         </div>
       </div>
     </footer>
+    <script>
+  const modal = document.getElementById('modal');
+  const closeBtn = document.getElementById('modal-close');
+
+  document.getElementById('subscribe-btn').addEventListener('click', function () {
+    const emailInput = document.querySelector('.input').value.trim();
+
+    if (emailInput === "") {
+      alert("Будь ласка, введіть email");
+      return;
+    }
+
+    modal.classList.add('show');
+    modal.classList.remove('hide');
+
+    setTimeout(() => {
+      closeModal();
+    }, 6000);
+
+    document.querySelector('.input').value = "";
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+
+  function closeModal() {
+    modal.classList.add('hide');
+    modal.classList.remove('show');
+
+    setTimeout(() => {
+      modal.style.display = 'none';
+    }, 300); 
+  }
+
+  const observer = new MutationObserver(() => {
+    if (modal.classList.contains('show')) {
+      modal.style.display = 'flex';
+    }
+  });
+
+  observer.observe(modal, { attributes: true });
+</script>
     <script>
       const container = document.querySelector(".card-container");
       const cards = Array.from(container.children);
@@ -576,48 +589,6 @@
 
       showCards();
     </script>
-    <script>
-      const modal = document.getElementById("modal");
-      const closeBtn = document.getElementById("modal-close");
-
-      document
-        .getElementById("subscribe-btn")
-        .addEventListener("click", function () {
-          const emailInput = document.querySelector(".input").value.trim();
-
-          if (emailInput === "") {
-            alert("Будь ласка, введіть email");
-            return;
-          }
-
-          modal.classList.add("show");
-          modal.classList.remove("hide");
-
-          setTimeout(() => {
-            closeModal();
-          }, 6000);
-
-          document.querySelector(".input").value = "";
-        });
-
-      closeBtn.addEventListener("click", closeModal);
-
-      function closeModal() {
-        modal.classList.add("hide");
-        modal.classList.remove("show");
-
-        setTimeout(() => {
-          modal.style.display = "none";
-        }, 300);
-      }
-
-      const observer = new MutationObserver(() => {
-        if (modal.classList.contains("show")) {
-          modal.style.display = "flex";
-        }
-      });
-
-      observer.observe(modal, { attributes: true });
-    </script>
+    
   </body>
 </html>

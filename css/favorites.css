@@ -1,0 +1,145 @@
+header {
+    background-color: #534139;
+  }
+  
+  .header-bottom {
+    margin: 0px;
+    height: 120px;
+  }
+  
+  header h1 {
+    font-family: Lora;
+    font-weight: 600;
+    color: #fff;
+    font-size: 48px;
+    line-height: 100%;
+    letter-spacing: 0%;
+  }
+  
+  .description {
+    margin-left: -20px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+ 
+
+  .item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .remove-btn {
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .image-placeholder {
+    border: 1px solid #534139;
+    border-radius: 16px;
+    width: 100px;
+    height: 100px;
+  }
+
+  .info {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: #000;
+  }
+
+  .info strong {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    font-size: 14px;
+  }
+  
+  .right span {
+    min-width: 80px;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+font-weight: 600;
+font-size: 24px;
+color: #000;
+  }
+  
+
+  .btn {
+    background: #534139;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 220px;
+    height: 59px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #fff;
+  }
+  .btn:hover{
+    background: #000;
+    color: white;
+  }
+
+  .footer-btns {
+    display: flex;
+    justify-content: flex-end; 
+    gap: 32px; 
+    padding-top: 20px;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  
+  .clear-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #000;
+    cursor: pointer;
+  }
+  
+  .clear-btn:hover {
+    text-decoration: underline;
+    color: #534139;
+  }
+  
+  .add-btn{
+    background: #534139;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 220px;
+    height: 59px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #fff;
+  }
+  .add-btn:hover {
+    color: #fff;
+    background: #000;
+  }

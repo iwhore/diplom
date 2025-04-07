@@ -45,8 +45,8 @@
                   <li><a class="link" href="./about-us.html">Про нас</a></li>
                   <li><a class="link" href="./catalog.html">Каталог</a></li>
                   <li><a class="link" href="./contact-us.html">Контакти</a></li>
-                  <li><a class="link" href="blog.html">Блог</a></li>
-                  <li><a class="link" href="faq.html">FAQ</a></li>
+                  <li><a class="link" href="./blog.html">Блог</a></li>
+                  <li><a class="link" href="./faq.html">FAQ</a></li>
                 </ul>
               </nav>
               <div class="header-icons">
@@ -519,44 +519,7 @@
         </div>
       </div>
     </footer>
-    
     <script>
-  const slider = document.querySelector('.testimonials-slider');
-const testimonials = document.querySelectorAll('.testimonial');
-const dotsContainer = document.querySelector('.slider-dots');
-
-const testimonialsPerSlide = 2; 
-const totalSlides = Math.ceil(testimonials.length / testimonialsPerSlide); 
-let currentSlide = 0;
-
-
-for (let i = 0; i < totalSlides; i++) {
-  const dot = document.createElement('span');
-  dot.classList.add('dot');
-  if (i === 0) dot.classList.add('active');
-  dot.addEventListener('click', () => {
-    currentSlide = i;
-    updateSlider();
-  });
-  dotsContainer.appendChild(dot);
-}
-
-function updateSlider() {
-  const slideWidth = slider.offsetWidth;
-  const shift = currentSlide * (100 / totalSlides);
-  slider.style.transform = `translateX(-${(100 / totalSlides) * currentSlide}%)`;
-
-  document.querySelectorAll('.dot').forEach((dot, idx) =>
-    dot.classList.toggle('active', idx === currentSlide)
-  );
-}
-
-
-window.addEventListener('resize', updateSlider);
-
-
-</script>
-<script>
   const modal = document.getElementById('modal');
   const closeBtn = document.getElementById('modal-close');
 
@@ -597,6 +560,43 @@ window.addEventListener('resize', updateSlider);
 
   observer.observe(modal, { attributes: true });
 </script>
+    <script>
+  const slider = document.querySelector('.testimonials-slider');
+const testimonials = document.querySelectorAll('.testimonial');
+const dotsContainer = document.querySelector('.slider-dots');
+
+const testimonialsPerSlide = 2; 
+const totalSlides = Math.ceil(testimonials.length / testimonialsPerSlide); 
+let currentSlide = 0;
+
+
+for (let i = 0; i < totalSlides; i++) {
+  const dot = document.createElement('span');
+  dot.classList.add('dot');
+  if (i === 0) dot.classList.add('active');
+  dot.addEventListener('click', () => {
+    currentSlide = i;
+    updateSlider();
+  });
+  dotsContainer.appendChild(dot);
+}
+
+function updateSlider() {
+  const slideWidth = slider.offsetWidth;
+  const shift = currentSlide * (100 / totalSlides);
+  slider.style.transform = `translateX(-${(100 / totalSlides) * currentSlide}%)`;
+
+  document.querySelectorAll('.dot').forEach((dot, idx) =>
+    dot.classList.toggle('active', idx === currentSlide)
+  );
+}
+
+
+window.addEventListener('resize', updateSlider);
+
+
+</script>
+
 
   </body>
 </html>

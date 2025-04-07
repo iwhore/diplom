@@ -124,9 +124,6 @@
             </ul>
           </nav>
           <div class="header-icons">
-            <a href="search.html" class="icon-link"
-              ><img src="./images/icon-search.svg" alt="Пошук"
-            /></a>
             <a href="favorites.html" class="icon-link"
               ><img src="./images/icon-heart.svg" alt="Додати в обране"
             /></a>
@@ -217,7 +214,6 @@
         referrerpolicy="no-referrer-when-downgrade"
       ></iframe>
     </section>
-    <!-- FOOTER-->
     <footer class="footer">
       <div class="container">
         <div class="footer-top">
@@ -264,5 +260,46 @@
         </div>
       </div>
     </footer>
+    <script>
+  const modal = document.getElementById('modal');
+  const closeBtn = document.getElementById('modal-close');
+
+  document.getElementById('subscribe-btn').addEventListener('click', function () {
+    const emailInput = document.querySelector('.input').value.trim();
+
+    if (emailInput === "") {
+      alert("Будь ласка, введіть email");
+      return;
+    }
+
+    modal.classList.add('show');
+    modal.classList.remove('hide');
+
+    setTimeout(() => {
+      closeModal();
+    }, 6000);
+
+    document.querySelector('.input').value = "";
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+
+  function closeModal() {
+    modal.classList.add('hide');
+    modal.classList.remove('show');
+
+    setTimeout(() => {
+      modal.style.display = 'none';
+    }, 300); 
+  }
+
+  const observer = new MutationObserver(() => {
+    if (modal.classList.contains('show')) {
+      modal.style.display = 'flex';
+    }
+  });
+
+  observer.observe(modal, { attributes: true });
+</script>
   </body>
 </html>
