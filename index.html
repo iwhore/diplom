@@ -586,10 +586,9 @@ window.addEventListener('resize', updateSlider);
 
     setTimeout(() => {
       modal.style.display = 'none';
-    }, 300); // Чекаємо завершення fadeOut
+    }, 300); 
   }
 
-  // Показ при додаванні класу show
   const observer = new MutationObserver(() => {
     if (modal.classList.contains('show')) {
       modal.style.display = 'flex';

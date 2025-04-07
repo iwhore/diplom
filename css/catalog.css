@@ -232,18 +232,38 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 40px;
-  gap: 10px;
-  font-size: 16px;
+  gap: 6px;
 }
 
 .pagination button {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+  color: #000;
   background: none;
   border: none;
-  font-weight: bold;
   cursor: pointer;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button:hover {
+  background-color: #5b4433;
+  color: #fff;
+  border-radius: 30px;
 }
 
 .pagination .active {
-  text-decoration: underline;
+  background-color: #5b4433;
+  color: #fff;
+  border-radius: 30px;
+}
+
+.pagination .arrow-left i,
+.pagination .arrow-right i {
+  font-size: 24px;
+  line-height: 0;
 }
