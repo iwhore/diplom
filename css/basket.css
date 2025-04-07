@@ -69,7 +69,13 @@ header h1 {
   display: flex;
   gap: 40px;
 }
-
+.image-placeholder {
+  border: 1px solid #534139;
+  border-radius: 16px;
+  width: 100px;
+  height: 100px;
+  margin-right: 26px;
+}
 .cart-item img {
   width: 100px;
   height: 100px;
@@ -250,12 +256,16 @@ header h1 {
 .clear-cart {
   background: none;
   border: none;
-  color: #000;
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 16px;
-  line-height: 100%;
-  letter-spacing: 0%;
-  border-bottom: 1px solid #bfbbaf;
-  padding-bottom: 10px;
+  color: #000;
   cursor: pointer;
+}
+
+.clear-cart:hover {
+  text-decoration: underline;
+  color: #534139;
 }
