@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personaloffice</title>
+    <link rel="stylesheet" href="./header.css" />
+    <link rel="stylesheet" href="./css/basic.css" />
+    <link rel="stylesheet" href="./css/order.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-bar">
+        <div class="logo">
+          <a href="./index.html" class="logo">
+            <img src="./images/" alt="Логотип" />
+          </a>
+        </div>
+        <div class="burger-menu">
+          <button id="burger-btn">
+            <img src="./images/fi-bs-align-justify.svg" alt="Іконка меню" />
+          </button>
+          <nav class="menu" id="menu">
+            <ul>
+              <li><a href="/about-us.html">Про нас</a></li>
+              <li><a href="./catalog">Каталог</a></li>
+              <li><a href="/contact-us.html">Контакти</a></li>
+              <li><a href="./blog">Блог</a></li>
+              <li><a href="/faq.html">FAQ</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <section class="container">
+        <div class="order-success">
+          <h1>Дякуємо за покупку!</h1>
+          <p class="subtitle">Ваше замовлення успішно оброблене.</p>
+      
+          <div class="order-box">
+            <h2>Деталі замовлення</h2>
+            <div class="order-details">
+              <div class="row">
+                <span>Номер замовлення</span>
+                <span>№123478</span>
+              </div>
+              <div class="row">
+                <span>Дата</span>
+                <span>12/03.2025</span>
+              </div>
+              <div class="row">
+                <span>Кількість товарів</span>
+                <span>1</span>
+              </div>
+              <div class="row total">
+                <span>Сума</span>
+                <span>0.00</span>
+              </div>
+            </div>
+          </div>
+      
+          <p class="info-text">
+            Дякуємо за покупку у нас! Якщо у вас виникли запитання чи сумніви, не соромтеся зв’язатися з нашою командою з техпідтримки.
+          </p>
+          <p>Електронна пошта: <a href="mailto:aliyastore@gmail.com">aliyastore@gmail.com</a></p>
+          <p>Номер телефону: <strong>+38 (067) 478 12 54</strong></p>
+        </div>
+      </section>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const tabs = document.querySelectorAll(".tab");
+          const sections = document.querySelectorAll(".section");
+  
+          tabs.forEach((tab) => {
+            tab.addEventListener("click", function () {
+              const category = this.dataset.category;
+              tabs.forEach((tab) => tab.classList.remove("active"));
+              this.classList.add("active");
+              sections.forEach((section) => {
+                if (section.id === category) {
+                  section.classList.add("active");
+                } else {
+                  section.classList.remove("active");
+                }
+              });
+            });
+          });
+  
+          const toggleIcons = document.querySelectorAll(".toggle-icon");
+  
+          toggleIcons.forEach((icon) => {
+            icon.addEventListener("click", function () {
+              const input = document.getElementById(this.dataset.target);
+  
+              if (input.type === "password") {
+                input.type = "text";
+                this.src = "/images/fi-br-eye.svg";
+              } else {
+                input.type = "password";
+                this.src = "/images/closed eye.svg";
+              }
+            });
+          });
+        });
+  
+        document
+          .getElementById("burger-btn")
+          .addEventListener("click", function () {
+            document.getElementById("menu").classList.toggle("active");
+          });
+  
+        document.addEventListener("click", function (event) {
+          const menu = document.getElementById("menu");
+          const burgerBtn = document.getElementById("burger-btn");
+          if (!menu.contains(event.target) && !burgerBtn.contains(event.target)) {
+            menu.classList.remove("active");
+          }
+        });
+      </script>
+      <script>
+        document
+          .getElementById("upload-btn")
+          .addEventListener("click", function () {
+            document.getElementById("upload-photo").click();
+          });
+  
+        document
+          .getElementById("upload-photo")
+          .addEventListener("change", function (event) {
+            const file = event.target.files[0];
+            if (file) {
+              const reader = new FileReader();
+              reader.onload = function (e) {
+                document.getElementById("preview-photo").src = e.target.result;
+              };
+              reader.readAsDataURL(file);
+            }
+          });
+      </script>
+  </body>
+</html>
