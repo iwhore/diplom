@@ -1,0 +1,212 @@
+/* Базовий контейнер */
+.product-page {
+  padding: 40px;
+  font-family: "Arial", sans-serif;
+}
+
+.product-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.product-header {
+  text-align: center;
+}
+
+.product-heading {
+  font-size: 28px;
+  font-weight: bold;
+  background: #e0e0e0;
+  padding: 10px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+/* Основна секція */
+.product-content {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Ліва частина */
+.product-left {
+  flex: 1 1 500px;
+}
+
+.product-main-image {
+  width: 630px;
+  height: 570px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 30px;
+}
+
+.product-main-image img{
+    width: 100%;
+}
+
+.product-thumbnails {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.thumbnail {
+  width: 200px;
+  height: 200px;
+  background: #ddd;
+  text-align: center;
+  font-size: 12px;
+  padding-top: 40px;
+  border-radius: 30px;
+}
+
+/* Права частина */
+.product-right {
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.product-name,
+.product-price,
+.product-description {
+  background: #ddd;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+.product-description {
+  min-height: 100px;
+  font-weight: normal;
+}
+
+.color-label {
+  font-size: 12px;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.color-options {
+  display: flex;
+  gap: 10px;
+}
+
+.color-dot {
+  width: 14px;
+  height: 14px;
+  background: #bbb;
+  border-radius: 50%;
+}
+
+.product-quantity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantity-btn {
+  width: 30px;
+  height: 30px;
+  background: #ddd;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.quantity-value {
+  min-width: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.product-actions {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.btn-buy,
+.btn-add-cart {
+  padding: 10px 20px;
+  background: #ddd;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.btn-favorite {
+  width: 30px;
+  height: 30px;
+  background: #ddd;
+  border: none;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.color-options {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.color-radio {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.color-radio input[type="radio"] {
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.color-radio span {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Кольори */
+.color-radio.white span {
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.color-radio.black span {
+  background-color: #000;
+}
+
+.color-radio.gray span {
+  background-color: #888;
+}
+
+.color-radio.brown span {
+  background-color: #6f4e37;
+}
+
+/* Виділення обраного */
+.color-radio input[type="radio"]:checked + span {
+  border: 2px solid #333;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
