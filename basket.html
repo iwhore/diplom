@@ -6,6 +6,7 @@
     <title>Кошик</title>
     <link rel="stylesheet" href="./css/basic.css" />
     <link rel="stylesheet" href="./css/basket.css" />
+    <script src="./js/basket.js"></script>
   </head>
   <body>
     <header>
@@ -326,77 +327,6 @@
         </div>
       </div>
     </footer>
-    <script>
-      const modal = document.getElementById("modal");
-      const closeBtn = document.getElementById("modal-close");
-
-      document
-        .getElementById("subscribe-btn")
-        .addEventListener("click", function () {
-          const emailInput = document.querySelector(".input").value.trim();
-
-          if (emailInput === "") {
-            alert("Будь ласка, введіть email");
-            return;
-          }
-
-          modal.classList.add("show");
-          modal.classList.remove("hide");
-
-          setTimeout(() => {
-            closeModal();
-          }, 6000);
-
-          document.querySelector(".input").value = "";
-        });
-
-      closeBtn.addEventListener("click", closeModal);
-
-      function closeModal() {
-        modal.classList.add("hide");
-        modal.classList.remove("show");
-
-        setTimeout(() => {
-          modal.style.display = "none";
-        }, 300);
-      }
-
-      const observer = new MutationObserver(() => {
-        if (modal.classList.contains("show")) {
-          modal.style.display = "flex";
-        }
-      });
-
-      observer.observe(modal, { attributes: true });
-    </script>
-    <!--для +/- товарів -->
-    <script>
-      const quantityControls = document.querySelectorAll(".quantity-control");
-      quantityControls.forEach((control) => {
-        const minusButton = control.querySelector(".minus");
-        const plusButton = control.querySelector(".plus");
-        const quantityDisplay = control.querySelector(".quantity");
-        minusButton.addEventListener("click", () => {
-          let quantity = parseInt(quantityDisplay.textContent);
-          if (quantity > 1) {
-            quantityDisplay.textContent = quantity - 1;
-          }
-        });
-        plusButton.addEventListener("click", () => {
-          let quantity = parseInt(quantityDisplay.textContent);
-          quantityDisplay.textContent = quantity + 1;
-        });
-      });
-    </script>
-    <!-- для видалення товарів з кошика -->
-    <script>
-      const removeButtons = document.querySelectorAll(".remove-item");
-      removeButtons.forEach((button) => {
-        button.addEventListener("click", function () {
-          const cartItem = button.closest(".cart-item");
-          cartItem.remove();
-        });
-      });
-    </script>
+    <script src="./js/basket.js"></script>
   </body>
 </html>
