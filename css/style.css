@@ -355,6 +355,33 @@ body {
 }
 
 /* CATEGORY SECTION*/
+.product {
+  position: relative;
+  padding: 20px;
+  border-radius: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(46, 46, 46, 0.05);
+}
+
+.product:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.discount {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background-color: #534139;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+
+
 .product-categories {
   padding: 80px 0;
 }
@@ -371,7 +398,6 @@ body {
   height: 350px;
   text-align: center;
   position: relative;
-  border: 1px solid #534139;
 }
 
 .category-image img {
@@ -435,6 +461,27 @@ body {
     place-items: center;
   }
 }
+.category-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.category-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.category-button {
+  background-color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.category-button:hover {
+  background-color: #534139;
+  color: white;
+}
+
+
 
 .category-footer {
   flex-direction: row;
@@ -512,7 +559,7 @@ body {
   border-radius: 20px;
   text-align: center;
   position: relative;
-  border: 1px solid #534139;
+  
 }
 
 .disc-img {
@@ -1063,4 +1110,71 @@ p {
     transform: scale(1);
     opacity: 1;
   }
+}
+.section-heading {
+  max-width: 1240px;
+  margin: 0 auto 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 15px;
+}
+
+.section-label {
+  font-family: "Lora", sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  color: #534139;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.section-heading h2 {
+  font-family: "Lora", sans-serif;
+  font-weight: 600;
+  font-size: 30px;
+  color: #000;
+}
+
+.section-heading h2 span {
+  color: #534139;
+}
+
+
+/* кнопочки зі стрілочками*/
+.section-arrows {
+  display: flex;
+  gap: 10px;
+}
+
+.arrow-btn {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  background-color: transparent;
+  border: 1px solid #534139;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.arrow-btn svg {
+  width: 40px;
+  height: 40px;
+  stroke: #534139;
+  stroke-width: 1px;
+  fill: none;
+  transition: all 0.3s ease;
+}
+
+.arrow-btn:hover {
+  background-color: #534139;
+}
+
+.arrow-btn:hover svg {
+  stroke: #fff;
+  fill: #534139;
 }
