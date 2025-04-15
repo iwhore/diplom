@@ -110,6 +110,7 @@ h1::after {
   text-align: justify;
   font-weight: 500;
   color: #000;
+  margin-top: 60px;
 }
 
 .blog-layout {
@@ -161,7 +162,6 @@ aside.sidebar {
   flex-wrap: wrap;
   gap: 12px;
 }
-
 .tags button {
   background-color: #534139;
   color: white;
@@ -271,8 +271,27 @@ aside.sidebar {
   margin: 0 auto 40px;
 }
 
-/*----------------*/
+/*----news section---*/
+.blog-c ul li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+  line-height: 1.4;
+}
 
+.blog-c ul li img {
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-top: 10px;
+  margin-right: 12px; 
+  flex-shrink: 0; 
+  object-fit: contain;
+}
+
+.text-container {
+  display: inline;
+}
 .news-buttons {
   display: flex;
   justify-content: flex-end;
@@ -300,3 +319,64 @@ aside.sidebar {
   background-color: #534139;
   color: #fff;
 }
+/*styles blog_d2*/
+
+.blog-image-secondary {
+  display: grid;
+  grid-template-columns: 413px 325px; 
+  grid-template-rows: 352px 215px;
+  gap: 16px;
+  justify-content: center;
+  align-items: start;
+  margin-top: 44px;
+}
+
+.blog-image-secondary img:nth-child(1) {
+  grid-row: 1 / span 2;
+  grid-column: 1 / 2;
+  width: 413px;
+  height: 583px;
+  object-fit: cover;
+  border-radius: 30px;
+
+}
+
+.blog-image-secondary img:nth-child(2) {
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+  width: 325px;
+  height: 352px;
+  object-fit: cover;
+  border-radius: 30px;
+}
+
+.blog-image-secondary img:nth-child(3) {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+  width: 325px;
+  height: 215px;
+  object-fit: cover;
+  border-radius: 30px;
+  
+}
+.check-styles{
+  font-family: "Poppins", sans-serif;
+font-weight: 600;
+font-size: 24px;
+line-height: 1.6;
+text-align: justify;
+color: #000;
+}
+/* styles blog_d3*/
+.blog-image-third {
+  display: flex;
+  gap: 20px; 
+}
+
+.blog-image-third img {
+  width: 380px;
+  height: 380px;
+  border-radius: 30px;
+  object-fit: cover; 
+}
+

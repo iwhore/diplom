@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog_Details</title>
+    <link rel="stylesheet" href="./css/basic.css" />
+    <link rel="stylesheet" href="blog.css" />
+    <link rel="stylesheet" href="./css/blog_d.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+</head>
+<body>
+    <header>
+        <div class="header-top">
+          <div class="container">
+            <div class="contact-info">
+              <a href="tel:+380967891207">
+                <img
+                  src="./images/fi-bs-phone-call.svg"
+                  alt="Іконка телефону"
+                  width="20"
+                  height="20"
+                />
+                +38 (067) 478 12 54
+              </a>
+              <a href="mailto:aliyastore@gmail.com">
+                <img
+                  src="./images/fi-bs-envelope.svg"
+                  alt="Іконка пошти"
+                  width="20"
+                  height="20"
+                />
+                aliyastore@gmail.com
+              </a>
+            </div>
+            <div class="social-links">
+              <a href="#"
+                ><svg
+                  width="30"
+                  height="30"
+                  viewBox="0 0 30 30"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_456_844)">
+                    <path
+                      d="M15.0001 0C10.9229 0 10.4148 0.0196875 8.81914 0.0871875C7.21695 0.165938 6.1332 0.414375 5.17695 0.785625C4.17618 1.16354 3.26982 1.75509 2.52102 2.51906C1.75586 3.2669 1.16413 4.17354 0.787578 5.175C0.416328 6.13125 0.167891 7.215 0.0891406 8.81719C0.0169531 10.4138 0.00195312 10.9209 0.00195312 14.9981C0.00195312 19.0753 0.0216406 19.5834 0.0891406 21.1791C0.167891 22.7766 0.416328 23.865 0.787578 24.8213C1.16549 25.822 1.75704 26.7284 2.52102 27.4772C3.26885 28.2423 4.17549 28.8341 5.17695 29.2106C6.1332 29.5772 7.22164 29.8303 8.81914 29.9091C10.4157 29.9813 10.9229 29.9963 15.0001 29.9963C19.0773 29.9963 19.5854 29.9766 21.181 29.9091C22.7785 29.8303 23.867 29.5763 24.8232 29.2106C25.824 28.8327 26.7303 28.2412 27.4791 27.4772C28.2467 26.7313 28.8388 25.8241 29.2126 24.8213C29.5791 23.865 29.8323 22.7766 29.911 21.1791C29.9832 19.5825 29.9982 19.0753 29.9982 14.9981C29.9982 10.9209 29.9785 10.4128 29.911 8.81719C29.8323 7.21969 29.5782 6.12563 29.2126 5.175C28.8347 4.17422 28.2431 3.26787 27.4791 2.51906C26.7333 1.75151 25.8261 1.15941 24.8232 0.785625C23.867 0.414375 22.7785 0.165938 21.181 0.0871875C19.5845 0.015 19.0773 0 15.0001 0ZM15.0001 2.7C19.0041 2.7 19.4823 2.71969 21.0648 2.78719C22.5245 2.85563 23.3195 3.09938 23.8473 3.30563C24.4996 3.5468 25.0902 3.93013 25.576 4.42781C26.0739 4.91076 26.456 5.50019 26.6935 6.15188C26.8998 6.67969 27.1435 7.47469 27.212 8.93438C27.2795 10.5169 27.2991 10.9959 27.2991 14.9991C27.2991 19.0022 27.2795 19.4813 27.2063 21.0638C27.1276 22.5234 26.8838 23.3184 26.6785 23.8463C26.3945 24.5503 26.0776 25.0425 25.5545 25.575C25.0671 26.0698 24.4769 26.4513 23.8257 26.6925C23.3045 26.8988 22.4982 27.1425 21.0329 27.2109C19.442 27.2784 18.9732 27.2981 14.9588 27.2981C10.9445 27.2981 10.4766 27.2784 8.88383 27.2053C7.42414 27.1266 6.61883 26.8828 6.09102 26.6775C5.37852 26.3934 4.89008 26.0766 4.36695 25.5534C3.83914 25.0256 3.50352 24.5231 3.24477 23.8247C3.03477 23.3034 2.79477 22.4972 2.71695 21.0319C2.66352 19.4597 2.6382 18.9722 2.6382 14.9766C2.6382 10.9828 2.66352 10.4944 2.71695 8.9025C2.79477 7.43719 3.03477 6.63281 3.24477 6.10969C3.50352 5.39625 3.84008 4.90875 4.36695 4.38094C4.88914 3.85875 5.37852 3.52125 6.09102 3.25688C6.61883 3.05156 7.40445 2.80781 8.86977 2.73469C10.4607 2.6775 10.9295 2.65688 14.9382 2.65688L15.0001 2.7ZM15.0001 7.30031C13.9888 7.29994 12.9874 7.49885 12.0531 7.88566C11.1188 8.27248 10.2698 8.83962 9.55475 9.55468C8.8397 10.2697 8.27256 11.1187 7.88574 12.053C7.49893 12.9874 7.30002 13.9888 7.30039 15C7.30002 16.0112 7.49893 17.0126 7.88574 17.947C8.27256 18.8813 8.8397 19.7303 9.55475 20.4453C10.2698 21.1604 11.1188 21.7275 12.0531 22.1143C12.9874 22.5012 13.9888 22.7001 15.0001 22.6997C16.0113 22.7001 17.0127 22.5012 17.9471 22.1143C18.8814 21.7275 19.7303 21.1604 20.4454 20.4453C21.1605 19.7303 21.7276 18.8813 22.1144 17.947C22.5012 17.0126 22.7001 16.0112 22.6998 15C22.7001 13.9888 22.5012 12.9874 22.1144 12.053C21.7276 11.1187 21.1605 10.2697 20.4454 9.55468C19.7303 8.83962 18.8814 8.27248 17.9471 7.88566C17.0127 7.49885 16.0113 7.29994 15.0001 7.30031ZM15.0001 19.9997C12.2363 19.9997 10.0004 17.7638 10.0004 15C10.0004 12.2363 12.2363 10.0003 15.0001 10.0003C17.7638 10.0003 19.9998 12.2363 19.9998 15C19.9998 17.7638 17.7638 19.9997 15.0001 19.9997ZM24.8101 6.99281C24.8096 7.47062 24.6194 7.92869 24.2814 8.26638C23.9433 8.60407 23.4851 8.79375 23.0073 8.79375C22.771 8.79375 22.5371 8.74722 22.3188 8.65681C22.1005 8.56639 21.9022 8.43388 21.7351 8.26682C21.5681 8.09976 21.4356 7.90143 21.3451 7.68316C21.2547 7.46489 21.2082 7.23094 21.2082 6.99469C21.2082 6.75843 21.2547 6.52449 21.3451 6.30622C21.4356 6.08794 21.5681 5.88962 21.7351 5.72256C21.9022 5.5555 22.1005 5.42298 22.3188 5.33257C22.5371 5.24216 22.771 5.19563 23.0073 5.19563C23.9982 5.19563 24.8101 6.00188 24.8101 6.99281Z"
+                      fill="white"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_456_844">
+                      <rect width="30" height="30" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </a>
+              <a href="#"
+                ><svg
+                  width="30"
+                  height="30"
+                  viewBox="0 0 30 30"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_456_846)">
+                    <path
+                      d="M28.3524 0H1.65521C1.21622 0 0.795211 0.174313 0.484799 0.484593C0.174387 0.794873 0 1.2157 0 1.65451V28.3429C0 28.7818 0.174387 29.2026 0.484799 29.5129C0.795211 29.8231 1.21622 29.9975 1.65521 29.9975H16.0224V18.3828H12.1161V13.8546H16.0224V10.515C16.0224 6.64093 18.3906 4.5308 21.8487 4.5308C23.0157 4.52664 24.182 4.58612 25.3425 4.70898V8.7587H22.9514C21.0695 8.7587 20.7054 9.65213 20.7054 10.963V13.8546H25.1897L24.6066 18.3828H20.7054V30H28.3448C28.7836 29.9993 29.2042 29.8248 29.5145 29.5147C29.8247 29.2045 29.9993 28.7841 30 28.3455V1.65705C30.0007 1.21913 29.8276 0.798798 29.5188 0.488186C29.21 0.177575 28.7905 0.00202066 28.3524 0Z"
+                      fill="white"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_456_846">
+                      <rect width="30" height="30" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </a>
+              <a href="#"
+                ><svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 16C1 8.92947 1 5.39263 3.19632 3.19632C5.39263 1 8.9279 1 16.0016 1C23.0721 1 26.6074 1 28.8037 3.19632C31 5.39263 31 8.92789 31 16C31 23.0705 31 26.6074 28.8037 28.8037C26.6074 31 23.0721 31 16 31C8.92947 31 5.39421 31 3.19632 28.8037C1.00158 26.6058 1 23.0721 1 16Z"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M8 24L14.7104 17.2912M14.7104 17.2912L8 8H12.4432L17.2912 14.7104L24 8M14.7104 17.2912L19.5552 24H24L17.2912 14.7088"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="header-bottom">
+            <a href="./index.html" class="logo">
+              <img src="./images/LOGO NEW.svg" alt="Логотип меблевого магазину" />
+            </a>
+            <nav class="nav-menu">
+              <ul>
+                <li><a class="link" href="./about-us.html">Про нас</a></li>
+                <li>
+                  <a class="link" href="./catalog.html">Каталог</a>
+                </li>
+                <li><a class="link" href="./contact-us.html">Контакти</a></li>
+                <li><a class="link" href="./blog.html">Блог</a></li>
+                <li><a class="link" href="./faqs.html">FAQ</a></li>
+              </ul>
+            </nav>
+            <div class="header-icons">
+              <a href="favorites.html" class="icon-link"
+                ><img src="./images/icon-heart.svg" alt="Додати в обране"
+              /></a>
+              <a href="/basket.html" class="icon-link"
+                ><img src="./images/icon-shopping-cart.svg" alt="Додати в кошик"
+              /></a>
+              <a href="/personalinfo.html" class="icon-link"
+                ><img src="./images/icon-user.svg" alt="Особистий кабінет"
+              /></a>
+            </div>
+          </div>
+        </div>
+      </header>
+      <section class="blog-section">
+        <h1>Блог</h1>
+        <div class="blog-image">
+          <img src="./images/blog_details2_main.jpg" alt="фото вітальні" />
+        </div>
+        <div class="tags">
+          <span class="tag">Меблі</span>
+          <span class="tag">Стільці</span>
+          <span class="tag">Декор</span>
+        </div>
+        <div class="blog-layout">
+          <div class="blog-content">
+            <h2 class="post-title">
+                Екологічні меблі: тренд чи необхідність?
+            </h2>
+  
+            <div class="post-meta">
+              <img src="./images/blog_details2_avatar.svg" alt="Автор" />
+              Написала Оксана Добровольська | 02.04.2025 | 8хв читати
+            </div>
+            <p class="post-text">
+                Сучасний світ усе більше схиляється до усвідомленого споживання, і меблева індустрія — не виняток. Екологічні меблі стають не просто трендом, а необхідністю для збереження здоров'я та довкілля. Чому варто обирати саме такі матеріали, і які меблі є найбезпечнішими? Давайте розберемося.
+            </p>
+            <div class="blog-c">
+              <h2 class="blog-title">
+                <img src="./images/blog_ellipse1.svg" />
+                Що таке екологічні меблі?
+              </h2>
+              <p>
+                Екологічні меблі – це вироби, створені з натуральних або перероблених матеріалів із мінімальним впливом на довкілля. 
+              </p>
+              <ul>
+                <li>
+                  <img src="./images/check-blog.svg" />
+                  <span class="check-styles">виготовлені з безпечної сировини без шкідливих домішок;</span>
+                </li>
+                <li>
+                  <img src="./images/check-blog.svg" />
+                  <span class="check-styles">легко утилізуються або переробляються;</span></li>
+                <li>
+                  <img src="./images/check-blog.svg" />
+                  <span class="check-styles">довговічні, що зменшує кількість відходів;</span>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                  <img src="./images/lamp.svg" />
+                  Виробництво еко-меблів споживає менше води та електроенергії, ніж традиційне меблеве виробництво.
+                </li>
+              </ul>
+              <div class="blog-image-secondary">
+                <img src="./images/blog_details2_1.1.jpg" alt="фото кімнати із екологічними меблями" />
+                <img src="./images/blog_details2_1.2.jpg" alt="фото екологічного стільця" />
+                <img src="./images/blog_details2_1.3.jpg" alt="фото декору із екологічного дерева " />
+              </div>
+            </div>
+            <div class="blog-c">
+              <h2 class="blog-title">
+                <img src="./images/blog_ellipse2.svg" />
+                Чому варто обирати екологічні матеріали
+              </h2>
+              <ul>
+                <li>
+                    <img src="./images/check-blog.svg" />
+                    <div class="text-container">
+                      <span class="check-styles">Безпека для здоров’я🏡:</span>
+                      Багато традиційних меблів містять токсичні речовини (формальдегіди, ПВХ, важкі метали), які можуть виділятися в повітря. Еко-меблі не містять небезпечних хімікатів, що особливо важливо для дітей та алергіків                    </div>
+                  </li>
+                <li>
+                    <img src="./images/check-blog.svg" />
+                    <div class="text-container">
+                      <span class="check-styles">Вплив на довкілля🌱:</span>
+                      Вибираючи екологічні меблі, ви зменшуєте вирубку лісів, забруднення води та ґрунту токсичними речовинами.
+                    </div>
+                  </li>
+              </ul>
+            </div>
+            <div class="blog-c">
+              <h2 class="blog-title">
+                <img src="./images/blog_ellipse3.svg" />
+                Які меблі безпечні для здоров’я та навколишнього середовища?
+              </h2>
+              <ul>
+                <li>
+                    <img src="./images/check-blog.svg" />
+                    <div class="text-container">
+                      <span class="check-styles">Натуральна деревина🌳:</span>
+                      Один із найкращих варіантів для екологічного інтер’єру. Особливо ціняться меблі з дуба, бука, сосни, горіха.                    </div>
+                  </li>
+                  <li>
+                    <img src="./images/check-blog.svg" />
+                    <div class="text-container">
+                      <span class="check-styles">Перероблені матеріали♻️:</span>
+                      Використання переробленого пластику, металу та скла допомагає зменшити відходи та споживання нових ресурсів.                    </div>
+                  </li>
+                  <li>
+                    <img src="./images/check-blog.svg" />
+                    <div class="text-container">
+                      <span class="check-styles">Натуральні тканини та наповнювачі 🛋:</span>
+                      Замість синтетичних варіантів краще обирати: Льон, бавовну, шерсть для оббивки.  Кокосову койру, латекс, кінський волос для матраців.                    </div>
+                  </li>
+                  <li>
+                    <img src="./images/check-blog.svg" />
+                    <div class="text-container">
+                      <span class="check-styles">Безпечні покриття та фарби 🎨:</span>
+                      Для обробки меблів варто використовувати натуральні олії та віск замість хімічних лаків і фарб.                    </div>
+                  </li>
+              </ul>
+            </div>
+            <div class="blog-c">
+              <h2 class="blog-title">
+                <img src="./images/blog_ellipse4.svg" />
+                Як обирати екологічні меблі?
+              </h2>
+              <ul>
+                <li>
+                    <img src="./images/check-blog.svg" />
+                    <div class="text-container">
+                      <span class="check-styles">Перевіряйте склад матеріалів</span>
+                      – уникайте пластику, ДСП із формальдегідом.
+                    </div>
+                  </li>
+                  <li>
+                    <img src="./images/check-blog.svg" />
+                    <div class="text-container">
+                      <span class="check-styles">Шукайте екосертифікати</span>
+                      – FSC, GREENGUARD, OEKO-TEX.
+                    </div>
+                  </li>
+                  <li>
+                    <img src="./images/check-blog.svg" />
+                    <div class="text-container">
+                      <span class="check-styles">Запитуйте у виробника</span>
+                      – FSC, GREENGUARD, OEKO-TEX.
+                    </div>
+                  </li>
+                  <li>
+                    <img src="./images/check-blog.svg" />
+                    <div class="text-container">
+                      <span class="check-styles">Обирайте довговічні меблі</span>
+                      – якісні матеріали прослужать десятки років. 
+                    </div>
+                  </li>
+               
+              </ul>
+              <ul>
+                <li>
+                  <img src="./images/lamp.svg" />
+                  Екологічні меблі – це не просто модний тренд, а необхідність для здорового життя та збереження природи. Вибираючи безпечні матеріали та відповідальних виробників, ми створюємо комфортний, стильний та екологічний простір у своєму домі.                </li>
+              </ul>
+            </div>
+          </div>
+          <aside class="sidebar">
+            <div class="filter-box">
+              <h3>Фільтр по категоріях</h3>
+              <div class="tags">
+                <button>меблі</button>
+                <button>ліжко</button>
+                <button>декор</button>
+                <button>кольори</button>
+                <button>стільці</button>
+                <button>вітальня</button>
+                <button>столи</button>
+                <button>диван</button>
+                <button>освітлення</button>
+                <button>спальня</button>
+              </div>
+            </div>
+            <div class="toc-box">
+              <h3>Зміст</h3>
+              <ul>
+                <li><a href="#">Секрети організації робочого простору</a></li>
+                <li><a href="#">Новинка – дизайн безстележки!</a></li>
+                <li><a href="#">Новинка – диван «Брайтон»</a></li>
+                <li><a href="#">Що таке “буквові ламелі”?</a></li>
+                <li><a href="./blog_d.html">Як зробити вітальню затишною?</a></li>
+                <li><a href="#">Диван чи ліжко для щоденного сну?</a></li>
+                <li><a href="#">Дизайн чи зручність: що важливіше?</a></li>
+                <li><a href="./blog_d2.html">Екологічні меблі: тренд чи необхідність?</a></li>
+                <li><a href="#">Мінімалізм vs класика: який стиль обрати?</a></li>
+              </ul>
+            </div>
+            <div class="secondary-image">
+              <img
+                src="./images/blog_details2_1.4.jpg"
+                alt="Вітальня з диваном"
+              />
+            </div>
+          </aside>
+        </div>
+      </section>
+      <section class="news-section">
+        <div class="container">
+          <div class="news-upper">
+            <h3>Останні новини</h3>
+            <div class="news-buttons">
+              <button id="prevNews" class="arrow-btn">←</button>
+              <button id="nextNews" class="arrow-btn">→</button>
+            </div>
+          </div>
+          <div class="card-container">
+            <div class="news-card">
+              <img
+                src="./images/blog_foto6.jpg"
+                alt="Новина 6"
+                class="news-img"
+              />
+              <div class="news-content">
+                <span class="news-date">04/03/2025</span>
+                <h3 class="news-title">Диван чи ліжко для щоденного сну?</h3>
+                <p class="news-text">
+                  Вибір між диваном та ліжком для щоденного сну залежить від ваших
+                  потреб та умов проживання.
+                </p>
+                <a href="#" class="news-link">Читати більше</a>
+              </div>
+            </div>
+            <div class="news-card">
+              <img
+                src="./images/1news-image.png"
+                alt="Новина 1"
+                class="news-img"
+              />
+              <div class="news-content">
+                <span class="news-date">14/03/2025</span>
+                <h3 class="news-title">Що таке “букові ламелі”?</h3>
+                <p class="news-text">
+                  Ламелі виготовлені з букової деревини, відрізняється пружністю,
+                  еластичністю в поєднанні з міцністю, добре згинається.
+                </p>
+                <a href="#" class="news-link">Читати більше</a>
+              </div>
+            </div>
+            <div class="news-card">
+              <img
+                src="./images/blog_foto3.jpg"
+                alt="Новина 3"
+                class="news-img"
+              />
+              <div class="news-content">
+                <span class="news-date">03/03/2025</span>
+                <h3 class="news-title">
+                  Екологічні меблі: тренд чи необхідність?
+                </h3>
+                <p class="news-text">
+                  Чому варто обирати екологічні матеріали та які меблі безпечні
+                  для здоров'я та навколишнього середовища?
+                </p>
+                <a href="#" class="news-link">Читати більше</a>
+              </div>
+            </div>
+            <div class="news-card">
+              <img
+                src="./images/2news-image.png"
+                alt="Новина 2"
+                class="news-img"
+              />
+              <div class="news-content">
+                <span class="news-date">10/03/2025</span>
+                <h3 class="news-title">Дизайн чи зручність: що важливіше?</h3>
+                <p class="news-text">
+                  Як обрати диван, що поєднує стиль і комфорт? Розбираємо основні
+                  критерії та рекомендації.
+                </p>
+                <a href="#" class="news-link">Читати більше</a>
+              </div>
+            </div>
+            <div class="news-card">
+              <img
+                src="./images/blog_foto4.jpg"
+                alt="Новина 4"
+                class="news-img"
+              />
+              <div class="news-content">
+                <span class="news-date">08/03/2025</span>
+                <h3 class="news-title">Мінімалізм vs класика: що обрати?</h3>
+                <p class="news-text">
+                  Який стиль спальні обрати та як правильно поєднувати меблі та
+                  декор? Головні поради дизайнерів.
+                </p>
+                <a href="#" class="news-link">Читати більше</a>
+              </div>
+            </div>
+            <div class="news-card">
+              <img
+                src="./images/blog_foto5.jpg"
+                alt="Новина 5"
+                class="news-img"
+              />
+              <div class="news-content">
+                <span class="news-date">12/03/2025</span>
+                <h3 class="news-title">Новинка – диван «Брайтон»!</h3>
+                <p class="news-text">
+                  Окрім сучасного дизайну та високоякісної оббивки, він
+                  відрізняється своєю ергономікою.
+                </p>
+                <a href="#" class="news-link">Читати більше</a>
+              </div>
+            </div>
+            <div class="news-card">
+              <img
+                src="./images/blog_foto2.jpg"
+                alt="Новина 2"
+                class="news-img"
+              />
+              <div class="news-content">
+                <span class="news-date">10/03/2025</span>
+                <h3 class="news-title">Новинки – дизайн бестселерів!</h3>
+                <p class="news-text">
+                  Огляд найпопулярніших моделей меблів цього сезону, що стали
+                  справжніми бестселерами серед наших покупців.
+                </p>
+                <a href="#" class="news-link">Читати більше</a>
+              </div>
+            </div>
+            <div class="news-card">
+              <img
+                src="./images/blog_foto1.jpg"
+                alt="Новина 1"
+                class="news-img"
+              />
+              <div class="news-content">
+                <span class="news-date">14/03/2025</span>
+                <h3 class="news-title">Секрети організації робочого простору</h3>
+                <p class="news-text">
+                  Які меблі та аксесуари допоможуть створити комфортний та
+                  продуктивний робочий куточок вдома?
+                </p>
+                <a href="#" class="news-link">Читати більше</a>
+              </div>
+            </div>
+            <div class="news-card">
+              <img
+                src="./images/blog_foto9.jpg"
+                alt="Новина 9"
+                class="news-img"
+              />
+              <div class="news-content">
+                <span class="news-date">03/03/2025</span>
+                <h3 class="news-title">Як зробити вітальню затишною?</h3>
+                <p class="news-text">
+                  Поради щодо вибору меблів, кольорової гами та аксесуарів для
+                  створення ідеальної атмосфери у вашій вітальні.
+                </p>
+                <a href="./blog_d.html" class="news-link">Читати більше</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-top">
+            <div class="footer-logo-container">
+              <img src="./images/logo-footer.svg" alt="" class="footer-logo" />
+              <p>
+                <img
+                  src="./images/fi-bs-phone-call--footer.svg"
+                  alt=""
+                  class="footer-contacts"
+                />
+                +38 (067) 478 12 54
+              </p>
+              <p>
+                <img
+                  src="./images/fi-bs-marker--footer.svg"
+                  alt=""
+                  class="footer-contacts"
+                />
+                проспект В'ячеслава Чорновола, 101, Львів, Україна
+              </p>
+            </div>
+            <div class="footer-links">
+              <ul>
+                <li><a href="./about-us.html">Про нас</a></li>
+                <li><a href="./catalog.html">Каталог</a></li>
+                <li><a href="./contact-us.html">Контакти</a></li>
+              </ul>
+              <ul>
+                <li><a href="./personalinfo.html">Особистий кабінет</a></li>
+                <li><a href="./blog.html">Блог</a></li>
+                <li><a href="./faqs.html">FAQ</a></li>
+              </ul>
+            </div>
+            <div class="footer-subscribe">
+              <p>Підписатися на електронну пошту</p>
+              <div class="subscribe-box">
+                <input
+                  class="input"
+                  type="email"
+                  placeholder="       your email..."
+                />
+                <button class="send-btn" id="subscribe-btn">
+                  <img src="./images/send.svg" alt="send" />
+                </button>
+              </div>
+              <div class="modal-overlay" id="modal">
+                <div class="modal-message fancy">
+                  <button class="modal-close" id="modal-close">×</button>
+                  <div class="modal-icon">
+                    <img src="./images/checkmark.svg" />
+                  </div>
+                  <h2 class="modal-title">Дякуємо за підписку!</h2>
+                </div>
+              </div>
+  
+              <div class="social-icons">
+                <div class="icon-container">
+                  <img class="dsh" src="./images/icon-instagram.svg" alt="" />
+                </div>
+                <div class="icon-container">
+                  <img src="./images/icon-facebook.svg" alt="" />
+                </div>
+                <div class="icon-container">
+                  <img src="./images/icon-twitter.svg" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <script>
+        const modal = document.getElementById("modal");
+        const closeBtn = document.getElementById("modal-close");
+  
+        document
+          .getElementById("subscribe-btn")
+          .addEventListener("click", function () {
+            const emailInput = document.querySelector(".input").value.trim();
+  
+            if (emailInput === "") {
+              alert("Будь ласка, введіть email");
+              return;
+            }
+  
+            modal.classList.add("show");
+            modal.classList.remove("hide");
+  
+            setTimeout(() => {
+              closeModal();
+            }, 6000);
+  
+            document.querySelector(".input").value = "";
+          });
+  
+        closeBtn.addEventListener("click", closeModal);
+  
+        function closeModal() {
+          modal.classList.add("hide");
+          modal.classList.remove("show");
+  
+          setTimeout(() => {
+            modal.style.display = "none";
+          }, 300);
+        }
+  
+        const observer = new MutationObserver(() => {
+          if (modal.classList.contains("show")) {
+            modal.style.display = "flex";
+          }
+        });
+  
+        observer.observe(modal, { attributes: true });
+      </script>
+      <script>
+        const container = document.querySelector(".card-container");
+        const cards = Array.from(container.children);
+        const cardsPerPage = 3;
+        let currentPage = 0;
+  
+        function showCards() {
+          cards.forEach((card, index) => {
+            card.style.display =
+              index >= currentPage * cardsPerPage &&
+              index < (currentPage + 1) * cardsPerPage
+                ? "block"
+                : "none";
+          });
+        }
+  
+        document.getElementById("nextNews").addEventListener("click", () => {
+          if ((currentPage + 1) * cardsPerPage < cards.length) {
+            currentPage++;
+            showCards();
+          }
+        });
+  
+        document.getElementById("prevNews").addEventListener("click", () => {
+          if (currentPage > 0) {
+            currentPage--;
+            showCards();
+          }
+        });
+  
+        showCards();
+      </script>
+</body>
+</html>
