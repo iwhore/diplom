@@ -12,7 +12,7 @@
       href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
       rel="stylesheet"
     />
-    <script src="./js/product.js"></script>
+
   </head>
   <body>
     <header>
@@ -139,67 +139,76 @@
       </div>
     </header>
     <section class="product-page">
-        <div class="product-container">
-          
-          <div class="product-header">
-            <h2 class="product-heading">TEXT</h2>
-          </div>
-      
-          <div class="product-content">
-            <!-- Ліва частина -->
-            <div class="product-left">
-              <div class="product-main-image"><img src="./images/lizko2.svg" alt=""></div>
-              <div class="product-thumbnails">
-                <div class="thumbnail"></div>
-                <div class="thumbnail"></div>
-                <div class="thumbnail"></div>
-              </div>
+      <div class="product-container">
+        <div class="product-content">
+          <!-- Ліва частина -->
+          <div class="product-left">
+            <div class="product-main-image">
+              <img src="./images/lizko2.svg" alt="" />
             </div>
-      
-            <!-- Права частина -->
-            <div class="product-right">
-              <div class="product-name">Шафа-купе Гербор</div>
-              <div class="product-price">17 460</div>
-              <div class="product-description">Description</div>
-      
-              <div class="product-color">
-                <label class="color-label">color</label>
-                <div class="color-options">
-                    <label class="color-radio white">
-                      <input type="radio" name="color" value="Білий" />
-                      <span></span>
-                    </label>
-                    <label class="color-radio black">
-                      <input type="radio" name="color" value="Чорний" />
-                      <span></span>
-                    </label>
-                    <label class="color-radio gray">
-                      <input type="radio" name="color" value="Сірий" />
-                      <span></span>
-                    </label>
-                    <label class="color-radio brown">
-                      <input type="radio" name="color" value="Коричневий" />
-                      <span></span>
-                    </label>
-                  </div>
-              </div>
-      
-              <div class="product-quantity">
-                <button class="quantity-btn">−</button>
-                <span class="quantity-value">1</span>
-                <button class="quantity-btn">+</button>
-              </div>
-      
-              <div class="product-actions">
-                <button class="btn-buy">Buy Now</button>
-                <button class="btn-add-cart">Add to Cart</button>
-                <button class="btn-favorite">♡</button>
-              </div>
+            <div class="product-thumbnails">
+              <div class="thumbnail"></div>
+              <div class="thumbnail"></div>
+              <div class="thumbnail"></div>
             </div>
           </div>
-      
+
+          <!-- Права частина -->
+          <div class="product-right">
+            <div class="product-name">
+              Диван Vika Злата 215x100 см темно-сірий (Аляска 05 / Simple 52)
+            </div>
+            <div class="product-price">17 460</div>
+            <div class="product-description">
+              Диван Злата від фабрики Vika — стильний та елегантний диван,
+              створений для прогресивних людей, які люблять розмаїття у
+              повсякденному житті.
+            </div>
+
+            <div class="product-color">
+              <div class="selected-color">
+                <p class="color-text"> Колір: <span id="current-color">не вибрано</span></p>
+              </div>
+              <div class="color-options">
+                <label class="color-radio white">
+                  <input type="radio" name="color" value="Білий" />
+                  <span></span>
+                </label>
+                <label class="color-radio black">
+                  <input type="radio" name="color" value="Чорний" />
+                  <span></span>
+                </label>
+                <label class="color-radio gray">
+                  <input type="radio" name="color" value="Сірий" />
+                  <span></span>
+                </label>
+                <label class="color-radio brown">
+                  <input type="radio" name="color" value="Коричневий" />
+                  <span></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="product-quantity">
+              <button class="quantity-btn minus">−</button>
+              <span class="quantity-value">1</span>
+              <button class="quantity-btn plus">+</button>
+              <button class="btn-add-cart">Add to Cart</button>
+              <button class="btn-favorite">
+                <img src="./images/fi-bs-heart (1).svg" alt="" />
+              </button>
+            </div>
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
+    <section>
+      <div>
+        <p>відгуки</p>
+      </div>
+      <div>опис</div>
+      <div></div>
+    </section>
     <footer class="footer">
       <div class="container">
         <div class="footer-top">
@@ -271,6 +280,6 @@
         </div>
       </div>
     </footer>
-    <script src="./js/product.js"></script>
   </body>
+  <script src="./js/product.js"></script>
 </html>

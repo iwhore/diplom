@@ -30,7 +30,7 @@ header h1 {
 
 .description {
   margin-left: -20px;
-  margin-top: 10px;
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -60,7 +60,7 @@ header h1 {
   justify-content: space-between;
   gap: 40px;
   padding: 35px 0;
-  width: 620px;
+  width: 750px;
   border-bottom: 1px solid #ddd;
   background: #fff;
 }
@@ -72,14 +72,26 @@ header h1 {
 .image-placeholder {
   border: 1px solid #534139;
   border-radius: 16px;
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   margin-right: 26px;
+  margin-left: -20px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 .cart-item img {
-  width: 100px;
-  height: 100px;
-  border-radius: 16px;
+  width: 110px;
+  height: 110px;
+
+}
+
+element.style {
+  max-width: 100%; 
+  max-height: 100%;
+  object-fit: none;
+  object-fit: none;
+  border-radius: 10px;
 }
 
 .remove-item {
@@ -132,9 +144,9 @@ header h1 {
 
 /* Summary */
 .order-summary {
-  width: 520px;
-  height: 660px;
-  padding: 20px;
+  width: 400px;
+  height: 440px;
+  padding: 10px;
   border-radius: 30px;
   border: 1px solid #bfbbaf;
   text-align: center;
@@ -150,9 +162,10 @@ header h1 {
   font-size: 32px;
   font-weight: bold;
   margin: 0px;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
   border-bottom: 2px solid #bfbbaf;
   margin-bottom: 15px;
+  padding-top: 10px;
 }
 
 .order-summary hr {
@@ -164,7 +177,7 @@ header h1 {
 .order-summary p {
   display: flex;
   justify-content: space-between;
-  margin: 25px 0;
+  margin: 15px 0;
   font-weight: 600;
   padding-top: 10px;
 }
@@ -177,24 +190,23 @@ header h1 {
 }
 
 .check-out {
-  margin-top: 60px;
+  margin-top: 30px;
   border-top: 2px solid #ccc;
 }
 
 .checkout-btn {
-  width: 100%;
+  width: 340px;
   padding: 12px;
   background: #534139;
   color: white;
   border: none;
   border-radius: 30px;
   cursor: pointer;
-  width: 430px;
-  height: 85px;
+  width: 270px;
+  height: 50px;
   border-radius: 60px;
   font-weight: 600;
-  font-size: 24px;
-  margin-top: 30px;
+  font-size: 14px;
 }
 
 .checkout-btn:hover {

@@ -71,7 +71,29 @@
         </div>
       </section>
     </div>
-   
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Поточна дата
+        const dateSpan = document.querySelector('.order-details .row:nth-child(2) span:last-child');
+        const currentDate = new Date();
+        const formattedDate = currentDate.toLocaleDateString("uk-UA", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric"
+        }).replace(",", "").replace(/\./g, "/");
+        dateSpan.textContent = formattedDate;
+    
+        // Дані із localStorage
+        const orderData = JSON.parse(localStorage.getItem("orderSummary"));
+        if (orderData) {
+          const quantitySpan = document.querySelector('.order-details .row:nth-child(3) span:last-child');
+          const totalSpan = document.querySelector('.order-details .row.total span:last-child');
+    
+          quantitySpan.textContent = orderData.quantity;
+          totalSpan.textContent = orderData.total;
+        }
+      });
+    </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
           const tabs = document.querySelectorAll(".tab");
@@ -122,6 +144,20 @@
             menu.classList.remove("active");
           }
         });
+        document.addEventListener("DOMContentLoaded", function () {
+          const summary = JSON.parse(localStorage.getItem("orderSummary"));
+          const dateElem = document.querySelector(".order-details .row:nth-child(2) span:last-child");
+          const quantityElem = document.querySelector(".order-details .row:nth-child(3) span:last-child");
+          const totalElem = document.querySelector(".order-details .row.total span:last-child");
+        
+          const today = new Date();
+          const formattedDate = today.toLocaleDateString("uk-UA");
+        
+          if (dateElem) dateElem.textContent = formattedDate;
+          if (quantityElem && summary) quantityElem.textContent = summary.totalQuantity;
+          if (totalElem && summary) totalElem.textContent = summary.total.toFixed(2);
+        });
+        
       </script>
      
   </body>
