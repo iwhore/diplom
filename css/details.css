@@ -267,32 +267,49 @@ section {
   font-weight: 500;
 }
 
-.payment-methods span {
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 100%;
-  letter-spacing: 0%;
+/* --------------------------------*/
+.payment-methods .payment-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-.payment-methods input[type="radio"] {
-  appearance: none;
+.payment-methods input[type="radio"]:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(63, 42, 29, 0.5);
+}
+
+.payment-methods input[type="radio"]:hover {
+  border-color: #534139;
+}
+
+.payment-methods input[type="radio"] + .custom-radio {
   width: 60px;
   height: 60px;
-  border: 1px solid #3f2a1d;
+  border: 1px solid #534139;
   border-radius: 50%;
+  display: inline-block;
   position: relative;
-  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.payment-methods input[type="radio"]:checked::before {
+.payment-methods input[type="radio"]:checked + .custom-radio::before {
   content: "";
   position: absolute;
   top: 9px;
   left: 9px;
   width: 40px;
   height: 40px;
-  background: #3f2a1d;
+  background: #534139;
   border-radius: 50%;
+}
+
+.payment-methods h3 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  color: #000;
+  margin-bottom: 28px;
 }
 
 .card-details {
@@ -301,9 +318,13 @@ section {
   gap: 20px;
 }
 
-/*details order radiobutton*/
-.payment-method-wrapper {
-  margin-top: -60px;
+.payment-method-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  color: #000;
+  text-align: left;
+  margin-bottom: 20px;
 }
 
 .payment-option {
@@ -315,7 +336,7 @@ section {
 }
 
 .payment-option:hover .custom-radio {
-  border-color: #4b3a34;
+  border-color: #534139;
 }
 
 .payment-option input[type="radio"] {
@@ -331,7 +352,7 @@ input[type="radio"] {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  border: 2px solid #4b3a34;
+  border: 2px solid #534139;
   margin-right: 15px;
   display: inline-block;
   transition: 0.3s ease;
@@ -341,7 +362,7 @@ input[type="radio"] {
   content: "";
   width: 16px;
   height: 16px;
-  background-color: #4b3a34;
+  background-color: #534139;
   border-radius: 50%;
   transform: scale(0);
   transition: 0.2s ease-in-out;
@@ -349,6 +370,14 @@ input[type="radio"] {
 
 input[type="radio"]:checked + .custom-radio::after {
   transform: scale(1);
+}
+
+.payment-methods .payment-option span:last-child {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: #000;
+  margin-left: 10px;
 }
 
 .filter-block label {
@@ -362,15 +391,8 @@ label {
   font-weight: bold;
   font-size: 18px;
 }
-.payment-method-title {
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-size: 32px;
-  color: #000;
-  text-align: left;
-  margin-bottom: 20px;
-}
 
+/*  form-group */
 .card-row {
   display: flex;
   gap: 20px;
