@@ -1121,25 +1121,31 @@ p {
   padding: 0 15px;
 }
 
+.section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+}
+
 .section-label {
-  font-family: "Lora", sans-serif;
-  font-weight: 800;
-  font-size: 24px;
-  color: #534139;
-  text-transform: uppercase;
-  margin-bottom: 10px;
+font-family: "Lora", sans-serif;
+font-weight: 800;
+font-size: 18px;
+color: #534139;
+margin-bottom: -10px;
 }
 
-.section-heading h2 {
-  font-family: "Lora", sans-serif;
-  font-weight: 600;
-  font-size: 30px;
-  color: #000;
+.section-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: 20px;
 }
 
-.section-heading h2 span {
-  color: #534139;
+.section-title span {
+  color: #534139; 
 }
+
 
 
 /* кнопочки зі стрілочками*/
