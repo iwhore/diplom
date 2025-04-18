@@ -61,13 +61,12 @@
 }
 
 .thumbnail {
-  width: 200px;
-  height: 200px;
-  background: #ddd;
-  text-align: center;
+  border: 1px solid #534139;
+  border-radius: 30px;
+  width: 197px;
+  height: 206px;
   font-size: 12px;
   padding-top: 40px;
-  border-radius: 30px;
 }
 
 /* Права частина */
@@ -267,15 +266,177 @@
 }
 
 .color-radio.gray span {
-  background-color: #888;
+  background-color: #d9d9d9;
 }
 
 .color-radio.brown span {
-  background-color: #6f4e37;
+  background-color: #534139;
 }
 
-/* Виділення обраного */
 .color-radio input[type="radio"]:checked + span {
   border: 2px solid #333;
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
 }
+
+/*форма для відгуку*/
+.review-section {
+  max-width: 700px;
+  margin-left: 160px;
+}
+
+.review-section h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  color: #000;
+  font-size: 24px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #000;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  height: 54px;
+  border: 1px solid #bfbbaf;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  font-size: 14px;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: #534139;
+  box-shadow: 0 0 8px #534139;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+  height: 150px;
+}
+
+.stars {
+  color: orange;
+  font-size: 20px;
+}
+
+.upload-box {
+  border: 1px solid #bfbbaf;
+  border-radius: 30px;
+  width: 700px;
+  height: 274px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  font-family: "Lora", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  color: #bfbbaf;
+  gap: 10px;
+}
+
+.upload-box input[type="file"] {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+::placeholder {
+  font-family: "Lora", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #bfbbaf;
+}
+.submit-button {
+  background-color: #534139;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 60px;
+  cursor: pointer;
+  font-size: 16px;
+  align-self: flex-start;
+  width: 217px;
+  height: 56px;
+}
+
+.submit-button:hover {
+  background-color: #000;
+}
+/*форма для відгуку*/
+.testimonial-quote {
+  font-style: italic;
+  color: #333;
+}
+
+.testimonial-author {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
+.testimonial-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: #000;
+}
+.testimonial-stars {
+  color: #ee9c19;
+  margin-top: 10px;
+}
+
+/* Зірочки для форми */
+.star-rating {
+  display: flex;
+  text-align: left;
+  gap: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.star-rating span {
+  font-size: 33px;
+  cursor: pointer;
+  color: #bfbbaf;
+  transition: color 0.3s;
+}
+
+.star-rating span.active {
+  color: #ee9c19;
+}
+/**/

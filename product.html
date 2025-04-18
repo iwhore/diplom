@@ -12,7 +12,6 @@
       href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
       rel="stylesheet"
     />
-
   </head>
   <body>
     <header>
@@ -158,7 +157,7 @@
             <div class="product-name">
               Диван Vika Злата 215x100 см темно-сірий (Аляска 05 / Simple 52)
             </div>
-            <div class="product-price">17 460</div>
+            <div class="product-price">17 460грн</div>
             <div class="product-description">
               Диван Злата від фабрики Vika — стильний та елегантний диван,
               створений для прогресивних людей, які люблять розмаїття у
@@ -167,7 +166,9 @@
 
             <div class="product-color">
               <div class="selected-color">
-                <p class="color-text"> Колір: <span id="current-color">не вибрано</span></p>
+                <p class="color-text">
+                  Колір: <span id="current-color">не вибрано</span>
+                </p>
               </div>
               <div class="color-options">
                 <label class="color-radio white">
@@ -190,26 +191,120 @@
             </div>
 
             <div class="product-quantity">
-              <button class="quantity-btn minus">−</button>
+              <button class="quantity-btn minus">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_1094_782)">
+                    <path d="M20 8.75H0V11.25H20V8.75Z" fill="#534139" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1094_782">
+                      <rect width="20" height="20" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </button>
               <span class="quantity-value">1</span>
-              <button class="quantity-btn plus">+</button>
-              <button class="btn-add-cart">Add to Cart</button>
+              <button class="quantity-btn plus">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_1094_784)">
+                    <path
+                      d="M20 8.75H11.25V0H8.75V8.75H0V11.25H8.75V20H11.25V11.25H20V8.75Z"
+                      fill="#534139"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1094_784">
+                      <rect width="20" height="20" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </button>
+              <button class="btn-add-cart">Додати у кошик</button>
               <button class="btn-favorite">
-                <img src="./images/fi-bs-heart (1).svg" alt="" />
+                <img src="./images/fi-bs-heart (1).svg" alt="іконка серця" />
               </button>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <section>
-      <div>
-        <p>відгуки</p>
-      </div>
-      <div>опис</div>
-      <div></div>
+    <section class="review-section">
+      <h2>Додайте свій відгук</h2>
+      <form class="review-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Ім’я</label>
+            <input type="text" id="name" placeholder="Ваше ім’я" />
+          </div>
+          <div class="form-group">
+            <label for="email">Електронна пошта</label>
+            <input type="email" id="email" placeholder="example@mail.com" />
+          </div>
+        </div>
+
+        <form id="review-form">
+          <label for="rating" class="testimonial-title">Ваша оцінка</label>
+          <div class="star-rating" id="star-rating">
+            <span data-value="1">☆</span>
+            <span data-value="2">☆</span>
+            <span data-value="3">☆</span>
+            <span data-value="4">☆</span>
+            <span data-value="5">☆</span>
+          </div>
+        </form>
+
+        <div class="form-group">
+          <label for="review">Відгук</label>
+          <textarea id="review" placeholder="Пишіть тут"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="media">Фото/Відео</label>
+          <div class="upload-box">
+            <svg
+              width="50"
+              height="50"
+              viewBox="0 0 50 50"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_1097_838)">
+                <path
+                  d="M40.625 0H9.375C6.88944 0.00275714 4.50647 0.991363 2.74892 2.74892C0.991363 4.50647 0.00275714 6.88944 0 9.375L0 40.625C0.00275714 43.1106 0.991363 45.4935 2.74892 47.2511C4.50647 49.0086 6.88944 49.9972 9.375 50H40.625C43.1106 49.9972 45.4935 49.0086 47.2511 47.2511C49.0086 45.4935 49.9972 43.1106 50 40.625V9.375C49.9972 6.88944 49.0086 4.50647 47.2511 2.74892C45.4935 0.991363 43.1106 0.00275714 40.625 0V0ZM9.375 6.25H40.625C41.4538 6.25 42.2487 6.57924 42.8347 7.16529C43.4208 7.75134 43.75 8.5462 43.75 9.375V40.625C43.7505 41.0354 43.6698 41.4418 43.5125 41.8208C43.3552 42.1999 43.1243 42.544 42.8333 42.8333L24.6417 24.6417C23.0789 23.0794 20.9597 22.2018 18.75 22.2018C16.5403 22.2018 14.4211 23.0794 12.8583 24.6417L6.25 31.25V9.375C6.25 8.5462 6.57924 7.75134 7.16529 7.16529C7.75134 6.57924 8.5462 6.25 9.375 6.25Z"
+                  fill="#534139"
+                />
+                <path
+                  d="M32.2903 20.8327C35.1668 20.8327 37.4987 18.5008 37.4987 15.6243C37.4987 12.7479 35.1668 10.416 32.2903 10.416C29.4139 10.416 27.082 12.7479 27.082 15.6243C27.082 18.5008 29.4139 20.8327 32.2903 20.8327Z"
+                  fill="#534139"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_1097_838">
+                  <rect width="50" height="50" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+            <input type="file" id="media" accept="image/*,video/*" />
+            <span>Завантажити фото/відео</span>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-button">Надіслати</button>
+      </form>
     </section>
-    <footer class="footer">
+    <!-- <footer class="footer">
       <div class="container">
         <div class="footer-top">
           <div class="footer-logo-container">
@@ -279,7 +374,85 @@
           </div>
         </div>
       </div>
-    </footer>
+    </footer>-->
   </body>
+  <script>
+    const slidesContainer = document.getElementById("slides-container");
+    const prevButton = document.getElementById("prev-btn");
+    const nextButton = document.getElementById("next-btn");
+    const form = document.getElementById("review-form");
+    const starRating = document.getElementById("star-rating");
+
+    let currentSlide = 0;
+    let selectedStars = 0;
+
+    // Показ слайдів
+    function showSlide(index) {
+      const slides = document.querySelectorAll(".testimonial-slide");
+      const totalSlides = slides.length;
+
+      if (index >= totalSlides) currentSlide = 0;
+      else if (index < 0) currentSlide = totalSlides - 1;
+      else currentSlide = index;
+
+      slidesContainer.style.transform = `translateX(${-currentSlide * 100}%)`;
+    }
+
+    // Навігація по слайдах
+    prevButton?.addEventListener("click", () => showSlide(currentSlide - 1));
+    nextButton?.addEventListener("click", () => showSlide(currentSlide + 1));
+
+    // Обробка кліку по зірках
+    starRating.addEventListener("click", (e) => {
+      if (e.target.tagName === "SPAN") {
+        selectedStars = Number(e.target.dataset.value);
+        updateStars();
+      }
+    });
+
+    // Підсвічування активних зірок
+    function updateStars() {
+      document.querySelectorAll("#star-rating span").forEach((star) => {
+        const value = Number(star.dataset.value);
+        star.classList.toggle("active", value <= selectedStars);
+      });
+    }
+
+    // Обробка відправки форми
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (selectedStars === 0) {
+        alert("Будь ласка, оберіть оцінку!");
+        return;
+      }
+
+      if (!name || !message) {
+        alert("Будь ласка, заповніть всі поля.");
+        return;
+      }
+
+      const newSlide = document.createElement("div");
+      newSlide.classList.add("testimonial-slide");
+      newSlide.innerHTML = `
+      <p class="testimonial-quote">“${message}”</p>
+      <div class="testimonial-author">${name}</div>
+      <div class="testimonial-stars">${"★".repeat(selectedStars)}${"☆".repeat(
+        5 - selectedStars
+      )}</div>
+    `;
+
+      slidesContainer.appendChild(newSlide);
+      form.reset();
+      selectedStars = 0;
+      updateStars();
+    });
+
+    showSlide(currentSlide);
+  </script>
+
   <script src="./js/product.js"></script>
 </html>
