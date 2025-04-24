@@ -196,8 +196,8 @@
 .product-card .add-to-cart {
   position: absolute;
   background: none;
-  border: none; 
-  border-radius: 0; 
+  border: none;
+  border-radius: 0;
   width: 50px;
   height: 50px;
   display: flex;
@@ -208,7 +208,6 @@
   cursor: pointer;
   transition: 0.3s ease;
 }
-
 
 .product-card .favorite {
   top: 12px;
@@ -286,7 +285,6 @@
   transition: 0.3s ease;
 }
 
-/* Стилі для іконки, які застосовуються до обох кнопок */
 .product-card .icon {
   width: 24px;
   height: 24px;
@@ -299,11 +297,11 @@
 }
 
 .product-card .favorite:hover path {
-  fill: #5b4433;  
+  fill: #5b4433;
 }
 
 .product-card .favorite.active path {
-  fill: #5b4433; 
+  fill: #5b4433;
   stroke: #5b4433;
 }
 
@@ -313,11 +311,11 @@
 }
 
 .product-card .add-to-cart:hover path {
-  fill: #5b4433;  
+  fill: #5b4433;
 }
 
 .product-card .add-to-cart.active path {
-  fill: #5b4433; 
+  fill: #5b4433;
 }
 
 .add-to-cart svg {
@@ -349,21 +347,18 @@
   opacity: 1;
 }
 
-
 .stars {
   color: #ff9800;
   font-size: 24px;
   margin-bottom: 12px;
 }
 
-
-
 /*------------search-----------*/
 .search-container input {
   border: 1px solid #bfbbaf;
   border-radius: 30px;
   width: 758px;
-height: 60px;
+  height: 60px;
   padding: 18px;
   font-size: 16px;
   font-family: "Lora", sans-serif;
@@ -387,7 +382,7 @@ height: 60px;
   border: none;
   cursor: pointer;
   padding: 0;
-  margin-left: 10px; /* Додано для того, щоб кнопка не була дуже близько до input */
+  margin-left: 10px;
 }
 
 .search-btn svg {
@@ -396,4 +391,92 @@ height: 60px;
   fill: #534139;
 }
 
+/*slidebar*/
 
+.sale-container {
+      border: 1px solid #d9d9d9;
+      border-radius: 60px;
+      width: 936px;
+      height: 460px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: #fafafa;
+      overflow: hidden;
+      margin: 0px auto;
+    }
+
+    .timer-block {
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; 
+      height: 100%;
+      text-align: center; 
+    }
+    
+    .timer-block h2 {
+      font-size: 30px; 
+      margin: 0;
+    }
+    
+    .timer-block h2 span {
+      color: #534139;
+    }
+    
+    .timer-block p {
+      margin-top: 20px; 
+      font-size: 16px;
+    }
+    
+    .timer {
+      display: flex;
+      gap: 30px; 
+      margin: 30px 0; 
+      font-weight: bold;
+    }
+    
+    .timer .time {
+      font-size: 2.5rem; 
+      display: block;
+    }
+    
+
+    .slider {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slides {
+      display: flex;
+      width: 200%;
+      height: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slides img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .nav {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ccc;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background: #534139;
+    }

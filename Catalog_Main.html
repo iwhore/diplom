@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Catalog</title>
+    <title>Catalog_Main</title>
     <link rel="stylesheet" href="./css/basic.css" />
     <link rel="stylesheet" href="./css/catalog.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -127,7 +127,39 @@
               </div>
             </aside>
     
-            <!-- Товари -->
+            <div class="sale-container">
+                <div class="timer-block">
+                  <h2><span>Весняний</span> Розпродаж!</h2>
+                  <p>Знижка 25% – Встигни до завершення акції!</p>
+                  <div class="timer">
+                    <div><span class="time" id="days">00</span>Дні</div>
+                    <div><span class="time" id="hours">00</span>Годин</div>
+                    <div><span class="time" id="minutes">00</span>Хвилин</div>
+                    <div><span class="time" id="seconds">00</span>Секунд</div>
+                  </div>
+                </div>
+                <div class="slider">
+                  <div class="slides" id="slides">
+                    <img src="/images/blog_foto1.jpg" alt="slide1">
+                    <img src="./images/blog_foto2.jpg" alt="slide2">
+                  </div>
+                  <div class="nav" id="dots">
+                    <div class="dot active" data-slide="0"></div>
+                    <div class="dot" data-slide="1"></div>
+                  </div>
+                  
+                </div>
+              </div>
+  <!--
+        <div class="sorting">
+          <label for="sort">Сортувати за:</label>
+          <select id="sort">
+            <option>Рейтингом</option>
+            <option>Ціною</option>
+            <option>Новизною</option>
+          </select>
+        </div>-->
+  <!-- Товари 
             <div class="products">
               <div class="product-card">
                 <button class="favorite">
@@ -199,7 +231,12 @@
                 </div>
                 <button class="add-to-cart"><img src="./images/brown-shoping.png" alt=""></button>
               </div>
-            </div>
+            </div>-->
+        
+      </div>
+      
+    </div>
+            
           </div>
           <!-- Пагінація -->
           <div class="pagination">
@@ -406,5 +443,61 @@
     
     
     </script>
+   <script>
+    function startCountdown(duration, display) {
+      let timer = duration, hours, minutes, seconds;
+      setInterval(() => {
+        hours = Math.floor(timer / 3600);
+        minutes = Math.floor((timer % 3600) / 60);
+        seconds = Math.floor(timer % 60);
+  
+        display.textContent = 
+          `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+  
+        if (--timer < 0) {
+          display.textContent = "00:00:00";
+        }
+      }, 1000);
+    }
+  
+    window.onload = () => {
+      const duration = 12 * 60 * 60; // 12 годин у секундах
+      const display = document.getElementById('timer');
+      startCountdown(duration, display);
+    };
+  </script>
+  <script>
+    // Timer
+    const endDate = new Date(Date.now() + 4 * 24 * 60 * 60 * 1000);
+    function updateTimer() {
+      const now = new Date();
+      const diff = endDate - now;
+      if (diff < 0) return;
+  
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+  
+      document.getElementById('days').textContent = String(days).padStart(2, '0');
+      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    }
+    setInterval(updateTimer, 1000);
+    updateTimer();
+  
+    // Simple slider
+    const slides = document.getElementById('slides');
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const index = +dot.dataset.slide;
+        slides.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach(d => d.classList.remove('active'));
+        dot.classList.add('active');
+      });
+    });
+  </script>
   </body>
 </html>
