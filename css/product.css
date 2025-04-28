@@ -46,7 +46,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 30px;
-  border: 1px solid #F7F2EF;
+  border: 1px solid #BFBBAF;
 }
 
 .product-main-image img {
@@ -61,20 +61,21 @@
 }
 
 .thumbnail {
-  border: 1px solid #F7F2EF;
+  border: 1px solid #BFBBAF;
   border-radius: 30px;
   width: 200px;
   height: 200px;
   font-size: 12px;
-  padding-top: 40px;overflow: hidden; 
+  padding-top: 40px;
+  overflow: hidden; 
+  text-align: center; 
 }
-
 
 .thumbnail img {
-  width: 90%;
-  height: 90%;
-  object-fit: cover; 
+  width: 180px;
+  height: 140px;
 }
+
 
 
 /* Права частина */
@@ -106,14 +107,14 @@
   font-weight: 400;
   font-size: 32px;
   line-height: 100%;
-  letter-spacing: 0%;
+  margin-top: -20px; 
 }
+
 
 .product-description {
   font-weight: 600;
   font-size: 20px;
   line-height: 100%;
-  letter-spacing: 0%;
 }
 
 .color-label {
@@ -148,11 +149,11 @@
 }
 
 .quantity-btn {
-  border: 1px solid #ccc;
+  border: 1px solid #534139;
   background: #fff;
   cursor: pointer;
-  width: 50px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   margin: -11px;
 }
 
@@ -175,11 +176,12 @@
   font-weight: bold;
   width: 40px;
   text-align: center;
-  padding: 10px;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-  height: 40px;
+  padding: 20px;
+  border-top: 1px solid #534139;
+  border-bottom: 1px solid #534139;
+  height: 60px;
   width: 55px;
+  font-size: 18px;
 }
 
 .product-actions {
@@ -208,16 +210,18 @@
   color: white;
   margin-right: 20px;
 }
-
+.btn-add-cart:hover{
+  color:white;
+  background-color: #000;
+}
 .btn-favorite {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   background-color: white;
   border: 1px solid #534139;
   border-radius: 50%;
-  font-size: 24px;
   cursor: pointer;
-  padding: 7px;
+  padding: 10px;
 }
 
 .color-text {
@@ -225,7 +229,7 @@
   font-size: 24px;
   line-height: 100%;
   letter-spacing: 0%;
-  margin-left: 10px;  
+  margin-left: 6px;  
 }
 
 .color-text span {
@@ -235,8 +239,8 @@
 }
 
 .btn-favorite img {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
 }
 
 .color-options {
@@ -302,9 +306,9 @@
   font-weight: 600;
   font-size: 32px;
   color: #000;
-  font-size: 24px;
-  margin-bottom: 24px;
+  margin-bottom: 40px;
   text-align: left;
+  margin-left: 10px;
 }
 
 .review-form {
@@ -317,6 +321,7 @@
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  margin-top: 10px;
 }
 
 .form-group {
@@ -330,8 +335,9 @@
   font-weight: 600;
   font-size: 20px;
   color: #000;
-  margin-bottom: 8px;
+  margin-bottom: 18px;
   font-weight: bold;
+  margin-left: 10px;
 }
 
 input[type="text"],
@@ -340,10 +346,11 @@ textarea {
   height: 54px;
   border: 1px solid #bfbbaf;
   padding: 10px 14px;
-  border: 1px solid #ccc;
+  border: 1px solid #bfbbaf;
   border-radius: 30px;
   font-size: 14px;
   transition: border 0.3s, box-shadow 0.3s;
+  margin-bottom: 40px;
 }
 input[type="text"]:focus,
 input[type="email"]:focus,
@@ -397,19 +404,23 @@ textarea {
 }
 .submit-button {
   background-color: #534139;
-  color: white;
+  color: #fff;
   border: none;
   padding: 12px 30px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
   border-radius: 60px;
   cursor: pointer;
-  font-size: 16px;
   align-self: flex-start;
-  width: 217px;
-  height: 56px;
+  width: 220px;
+  height: 60px;
+  margin-top: 40px;
 }
 
 .submit-button:hover {
   background-color: #000;
+  color: #fff;
 }
 /*форма для відгуку*/
 .testimonial-quote {
@@ -428,39 +439,43 @@ textarea {
   font-size: 24px;
   color: #000;
 }
-.testimonial-stars {
-  color: #ee9c19;
-  margin-top: 10px;
+
+.testimonial-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-left: 10px;
 }
 
 /* Зірочки для форми */
 .star-rating {
   display: flex;
-  text-align: left;
-  gap: 10px;
-  font-size: 1.5rem;
+  gap: 6px;
   cursor: pointer;
+  margin-bottom: 30px;
 }
 
 .star-rating span {
   font-size: 33px;
-  cursor: pointer;
   color: #bfbbaf;
   transition: color 0.3s;
 }
 
-.star-rating span.active {
+.star-rating span.active,
+.star-rating span:hover,
+.star-rating span.hovered {
   color: #ee9c19;
 }
-/**/
+
+/*зірочки для товару*/
 .stars2 {
   margin-top: -20px;  
   margin-left: 10px;  
-  color: orange;
+  color: ee9c19;
   font-size: 40px;
 }
 
-
+/*градуси та дуга */
 .product-main-image {
   position: relative;
 }
@@ -482,8 +497,6 @@ textarea {
   width: 100%;
   height: 100px;
 }
-
-
 .rotation-circle {
   width: 48px;
   height: 48px;

@@ -174,8 +174,17 @@
             <div class="product-name">
               Диван Vika Злата 215x100 см темно-сірий (Аляска 05 / Simple 52)
             </div>
-            <div class="stars2">★★★★★</div>
-            <div class="product-price">17 460грн</div>
+            <form id="review-form">
+              <div class="testimonial-header">
+                <div class="star-rating" id="star-rating">
+                  <span data-value="1">☆</span>
+                  <span data-value="2">☆</span>
+                  <span data-value="3">☆</span>
+                  <span data-value="4">☆</span>
+                  <span data-value="5">☆</span>
+                </div>
+              </div>
+            </form>            <div class="product-price">17 460грн</div>
             <div class="product-color">
               <div class="selected-color">
                 <p class="color-text">
@@ -245,7 +254,7 @@
               </button>
               <button class="btn-add-cart">Додати у кошик</button>
               <button class="btn-favorite">
-                <img src="./images/fi-bs-heart (1).svg" alt="іконка серця" />
+                <img src="./images/fi-bs-heartt.svg" alt="іконка серця" />
               </button>
             </div>
           </div>
@@ -253,7 +262,7 @@
       </div>
     </section>
     <section class="review-section">
-      <h2>Додайте свій відгук</h2>
+      <h2>Додайте свій відгук *</h2>
       <form class="review-form">
         <div class="form-row">
           <div class="form-group">
@@ -267,15 +276,19 @@
         </div>
 
         <form id="review-form">
-          <label for="rating" class="testimonial-title">Ваша оцінка</label>
-          <div class="star-rating" id="star-rating">
-            <span data-value="1">☆</span>
-            <span data-value="2">☆</span>
-            <span data-value="3">☆</span>
-            <span data-value="4">☆</span>
-            <span data-value="5">☆</span>
+          <div class="testimonial-header">
+            <label for="rating" class="testimonial-title">Ваша оцінка</label>
+            <div class="star-rating" id="star-rating">
+              <span data-value="1">☆</span>
+              <span data-value="2">☆</span>
+              <span data-value="3">☆</span>
+              <span data-value="4">☆</span>
+              <span data-value="5">☆</span>
+            </div>
           </div>
         </form>
+        
+        
 
         <div class="form-group">
           <label for="review">Відгук</label>
