@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./css/basic.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script type="module" src="https://unpkg.com/@google/model-viewer"></script>
+
     <link
       href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
       rel="stylesheet"
@@ -143,12 +145,27 @@
           <!-- Ліва частина -->
           <div class="product-left">
             <div class="product-main-image">
-              <img src="./images/lizko2.svg" alt="" />
-            </div>
+  <model-viewer
+    src="elm_low_poly_sofa.glb"
+    alt="3D модель меблів"
+    auto-rotate
+    camera-controls
+    ar
+    style="width: 600px; height: 400px;"
+  ></model-viewer>
+
+  <div class="rotation-indicator">
+    <svg viewBox="0 0 500 100" class="rotation-curve">
+      <path d="M 0,0 Q 250,100 500,0" stroke="#ccc" fill="transparent" stroke-width="1"/>
+    </svg>
+    <div class="rotation-circle">360°</div>
+  </div>
+</div>
+
             <div class="product-thumbnails">
-              <div class="thumbnail"></div>
-              <div class="thumbnail"></div>
-              <div class="thumbnail"></div>
+              <div class="thumbnail"><img src="./images/foto_d1.png" alt=""></div>
+              <div class="thumbnail"><img src="./images/foto_d2.png" alt=""></div>
+              <div class="thumbnail"><img src="./images/foto_d3.png" alt=""></div>
             </div>
           </div>
 
@@ -157,17 +174,12 @@
             <div class="product-name">
               Диван Vika Злата 215x100 см темно-сірий (Аляска 05 / Simple 52)
             </div>
+            <div class="stars2">★★★★★</div>
             <div class="product-price">17 460грн</div>
-            <div class="product-description">
-              Диван Злата від фабрики Vika — стильний та елегантний диван,
-              створений для прогресивних людей, які люблять розмаїття у
-              повсякденному житті.
-            </div>
-
             <div class="product-color">
               <div class="selected-color">
                 <p class="color-text">
-                  Колір: <span id="current-color">не вибрано</span>
+                  Колір: <span id="current-color">не обрано</span>
                 </p>
               </div>
               <div class="color-options">
