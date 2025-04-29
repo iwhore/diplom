@@ -183,7 +183,6 @@
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  margin-top: 40px;
   text-align: left;
 }
 
@@ -197,8 +196,8 @@
 .product-card .add-to-cart {
   position: absolute;
   background: none;
-  border: 2px solid #5b4433;
-  border-radius: 50%;
+  border: none;
+  border-radius: 0;
   width: 50px;
   height: 50px;
   display: flex;
@@ -269,3 +268,215 @@
   font-size: 24px;
   line-height: 0;
 }
+.product-card .favorite,
+.product-card .add-to-cart {
+  position: absolute;
+  background: none;
+  border: none;
+  border-radius: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #5b4433;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.product-card .icon {
+  width: 24px;
+  height: 24px;
+  transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+/* Для кнопки "favorite" */
+.product-card .favorite path {
+  transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+.product-card .favorite:hover path {
+  fill: #5b4433;
+}
+
+.product-card .favorite.active path {
+  fill: #5b4433;
+  stroke: #5b4433;
+}
+
+/* Для кнопки "add-to-cart" */
+.product-card .add-to-cart path {
+  transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+.product-card .add-to-cart:hover path {
+  fill: #5b4433;
+}
+
+.product-card .add-to-cart.active path {
+  fill: #5b4433;
+}
+
+.add-to-cart svg {
+  position: absolute;
+  transition: opacity 0.3s ease;
+}
+
+.add-to-cart .icon-default {
+  opacity: 1;
+}
+
+.add-to-cart .icon-active {
+  opacity: 0;
+}
+
+.add-to-cart:hover .icon-default {
+  opacity: 0;
+}
+
+.add-to-cart:hover .icon-active {
+  opacity: 1;
+}
+
+.add-to-cart.active .icon-default {
+  opacity: 0;
+}
+
+.add-to-cart.active .icon-active {
+  opacity: 1;
+}
+
+.stars {
+  color: #ff9800;
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+/*------------search-----------*/
+.search-container input {
+  border: 1px solid #bfbbaf;
+  border-radius: 30px;
+  width: 758px;
+  height: 60px;
+  padding: 18px;
+  font-size: 16px;
+  font-family: "Lora", sans-serif;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.search-container input:focus {
+  border-color: #534139;
+  box-shadow: 0 0 8px #534139;
+  outline: none;
+}
+.search-container label {
+  margin-left: 76px;
+}
+.search-container input {
+  margin-left: 68px;
+}
+
+.search-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 10px;
+}
+
+.search-btn svg {
+  width: 27px;
+  height: 28px;
+  fill: #534139;
+}
+
+/*slidebar*/
+
+.sale-container {
+      border: 1px solid #d9d9d9;
+      border-radius: 60px;
+      width: 936px;
+      height: 460px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: #fafafa;
+      overflow: hidden;
+      margin: 0px auto;
+    }
+
+    .timer-block {
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; 
+      height: 100%;
+      text-align: center; 
+    }
+    
+    .timer-block h2 {
+      font-size: 30px; 
+      margin: 0;
+    }
+    
+    .timer-block h2 span {
+      color: #534139;
+    }
+    
+    .timer-block p {
+      margin-top: 20px; 
+      font-size: 16px;
+    }
+    
+    .timer {
+      display: flex;
+      gap: 30px; 
+      margin: 30px 0; 
+      font-weight: bold;
+    }
+    
+    .timer .time {
+      font-size: 2.5rem; 
+      display: block;
+    }
+    
+
+    .slider {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slides {
+      display: flex;
+      width: 200%;
+      height: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slides img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .nav {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ccc;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background: #534139;
+    }

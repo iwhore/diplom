@@ -186,13 +186,26 @@ textarea:focus {
   font-weight: 600;
   font-size: 32px;
   line-height: 1.5;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 
-.strong img {
-  width: 32px;
-  height: auto;
-}
 .contact-form button:hover {
   background: #000000;
+}
+.contact-i .strong {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.contact-i .strong img {
+  width: 100px;
+  height: 100px;
+}
+
+.contact-i .strong strong {
+  position: relative;
+  top: 26px;
+  font-weight: bold;
+  font-size: 38px;
 }

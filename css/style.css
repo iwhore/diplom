@@ -259,8 +259,8 @@ body {
 }
 
 .header-btn:hover {
-  background-color: var(--color--primary-dark);
-  color: var(--color-primary-brand);
+  background-color: #000;
+  color: #fff;
 }
 
 @media (max-width: 768px) {
@@ -366,7 +366,7 @@ body {
 
 .product:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .discount {
@@ -380,63 +380,13 @@ body {
   font-size: 14px;
 }
 
-
+:root {
+  --color--primary-dark: #534139;
+  --color-primary-brand: #fff;
+}
 
 .product-categories {
   padding: 80px 0;
-}
-
-.category-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 20px;
-  padding: 20px;
-  width: 100%;
-  max-width: 413px;
-  height: 350px;
-  text-align: center;
-  position: relative;
-}
-
-.category-image img {
-  width: 300px;
-  height: 270px;
-  margin-bottom: 15px;
-}
-
-.category-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
-
-.category-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5px 15px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 16px;
-  gap: 5px;
-  border: 1px solid #534139;
-  border-radius: 60px;
-  width: 160px;
-  height: 40px;
-  color: #000;
-}
-
-.category-arrow img {
-  width: 50px;
-  height: auto;
 }
 
 .product-container {
@@ -458,12 +408,24 @@ body {
 @media (max-width: 768px) {
   .product-container {
     grid-template-columns: repeat(1, 1fr);
-    place-items: center;
   }
 }
+
 .category-item {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--color--primary-dark);
+  border-radius: 30px;
+  width: 410px;
+  height: 440px;
+  overflow: hidden;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
 }
 
 .category-item:hover {
@@ -471,27 +433,50 @@ body {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
+.category-image img {
+  width: 410px;
+  height: 350px;
+  border-radius: 30px;
+  object-fit: cover;
+  display: block;
+}
+
+.category-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
 .category-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 15px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  gap: 5px;
+  border: 1px solid var(--color--primary-dark);
+  border-radius: 60px;
+  width: 160px;
+  height: 40px;
+  color: #000;
   background-color: white;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .category-button:hover {
-  background-color: #534139;
-  color: white;
-}
-
-
-
-.category-footer {
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0 20px;
-}
-.category-button:hover {
   background-color: var(--color--primary-dark);
   color: var(--color-primary-brand);
+}
+
+.category-arrow img {
+  width: 50px;
+  height: auto;
 }
 
 .sales h2 {
@@ -559,7 +544,6 @@ body {
   border-radius: 20px;
   text-align: center;
   position: relative;
-  
 }
 
 .disc-img {
@@ -1004,7 +988,6 @@ p {
   background-color: #534139;
 }
 
-
 /**/
 .modal-overlay {
   position: fixed;
@@ -1121,26 +1104,30 @@ p {
   padding: 0 15px;
 }
 
+.section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .section-label {
   font-family: "Lora", sans-serif;
   font-weight: 800;
-  font-size: 24px;
+  font-size: 18px;
   color: #534139;
-  text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: -10px;
 }
 
-.section-heading h2 {
-  font-family: "Lora", sans-serif;
-  font-weight: 600;
-  font-size: 30px;
-  color: #000;
+.section-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: 20px;
 }
 
-.section-heading h2 span {
+.section-title span {
   color: #534139;
 }
-
 
 /* кнопочки зі стрілочками*/
 .section-arrows {
