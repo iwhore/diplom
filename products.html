@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Товари - Furniture Admin</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        display: flex;
+        height: 100vh;
+        background: #0f172a;
+        color: #fff;
+      }
+
+      .sidebar {
+        width: 220px;
+        background-color: #1e293b;
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem;
+      }
+
+      .sidebar h2 {
+        margin-bottom: 2rem;
+        font-size: 1.5rem;
+        color: #fff;
+      }
+
+      .sidebar a {
+        color: #94a3b8;
+        text-decoration: none;
+        margin: 1rem 0;
+        transition: color 0.2s;
+      }
+
+      .sidebar a.active {
+        color: #38bdf8;
+        font-weight: bold;
+      }
+
+      .sidebar a:hover {
+        color: #fff;
+      }
+
+      .main {
+        flex: 1;
+        padding: 2rem;
+        overflow-y: auto;
+      }
+
+      h1 {
+        margin-bottom: 1rem;
+      }
+
+      .add-button {
+        margin-bottom: 1rem;
+        padding: 0.6rem 1rem;
+        border: none;
+        border-radius: 30px;
+        width: 160px;
+        height: 40px;
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        background: #22c55e;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .filters {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      select {
+        padding: 0.5rem;
+        border-radius: 6px;
+        border: none;
+        background: #1e293b;
+        color: #fff;
+      }
+
+      .product-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #1e293b;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .product-table th,
+      .product-table td {
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 1px solid #334155;
+      }
+
+      .product-table th {
+        background: #1e293b;
+        color: #cbd5e1;
+      }
+
+      .product-table td {
+        color: #f1f5f9;
+      }
+
+      .actions button {
+        border: none;
+        border-radius: 30px;
+        width: 120px;
+        height: 40px;
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+        color: #fff;
+        cursor: pointer;
+        margin-right: 0.5rem;
+      }
+
+      .actions button.edit {
+        background: #34d399;
+      }
+
+      .actions button.delete {
+        background: #eb001b;
+      }
+      .admin-info-bar {
+        display: flex;
+        align-items: center;
+        background: #1e293b;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .admin-info-bar img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin-right: 1rem;
+      }
+
+      .admin-info-bar .details {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .admin-info-bar .details h2 {
+        color: #fff;
+        font-size: 1.25rem;
+      }
+
+      .admin-info-bar .details p {
+        color: #cbd5e1;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2>Admin</h2>
+      <a href="./main.html">Інформаційна панель</a>
+      <a href="./products.html">Товари</a>
+      <a href="./orders.html">Замовлення</a>
+      <a href="./clients.html">Клієнти</a>
+      <a href="./message.html">Повідомлення</a>
+    </div>
+
+    <div class="main">
+      <div class="admin-info-bar">
+        <img src="admin-profile.jpg" alt="Admin" />
+        <div class="details">
+          <h2>Адміністратор</h2>
+          <p>Товари</p>
+        </div>
+      </div>
+
+      <button class="add-button">Додати товар</button>
+
+      <div class="filters">
+        <select>
+          <option>Усі категорії</option>
+          <option>Дивани</option>
+          <option>Стільці</option>
+          <option>Столи</option>
+          <option>Комоди</option>
+          <option>Лампи</option>
+          <option>Шафи</option>
+        </select>
+        <select>
+          <option>Усі статуси</option>
+          <option>В наявності</option>
+          <option>Немає в наявності</option>
+        </select>
+      </div>
+
+      <table class="product-table">
+        <thead>
+          <tr>
+            <th>Назва</th>
+            <th>Категорія</th>
+            <th>Ціна</th>
+            <th>Кількість</th>
+            <th>Статус</th>
+            <th>Дії</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Диван "Комфорт"</td>
+            <td>Дивани</td>
+            <td>12 000 грн</td>
+            <td>10</td>
+            <td>В наявності</td>
+            <td class="actions">
+              <button class="edit">Редагувати</button>
+              <button class="delete">Видалити</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Диван "Злата"</td>
+            <td>Дивани</td>
+            <td>17 500 грн</td>
+            <td>15</td>
+            <td>В наявності</td>
+            <td class="actions">
+              <button class="edit">Редагувати</button>
+              <button class="delete">Видалити</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Диван "Герборг"</td>
+            <td>Дивани</td>
+            <td>9 500 грн</td>
+            <td>6</td>
+            <td>В наявності</td>
+            <td class="actions">
+              <button class="edit">Редагувати</button>
+              <button class="delete">Видалити</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
