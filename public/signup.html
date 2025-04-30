@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign up</title>
+    <link rel="stylesheet" href="сss/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-bar">
+        <div>
+          <a href="./index.html">
+            <img src="./images/Group 117.svg" alt="Логотип меблевого магазину" />
+          </a>
+        </div>
+        <span class="header-title">Реєстрація</span>
+        <div class="burger-menu">
+          <button id="burger-btn">
+            <img src="./images/fi-bs-align-justify.svg" alt="Іконка меню" />
+          </button>
+          <nav class="menu" id="menu">
+            <ul>
+              <li><a href="./about-us.html">Про нас</a></li>
+              <li><a href="./catalog.html">Каталог</a></li>
+              <li><a href="./contact-us.html">Контакти</a></li>
+              <li><a href="./blog.html">Блог</a></li>
+              <li><a href="./faqs.html">FAQ</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="form-container">
+        <div class="form-content">
+          <h2>Реєстрація</h2>
+          <form id="signup-form">
+            <input type="text" id="name" placeholder="ім'я" required />
+            <input type="email" id="email" placeholder="e-mail" required />
+            <div class="password-container">
+              <input
+                type="password"
+                id="password"
+                placeholder="пароль"
+                required
+              />
+              <span class="toggle-password">
+                <img
+                  src="/images/fi-br-eye.svg"
+                  alt="Показати пароль"
+                  id="togglePassword"
+                />
+              </span>
+            </div>
+            <button type="submit" class="login">Зареєструватися</button>
+          </form>
+          <p>
+            Вже маєте обліковий запис?
+            <a href="./login.html">Увійти</a>
+          </p>
+        </div>
+        <div class="image-container-signup">
+          <img src="./images/log_in_furniture.jpg" alt="Image sofa" />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("signup-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+
+          if (!name || !email || !password) {
+            alert("Будь ласка, заповніть усі поля.");
+            return;
+          }
+
+          fetch("http://localhost:3000/api/signup", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, password }),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.message) {
+                alert("Реєстрація успішна!");
+                window.location.href = "login.html";
+              } else {
+                alert(data.error || "Щось пішло не так.");
+              }
+            })
+            .catch(() => alert("Помилка з’єднання з сервером."));
+        });
+    </script>
+
+    <script>
+      document.getElementById("burger-btn").addEventListener("click", function () {
+        document.getElementById("menu").classList.toggle("active");
+      });
+
+      document.addEventListener("click", function (event) {
+        const menu = document.getElementById("menu");
+        const burgerBtn = document.getElementById("burger-btn");
+        if (!menu.contains(event.target) && !burgerBtn.contains(event.target)) {
+          menu.classList.remove("active");
+        }
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const togglePassword = document.getElementById("togglePassword");
+        const passwordInput = document.getElementById("password");
+
+        togglePassword.addEventListener("click", function () {
+          const isVisible = passwordInput.type === "text";
+          passwordInput.type = isVisible ? "password" : "text";
+          togglePassword.src = isVisible ? "images/closed eye.svg" : "images/fi-br-eye.svg";
+        });
+      });
+    </script>
+  </body>
+</html>
