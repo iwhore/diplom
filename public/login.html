@@ -48,7 +48,7 @@
         <div class="form-content">
           <h2>Вхід</h2>
           <form id="signup-form">
-            <input type="text" id="name" placeholder="ім'я" required />
+            <input type="text" id="identifier" placeholder="ім'я" required />
             <div class="password-container">
               <input
                 type="password"
@@ -81,43 +81,11 @@
         </div>
       </div>
     </div>
-
-    <script>
-      document
-        .getElementById("signup-form")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
-          const name = document.getElementById("name").value;
-          const email = document.getElementById("email").value;
-          const password = document.getElementById("password").value;
-
-          if (name && email && password) {
-            alert("Реєстрація успішна!");
-          } else {
-            alert("Будь ласка, заповніть усі поля.");
-          }
-        });
-    </script>
-    <script>
-      document
-        .getElementById("burger-btn")
-        .addEventListener("click", function () {
-          document.getElementById("menu").classList.toggle("active");
-        });
-
-      document.addEventListener("click", function (event) {
-        const menu = document.getElementById("menu");
-        const burgerBtn = document.getElementById("burger-btn");
-        if (!menu.contains(event.target) && !burgerBtn.contains(event.target)) {
-          menu.classList.remove("active");
-        }
-      });
-    </script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const togglePassword = document.getElementById("togglePassword");
         const passwordInput = document.getElementById("password");
-
+    
         togglePassword.addEventListener("click", function () {
           if (passwordInput.type === "password") {
             passwordInput.type = "text";
@@ -125,6 +93,36 @@
           } else {
             passwordInput.type = "password";
             togglePassword.src = "images/closed eye.svg";
+          }
+        });
+    
+        const loginForm = document.getElementById("signup-form");
+        loginForm.addEventListener("submit", async function (e) {
+          e.preventDefault();
+    
+          const identifier = document.getElementById("identifier").value;
+          const password = document.getElementById("password").value;
+    
+          try {
+            const response = await fetch("/api/login", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify({ identifier, password })
+            });
+    
+            const data = await response.json();
+    
+            if (response.ok) {
+              alert("Вхід успішний!");
+              window.location.href = "index.html";
+            } else {
+              alert(data.error || "Невірні дані або помилка сервера.");
+            }
+          } catch (error) {
+            alert("Помилка під час з'єднання з сервером.");
+            console.error(error);
           }
         });
       });
