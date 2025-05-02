@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign up</title>
-    <link rel="stylesheet" href="сss/styles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -74,35 +74,44 @@
     </div>
 
     <script>
-      document
-        .getElementById("signup-form")
-        .addEventListener("submit", function (event) {
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("signup-form");
+    
+        form.addEventListener("submit", async function (event) {
           event.preventDefault();
-          const name = document.getElementById("name").value;
-          const email = document.getElementById("email").value;
-          const password = document.getElementById("password").value;
-
+    
+          const name = document.getElementById("name").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const password = document.getElementById("password").value.trim();
+    
           if (!name || !email || !password) {
             alert("Будь ласка, заповніть усі поля.");
             return;
           }
-
-          fetch("http://localhost:3000/api/signup", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ name, email, password }),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              if (data.message) {
-                alert("Реєстрація успішна!");
-                window.location.href = "login.html";
-              } else {
-                alert(data.error || "Щось пішло не так.");
-              }
-            })
-            .catch(() => alert("Помилка з’єднання з сервером."));
+    
+          try {
+            const response = await fetch("/api/signup", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ name, email, password })
+            });
+    
+            const data = await response.json();
+    
+            if (response.ok) {
+              alert("Реєстрація успішна!");
+              window.location.href = "index.html";
+            } else {
+              alert(data.error || "Помилка при реєстрації.");
+            }
+          } catch (error) {
+            console.error("Помилка запиту:", error);
+            alert("Помилка сервера. Спробуйте пізніше.");
+          }
         });
+      });
     </script>
 
     <script>
