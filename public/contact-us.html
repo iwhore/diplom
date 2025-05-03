@@ -173,21 +173,24 @@
             </div>
           </div>
 
-          <form class="contact-form">
+          <form id="contact-form" class="contact-form">
             <div class="input-group">
               <div>
                 <p>Ім'я</p>
-                <input t ype="text" placeholder="Ім'я" />
+                <input type="text" name="name" placeholder="Ім'я" required />
               </div>
               <div>
                 <p>Номер телефону</p>
-                <input type="text" placeholder="Номер телефону" />
+                <input type="text" name="phone" placeholder="Номер телефону" required />
               </div>
             </div>
+          
             <p>E-mail</p>
-            <input type="email" placeholder="E-mail" />
+            <input type="email" name="email" placeholder="E-mail" required />
+          
             <p>Запитання</p>
-            <textarea placeholder="Запитання"></textarea>
+            <textarea name="message" placeholder="Запитання" required></textarea>
+          
             <button type="submit">Надіслати</button>
           </form>
         </div>
@@ -323,5 +326,104 @@
 
       observer.observe(modal, { attributes: true });
     </script>
+    <script>
+      document.getElementById('contact-form').addEventListener('submit', async e => {
+        e.preventDefault();
+        const f = e.target;
+        const payload = {
+          name:    f.name.value.trim(),
+          phone:   f.phone.value.trim(),
+          email:   f.email.value.trim(),
+          message: f.message.value.trim()
+        };
+    
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+    
+        const json = await res.json();
+        if (res.ok && json.success) {
+          alert('Дякуємо! Повідомлення надіслано.');
+          f.reset();
+        } else {
+          alert('Помилка: ' + (json.error || 'невідома'));
+        }
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("contact-form");
+        if (!form) return;
+      
+        // Створюємо елемент для топ-повідомлень
+        const notification = document.createElement("div");
+        notification.id = "top-notification";
+        Object.assign(notification.style, {
+          position: "fixed",
+          top: "0",
+          left: "0",
+          width: "100%",
+          padding: "1em",
+          textAlign: "center",
+          fontSize: "1rem",
+          display: "none",
+          zIndex: "1000",
+          boxShadow: "0 2px 5px rgba(0,0,0,0.2)"
+        });
+        document.body.prepend(notification);
+      
+        form.addEventListener("submit", async e => {
+          e.preventDefault();
+      
+          // Приховуємо старі повідомлення
+          notification.style.display = "none";
+      
+          // Збираємо дані
+          const payload = {
+            name:    form.name.value.trim(),
+            phone:   form.phone.value.trim(),
+            email:   form.email.value.trim(),
+            message: form.message.value.trim()
+          };
+      
+          try {
+            const res  = await fetch("/api/contacts", {
+              method:  "POST",
+              headers: { "Content-Type": "application/json" },
+              body:    JSON.stringify(payload)
+            });
+            const data = await res.json();
+      
+            if (res.ok && data.success) {
+              // Показуємо зелений банер успіху
+              notification.textContent = "✅ Ваше повідомлення успішно надіслано";
+              notification.style.backgroundColor = "#28a745";
+              notification.style.color = "#fff";
+              notification.style.display = "block";
+              form.reset();
+            } else {
+              // Показуємо червоний банер помилки з текстом
+              notification.textContent = "❌ " + (data.error || "Сталась помилка. Спробуйте пізніше.");
+              notification.style.backgroundColor = "#dc3545";
+              notification.style.color = "#fff";
+              notification.style.display = "block";
+            }
+          } catch (err) {
+            console.error("Contact form error:", err);
+            notification.textContent = "❌ Не вдалося з’єднатися із сервером.";
+            notification.style.backgroundColor = "#dc3545";
+            notification.style.color = "#fff";
+            notification.style.display = "block";
+          }
+      
+          // Приховаємо банер за 5 секунд
+          setTimeout(() => {
+            notification.style.display = "none";
+          }, 5000);
+        });
+      });
+      </script>
   </body>
 </html>
