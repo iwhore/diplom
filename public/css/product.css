@@ -620,3 +620,7 @@ textarea {
   color: #333;
   font-family: "Poppins", sans-serif;
 }
+.review-section {
+  margin-top: 40px;
+  padding-top: 20px;
+}

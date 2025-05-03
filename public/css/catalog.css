@@ -141,30 +141,20 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
   transition: box-shadow 0.3s ease;
   height: 320px;
-}
-
-.product-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.favorite svg {
-  width: 30px;
-  height: 30px;
-}
-
-.favorite {
-  width: 50px;
-  height: 50px;
+  justify-content: space-between;
 }
 
 .product-card img {
   max-width: 100%;
   max-height: 140px;
   object-fit: contain;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  margin-left: 15px;
 }
 
 .product-card .title {
@@ -175,21 +165,8 @@
 
 .product-card .price {
   font-size: 15px;
-  font-weight: 500;
-}
-
-.product-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  text-align: left;
-}
-
-.product-container img {
-  max-width: 230px;
-  max-height: 170px;
-  margin-bottom: 35px;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
 .product-card .favorite,
@@ -197,26 +174,23 @@
   position: absolute;
   background: none;
   border: none;
-  border-radius: 0;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
   color: #5b4433;
   cursor: pointer;
-  transition: 0.3s ease;
 }
 
 .product-card .favorite {
-  top: 12px;
-  right: 12px;
+  top: 10px;
+  right: 10px;
 }
 
 .product-card .add-to-cart {
-  bottom: 12px;
-  right: 12px;
+  bottom: 10px;
+  right: 10px;
 }
 
 .product-card.empty {
@@ -394,89 +368,88 @@
 /*slidebar*/
 
 .sale-container {
-      border: 1px solid #d9d9d9;
-      border-radius: 60px;
-      width: 936px;
-      height: 460px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      background: #fafafa;
-      overflow: hidden;
-      margin: 0px auto;
-    }
+  border: 1px solid #d9d9d9;
+  border-radius: 60px;
+  width: 936px;
+  height: 460px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #fafafa;
+  overflow: hidden;
+  margin: 0px auto;
+}
 
-    .timer-block {
-      padding: 40px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center; 
-      height: 100%;
-      text-align: center; 
-    }
-    
-    .timer-block h2 {
-      font-size: 30px; 
-      margin: 0;
-    }
-    
-    .timer-block h2 span {
-      color: #534139;
-    }
-    
-    .timer-block p {
-      margin-top: 20px; 
-      font-size: 16px;
-    }
-    
-    .timer {
-      display: flex;
-      gap: 30px; 
-      margin: 30px 0; 
-      font-weight: bold;
-    }
-    
-    .timer .time {
-      font-size: 2.5rem; 
-      display: block;
-    }
-    
+.timer-block {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+}
 
-    .slider {
-      position: relative;
-      overflow: hidden;
-    }
+.timer-block h2 {
+  font-size: 30px;
+  margin: 0;
+}
 
-    .slides {
-      display: flex;
-      width: 200%;
-      height: 100%;
-      transition: transform 0.5s ease-in-out;
-    }
+.timer-block h2 span {
+  color: #534139;
+}
 
-    .slides img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+.timer-block p {
+  margin-top: 20px;
+  font-size: 16px;
+}
 
-    .nav {
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
-    }
+.timer {
+  display: flex;
+  gap: 30px;
+  margin: 30px 0;
+  font-weight: bold;
+}
 
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #ccc;
-      cursor: pointer;
-    }
+.timer .time {
+  font-size: 2.5rem;
+  display: block;
+}
 
-    .dot.active {
-      background: #534139;
-    }
+.slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  width: 200%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slides img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nav {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: #534139;
+}
