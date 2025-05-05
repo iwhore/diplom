@@ -2,8 +2,8 @@ const express  = require('express');
 const mongoose = require('mongoose');
 const cors     = require('cors');
 
-const User    = require('./models/User');    // ваша існуюча модель користувача
-const Contact = require('./models/Contact'); // нова модель для контактів
+const User    = require('./public/models/User');    // ваша існуюча модель користувача
+const Contact = require('./public/models/Contact'); // нова модель для контактів
 
 const app  = express();
 const PORT = 3000;
