@@ -84,27 +84,27 @@
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const form = document.getElementById("signup-form");
-        form.addEventListener("submit", async e => {
+        form.addEventListener("submit", async (e) => {
           e.preventDefault();
-      
+
           const identifier = form.querySelector("#identifier").value;
-          const password   = form.querySelector("#password").value;
-      
+          const password = form.querySelector("#password").value;
+
           try {
             const response = await fetch("/api/login", {
-              method:  "POST",
+              method: "POST",
               headers: { "Content-Type": "application/json" },
-              body:    JSON.stringify({ identifier, password })
+              body: JSON.stringify({ identifier, password }),
             });
-      
+
             // Зчитуємо JSON у будь‑якому разі
             const data = await response.json();
-      
+
             if (response.ok) {
               // 🚩 тут саме запам’ятовуємо вхід
               localStorage.setItem("isLoggedIn", "true");
               localStorage.setItem("userName", data.user.name);
-      
+
               // переходимо на головну
               window.location.href = "index.html";
             } else {
@@ -116,6 +116,34 @@
           }
         });
       });
-      </script>
+    </script>
+    <script>
+      document
+        .getElementById("burger-btn")
+        .addEventListener("click", function () {
+          document.getElementById("menu").classList.toggle("active");
+        });
+
+      document.addEventListener("click", function (event) {
+        const menu = document.getElementById("menu");
+        const burgerBtn = document.getElementById("burger-btn");
+        if (!menu.contains(event.target) && !burgerBtn.contains(event.target)) {
+          menu.classList.remove("active");
+        }
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const togglePassword = document.getElementById("togglePassword");
+        const passwordInput = document.getElementById("password");
+
+        togglePassword.addEventListener("click", function () {
+          const isVisible = passwordInput.type === "text";
+          passwordInput.type = isVisible ? "password" : "text";
+          togglePassword.src = isVisible
+            ? "images/closed eye.svg"
+            : "images/fi-br-eye.svg";
+        });
+      });
+    </script>
   </body>
 </html>
