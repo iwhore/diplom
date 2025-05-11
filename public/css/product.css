@@ -292,7 +292,7 @@
 /*форма для відгуку*/
 .review-section {
   max-width: 700px;
-  margin-left: 160px;
+  margin-left: 360px;
 }
 
 .review-section h2 {
@@ -315,12 +315,14 @@
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  max-width: 600px;
   margin-top: 10px;
 }
 
 .form-group {
   flex: 1;
   display: flex;
+  max-width: 600px;
   flex-direction: column;
 }
 
@@ -367,7 +369,7 @@ textarea {
 .upload-box {
   border: 1px solid #bfbbaf;
   border-radius: 30px;
-  width: 700px;
+  width: 600px;
   height: 274px;
   display: flex;
   flex-direction: column;

@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const quantity = parseInt(document.querySelector(".quantity-value").textContent);
       const colorInput = document.querySelector('input[name="color"]:checked');
       const color = colorInput ? colorInput.value : "Не вибрано";
-      const image = document.querySelector(".product-main-image img")?.getAttribute("src") || "";
+      const image = document.querySelector(".basket img")?.getAttribute("src") || "";
 
       const product = {
         id: Date.now(),

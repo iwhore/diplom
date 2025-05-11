@@ -1,11 +1,12 @@
-const express  = require('express');
+const express = require('express');
 const mongoose = require('mongoose');
-const cors     = require('cors');
+const cors = require('cors');
+const path = require('path');
 
-const User    = require('./public/models/User');    // ваша існуюча модель користувача
-const Contact = require('./public/models/Contact'); // нова модель для контактів
+const User = require('./models/User');
+const Contact = require('./models/Contact');
 
-const app  = express();
+const app = express();
 const PORT = 3000;
 
 // Підключення до MongoDB
@@ -13,14 +14,21 @@ mongoose.connect(
   'mongodb+srv://ihorjaremko17:ihor27012006@cluster0.ystwwjb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
   { useNewUrlParser: true, useUnifiedTopology: true }
 )
-.then(() => console.log('✅ Підключено до MongoDB'))
-.catch(err => console.error('❌ Помилка підключення до MongoDB:', err));
+  .then(() => console.log('✅ Підключено до MongoDB'))
+  .catch(err => console.error('❌ Помилка підключення до MongoDB:', err));
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public'));  // тут лежить contact-us.html і стилі
 
-// Логін
+// 🔧 Вказуємо папку зі статичними файлами
+app.use(express.static(path.join(__dirname, 'public')));
+
+// 🔁 Повертаємо головну сторінку при GET /
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// API: логін
 app.post('/api/login', async (req, res) => {
   try {
     const { identifier, password } = req.body;
@@ -35,8 +43,8 @@ app.post('/api/login', async (req, res) => {
     res.status(200).json({
       message: 'Вхід успішний',
       user: {
-        id:    user._id,
-        name:  user.name,
+        id: user._id,
+        name: user.name,
         email: user.email
       }
     });
@@ -46,9 +54,8 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
-// Контакти
+// API: контактна форма
 app.post('/api/contacts', async (req, res) => {
-  console.log('🔔 POST /api/contacts body:', req.body);
   try {
     const { name, phone, email, message } = req.body;
     if (!name || !phone || !email || !message) {
@@ -58,7 +65,6 @@ app.post('/api/contacts', async (req, res) => {
     const contact = new Contact({ name, phone, email, message });
     await contact.save();
 
-    console.log('✅ Contact saved:', contact._id);
     res.status(201).json({ success: true, message: 'Контакт збережено' });
   } catch (err) {
     console.error(err);
@@ -66,6 +72,7 @@ app.post('/api/contacts', async (req, res) => {
   }
 });
 
+// Запуск сервера
 app.listen(PORT, () => {
   console.log(`✅ Сервер запущено на http://localhost:${PORT}`);
 });
