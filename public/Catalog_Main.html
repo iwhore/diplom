@@ -145,52 +145,39 @@
       <div class="container">
         <div class="catalog-wrapper">
           <!-- Фільтри -->
-          <aside class="filters">
-            <div class="filter-block">
-              <h3>Категорія</h3>
-              <label
-                ><input type="radio" name="category" checked /> Вітальня</label
-              >
-              <label><input type="radio" name="category" /> Спальня</label>
-              <label><input type="radio" name="category" /> Кухня</label>
-              <label><input type="radio" name="category" /> Офіс</label>
-              <label><input type="radio" name="category" /> Передпокій</label>
-            </div>
+        <aside class="filters">
+    <div class="filter-block">
+    <h3>Категорія</h3>
+    <label><input type="radio" name="category" value="livingroom"  /> Вітальня</label>
+    <label><input type="radio" name="category" value="bedroom" /> Спальня</label>
+    <label><input type="radio" name="category" value="kitchen" /> Кухня</label>
+    <label><input type="radio" name="category" value="office" /> Офіс</label>
+    <label><input type="radio" name="category" value="hallway" /> Передпокій</label>
 
-            <div class="filter-block">
-              <h3>Ціна</h3>
-              <span id="price-range">1 000 - 80 000 грн</span>
-              <div class="range-slider">
-                <div class="slider-track"></div>
-                <div class="range-between" id="range-fill"></div>
-                <input
-                  type="range"
-                  id="min-range"
-                  min="1000"
-                  max="80000"
-                  value="1000"
-                  step="1"
-                />
-                <input
-                  type="range"
-                  id="max-range"
-                  min="1000"
-                  max="80000"
-                  value="80000"
-                  step="1"
-                />
-              </div>
-            </div>
+    <div class="subfilters" id="subfilters">
+      <!-- Тут будуть підкатегорії -->
+    </div>
+  </div>
 
-            <div class="filter-block">
-              <h3>Колір</h3>
-              <label><input type="radio" name="color" /> Білий</label>
-              <label><input type="radio" name="color" /> Чорний</label>
-              <label><input type="radio" name="color" /> Сірий</label>
-              <label><input type="radio" name="color" /> Коричневий</label>
-            </div>
-          </aside>
+    <div class="filter-block">
+      <h3>Ціна</h3>
+      <span id="price-range">1 000 - 80 000 грн</span>
+      <div class="range-slider">
+        <div class="slider-track"></div>
+        <div class="range-between" id="range-fill"></div>
+        <input type="range" id="min-range" min="1000" max="80000" value="1000" step="1" />
+        <input type="range" id="max-range" min="1000" max="80000" value="80000" step="1" />
+      </div>
+    </div>
 
+    <div class="filter-block">
+      <h3>Колір</h3>
+      <label><input type="radio" name="color" /> Білий</label>
+      <label><input type="radio" name="color" /> Чорний</label>
+      <label><input type="radio" name="color" /> Сірий</label>
+      <label><input type="radio" name="color" /> Коричневий</label>
+    </div>
+  </aside>
           <!-- Контент (слайдер + товари) -->
           <div class="catalog-content">
             <div class="sale-container">
@@ -806,5 +793,56 @@
         });
       });
     </script>
+    <script>
+    const subfiltersData = {
+      livingroom: {
+        'Комплектація': ['Дивани', 'Стільці', 'Шафи', 'Стінки'],
+      },
+      bedroom: {
+        'Комплектація': ['Ліжка', 'Тумби', 'Шафи', 'Комоди'],
+      },
+      kitchen: {
+        'Комплектація': ['Стінки ', 'Стільці', 'Стільниці'],
+      },
+      office: {
+        'Комплектація': ['Робочі столи', 'Крісла', 'Стелажі'],
+      },
+      hallway: {
+        'Комплектація': ['Вішалки', 'Тумби', 'Дзеркала' ,'Лампи'],
+      }
+    };
+
+    const radios = document.querySelectorAll('input[name="category"]');
+    const subfiltersContainer = document.getElementById('subfilters');
+
+    function renderSubfilters(category) {
+      subfiltersContainer.innerHTML = '';
+
+      const filters = subfiltersData[category];
+      for (const title in filters) {
+        const block = document.createElement('div');
+        const heading = document.createElement('h4');
+        heading.textContent = title;
+        block.appendChild(heading);
+
+        filters[title].forEach(option => {
+          const label = document.createElement('label');
+          label.innerHTML = `<input type="checkbox" value="${option}"> ${option}`;
+          block.appendChild(label);
+        });
+
+        subfiltersContainer.appendChild(block);
+      }
+    }
+
+    radios.forEach(radio => {
+      radio.addEventListener('change', () => {
+        renderSubfilters(radio.value);
+      });
+    });
+
+    // Завантажити початкову категорію
+    renderSubfilters('livingroom');
+  </script>
   </body>
 </html>
