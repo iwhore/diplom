@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Test Reviews</title>
+</head>
+<body>
+
+  <h1>Тестова форма відгуку</h1>
+
+  <form id="review-form">
+    <p>
+      <label>Ім’я<br/>
+        <input type="text" name="name" required />
+      </label>
+    </p>
+    <p>
+      <label>Email<br/>
+        <input type="email" name="email" required />
+      </label>
+    </p>
+    <p>
+      Рейтинг:<br/>
+      <span id="star-rating">
+        <span data-value="1">☆</span>
+        <span data-value="2">☆</span>
+        <span data-value="3">☆</span>
+        <span data-value="4">☆</span>
+        <span data-value="5">☆</span>
+      </span>
+      <input type="hidden" name="rating" id="rating" value="0" required />
+    </p>
+    <p>
+      <label>Відгук<br/>
+        <textarea name="message" required></textarea>
+      </label>
+    </p>
+    <button type="submit">Надіслати</button>
+  </form>
+
+  <div id="status" style="margin-top:1em; font-weight:bold;"></div>
+
+  <script src="/js/review.js"></script>
+</body>
+</html>

@@ -82,66 +82,48 @@
       </div>
     </div>
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const form = document.getElementById("signup-form");
-        form.addEventListener("submit", async (e) => {
+      document.addEventListener("DOMContentLoaded", function () {
+        const togglePassword = document.getElementById("togglePassword");
+        const passwordInput = document.getElementById("password");
+    
+        togglePassword.addEventListener("click", function () {
+          if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            togglePassword.src = "images/fi-br-eye.svg";
+          } else {
+            passwordInput.type = "password";
+            togglePassword.src = "images/closed eye.svg";
+          }
+        });
+    
+        const loginForm = document.getElementById("signup-form");
+        loginForm.addEventListener("submit", async function (e) {
           e.preventDefault();
-
-          const identifier = form.querySelector("#identifier").value;
-          const password = form.querySelector("#password").value;
-
+    
+          const identifier = document.getElementById("identifier").value;
+          const password = document.getElementById("password").value;
+    
           try {
             const response = await fetch("/api/login", {
               method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ identifier, password }),
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify({ identifier, password })
             });
-
-            // Зчитуємо JSON у будь‑якому разі
+    
             const data = await response.json();
-
+    
             if (response.ok) {
-              // 🚩 тут саме запам’ятовуємо вхід
-              localStorage.setItem("isLoggedIn", "true");
-              localStorage.setItem("userName", data.user.name);
-
-              // переходимо на головну
+              alert("Вхід успішний!");
               window.location.href = "index.html";
             } else {
               alert(data.error || "Невірні дані або помилка сервера.");
             }
-          } catch (err) {
-            console.error(err);
+          } catch (error) {
             alert("Помилка під час з'єднання з сервером.");
+            console.error(error);
           }
-        });
-      });
-    </script>
-    <script>
-      document
-        .getElementById("burger-btn")
-        .addEventListener("click", function () {
-          document.getElementById("menu").classList.toggle("active");
-        });
-
-      document.addEventListener("click", function (event) {
-        const menu = document.getElementById("menu");
-        const burgerBtn = document.getElementById("burger-btn");
-        if (!menu.contains(event.target) && !burgerBtn.contains(event.target)) {
-          menu.classList.remove("active");
-        }
-      });
-
-      document.addEventListener("DOMContentLoaded", function () {
-        const togglePassword = document.getElementById("togglePassword");
-        const passwordInput = document.getElementById("password");
-
-        togglePassword.addEventListener("click", function () {
-          const isVisible = passwordInput.type === "text";
-          passwordInput.type = isVisible ? "password" : "text";
-          togglePassword.src = isVisible
-            ? "images/closed eye.svg"
-            : "images/fi-br-eye.svg";
         });
       });
     </script>

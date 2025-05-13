@@ -89,3 +89,127 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+window.addEventListener('DOMContentLoaded', () => {
+  // Слайдер відгуків
+  const slidesContainer = document.getElementById('slides-container');
+  const prevButton = document.getElementById('prev-btn');
+  const nextButton = document.getElementById('next-btn');
+  let currentSlide = 0;
+  function showSlide(index) {
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const total = slides.length;
+    if (index >= total) currentSlide = 0;
+    else if (index < 0) currentSlide = total - 1;
+    else currentSlide = index;
+    slidesContainer.style.transform = `translateX(${-currentSlide * 100}%)`;
+  }
+
+    if (slidesContainer) {
+    function showSlide(index) {
+      const slides = document.querySelectorAll('.testimonial-slide');
+      const total  = slides.length;
+
+      if (index >= total)      currentSlide = 0;
+      else if (index < 0)      currentSlide = total - 1;
+      else                     currentSlide = index;
+
+      // Виправлена рядкова інтерполяція без зайвої дужки чи крапки-зап’ятої всередині шаблону
+      slidesContainer.style.transform = `translateX(${-currentSlide * 100}%)`;
+    }
+
+    prevButton?.addEventListener('click', () => showSlide(currentSlide - 1));
+    nextButton?.addEventListener('click', () => showSlide(currentSlide + 1));
+    showSlide(currentSlide);
+  }
+  
+  prevButton?.addEventListener('click', () => showSlide(currentSlide - 1));
+  nextButton?.addEventListener('click', () => showSlide(currentSlide + 1));
+  showSlide(currentSlide);
+
+  // Таби
+  document.querySelectorAll('.tab-btn').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Рейтинг зірками
+  const stars = document.querySelectorAll('#star-rating span');
+  const ratingInput = document.getElementById('rating');
+  let selectedStars = 0;
+  function updateStars() {
+    stars.forEach(star => {
+      const val = Number(star.dataset.value);
+      star.textContent = val <= selectedStars ? '★' : '☆';
+      star.classList.toggle('active', val <= selectedStars);
+    });
+  }
+  stars.forEach(star => {
+    star.addEventListener('mouseover', () => {
+      const hoverVal = Number(star.dataset.value);
+      stars.forEach(s => s.textContent = Number(s.dataset.value) <= hoverVal ? '★' : '☆');
+    });
+    star.addEventListener('mouseout', updateStars);
+    star.addEventListener('click', () => {
+      selectedStars = Number(star.dataset.value);
+      ratingInput.value = selectedStars;
+      updateStars();
+    });
+  });
+
+  // Відправка форми
+  const form = document.getElementById('review-form');
+  const status = document.getElementById('status');
+  const productId = document.getElementById('productId').value;
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    status.textContent = 'Надсилання...';
+    const data = {
+      productId,
+      name: form.name.value.trim(),
+      email: form.email.value.trim(),
+      rating: selectedStars,
+      message: form.message.value.trim()
+    };
+    if (!data.name || !data.email || !data.message || data.rating < 1) {
+      alert('Будь ласка, заповніть всі поля та оберіть оцінку.');
+      status.textContent = '';
+      return;
+    }
+    try {
+      const resp = await fetch(`/api/reviews/${productId}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const result = await resp.json();
+      if (resp.ok) {
+        alert('✅ Відгук успішно надіслано!');
+        status.textContent = '';
+        form.reset();
+        selectedStars = 0;
+        updateStars();
+        // Додаємо новий слайд
+        const slide = document.createElement('div');
+        slide.classList.add('testimonial-slide');
+        slide.innerHTML = `
+          <p class="testimonial-quote">“${data.message}”</p>
+          <div class="testimonial-author">${data.name}</div>
+          <div class="testimonial-stars">${'★'.repeat(data.rating)}${'☆'.repeat(5 - data.rating)}</div>
+        `;
+        slidesContainer.appendChild(slide);
+      } else {
+        alert(`❌ Помилка: ${result.error || 'Спробуйте пізніше'}`);
+        status.textContent = '';
+      }
+    } catch (err) {
+      console.error(err);
+      alert('❌ Виникла помилка при надсиланні відгуку');
+      status.textContent = '';
+    }
+  });
+});
