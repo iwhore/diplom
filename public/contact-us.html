@@ -174,33 +174,49 @@
           </div>
 
           <div class="form-container">
-        <div class="form-content">
-          <h2>Зв’яжіться з нами</h2>
-          <form id="contact-form" class="contact-form">
-            <div class="input-group">
-              <div>
-                <p>Ім'я</p>
-                <input type="text" name="name" placeholder="Ім'я" required />
-              </div>
-              <div>
-                <p>Номер телефону</p>
-                <input type="text" name="phone" placeholder="Номер телефону" required />
-              </div>
+            <div class="form-content">
+              <h2>Зв’яжіться з нами</h2>
+              <form id="contact-form" class="contact-form">
+                <div class="input-group">
+                  <div>
+                    <p>Ім'я</p>
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Ім'я"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <p>Номер телефону</p>
+                    <input
+                      type="text"
+                      name="phone"
+                      placeholder="Номер телефону"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <p>E-mail</p>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="E-mail"
+                  required
+                />
+
+                <p>Запитання</p>
+                <textarea
+                  name="message"
+                  placeholder="Ваше повідомлення"
+                  required
+                ></textarea>
+
+                <button type="submit" class="login">Надіслати</button>
+              </form>
             </div>
-
-            <p>E-mail</p>
-            <input type="email" name="email" placeholder="E-mail" required />
-
-            <p>Запитання</p>
-            <textarea name="message" placeholder="Ваше повідомлення" required></textarea>
-
-            <button type="submit" class="login">Надіслати</button>
-          </form>
-        </div>
-        <div class="image-container">
-          <img src="./images/contact-image.jpg" alt="Контакти" />
-        </div>
-      </div>
+          </div>
         </div>
       </div>
     </section>
@@ -350,7 +366,12 @@
           };
 
           // Простенька клієнтська валідація
-          if (!payload.name || !payload.phone || !payload.email || !payload.message) {
+          if (
+            !payload.name ||
+            !payload.phone ||
+            !payload.email ||
+            !payload.message
+          ) {
             alert("Будь ласка, заповніть усі поля.");
             return;
           }

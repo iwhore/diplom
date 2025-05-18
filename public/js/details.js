@@ -46,8 +46,6 @@ document.querySelector(".checkout-btn").addEventListener("click", function (e) {
 
   // Якщо все добре
   window.location.href = "order.html";
-
-  // Тут можна реалізувати очищення або перехід на сторінку підтвердження
 });
 
 // ======= details.js (на сторінці details.html) =======
@@ -59,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let subtotal = 0;
   const delivery = 500;
 
-  cart.forEach(item => {
+  cart.forEach((item) => {
     totalQuantity += item.quantity;
     subtotal += item.quantity * item.price;
   });
@@ -74,9 +72,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Зберігаємо для сторінки замовлення
-  localStorage.setItem("orderSummary", JSON.stringify({
-    totalQuantity,
-    total
-  }));
+  localStorage.setItem(
+    "orderSummary",
+    JSON.stringify({
+      totalQuantity,
+      total,
+    })
+  );
 });
-

@@ -209,3 +209,7 @@ textarea:focus {
   font-weight: bold;
   font-size: 38px;
 }
+.form-content h2 {
+  margin-top: 0;
+  margin-bottom: 30px;
+}

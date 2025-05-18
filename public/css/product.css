@@ -359,7 +359,7 @@
 #status.error {
   color: red;
 }
-
+/*
 input[type="text"],
 input[type="email"],
 textarea {
@@ -442,6 +442,7 @@ textarea {
   background-color: #000;
   color: #fff;
 }
+  */
 /*форма для відгуку*/
 .testimonial-quote {
   font-style: italic;

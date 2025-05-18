@@ -23,7 +23,7 @@ p {
 
 a {
   text-decoration: none;
-  color: inherit; 
+  color: inherit;
   background: none;
   border: none;
   padding: 0;
@@ -206,7 +206,6 @@ body {
   max-height: 30px;
 }
 
-*FOOTER*/
 .footer {
   background: #fafafa;
   padding: 40px 0;
