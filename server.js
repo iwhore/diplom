@@ -5,6 +5,7 @@ const cors     = require('cors');
 const User    = require('./models/User');    // ваша схема користувача
 const Contact = require('./models/Contact'); // схема для контактів
 const Review  = require('./models/Review');
+const Order = require('./models/Order');
 
 const app  = express();
 const PORT = 3000;
@@ -75,6 +76,18 @@ app.post('/api/reviews', async (req, res) => {
   } catch (error) {
     console.error('Помилка збереження відгуку:', error);
     res.status(500).json({ error: 'Не вдалося додати відгук' });
+  }
+});
+
+app.post('/api/order', async (req, res) => {
+  console.log('📝 POST /api/order:', req.body);
+  try {
+    const order = new Order(req.body);
+    await order.save();
+    return res.status(201).json({ message: 'Замовлення успішно оформлено!' });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: 'Не вдалося оформити замовлення' });
   }
 });
 

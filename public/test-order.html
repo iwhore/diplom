@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <title>Test Order API</title>
+</head>
+<body>
+  <h1>Тест /api/order</h1>
+  <form id="order-form">
+    <label>Ім’я: <input type="text" id="name" value="Іван" /></label><br/><br/>
+    <p>Сума: <span id="sum">100.00</span></p>
+    <p>Доставка: <span id="ship">20.00</span></p>
+    <p>Всього: <span id="total">120.00</span></p>
+    <button type="submit">Відправити</button>
+  </form>
+
+  <script>
+    document.getElementById('order-form').addEventListener('submit', async e => {
+      e.preventDefault();
+      const payload = {
+        name: document.getElementById('name').value,
+        surname: 'Тест',
+        phone: '+380123456789',
+        email: 'test@example.com',
+        city: 'Львів',
+        address: 'вул. Тестова, 1',
+        index: '79000',
+        payment: 'cash',
+        totalSum: 100,
+        shipping: 20,
+        grandTotal: 120,
+        cartItems: []
+      };
+      console.log('▶ payload:', payload);
+      try {
+        const res = await fetch('/api/order', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        console.log('← status:', res.status);
+        const text = await res.text();
+        console.log('← text response:', text);
+        try {
+          const json = JSON.parse(text);
+          alert('Server JSON: ' + JSON.stringify(json));
+        } catch {
+          alert('Not JSON response: ' + text);
+        }
+      } catch(err) {
+        console.error('❌ fetch error:', err);
+        alert('Не вдалося зв’язатися з сервером');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -18,8 +18,8 @@
       <div class="container">
         <div class="header-bottom">
           <a href="Catalog_Main.html">
-        <img src="/images/arrow_basket.svg" alt="Повернутись до каталогу" />
-       </a>
+            <img src="/images/arrow_basket.svg" alt="Повернутись до каталогу" />
+          </a>
           <h1>Деталі замовлення</h1>
           <div class="header-icons">
             <a href="favorites.html" class="icon-link"
@@ -38,133 +38,135 @@
     <section>
       <div class="container">
         <div class="checkout-wrapper">
-          <!-- Ліва частина: форма -->
-          <form class="checkout-form">
-            <div class="row">
-              <div class="form-group">
-                <label for="name">Ім’я</label>
-                <input type="text" id="name" placeholder="Ім’я" />
+          <form id="order-form" class="checkout-form">
+            <!-- Особисті дані -->
+            <div class="aside">
+              <div class="row">
+                <div class="form-group">
+                  <label for="name">Ім’я</label>
+                  <input type="text" id="name" required />
+                </div>
+                <div class="form-group">
+                  <label for="surname">Прізвище</label>
+                  <input type="text" id="surname" required />
+                </div>
               </div>
-              <div class="form-group">
-                <label for="surname">Прізвище</label>
-                <input type="text" id="surname" placeholder="Прізвище" />
+
+              <div class="row">
+                <div class="form-group">
+                  <label for="phone">Телефон</label>
+                  <input type="text" id="phone" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" required />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-group small">
+                  <label for="city">Місто</label>
+                  <input type="text" id="city" required />
+                </div>
+                <div class="form-group small">
+                  <label for="address">Адреса</label>
+                  <input type="text" id="address" required />
+                </div>
+                <div class="form-group small">
+                  <label for="index">Поштовий індекс</label>
+                  <input type="text" id="index" required />
+                </div>
+              </div>
+
+              <!-- Суми -->
+        
+            </div>
+
+            <!-- Оплата -->
+            <div class="payment-methods">
+              <h3>Метод оплати</h3>
+
+              <label class="payment-option">
+                <input type="radio" name="payment" value="card" checked />
+                <span class="custom-radio"></span>
+                <span>Карткою</span>
+              </label>
+
+              <label class="payment-option">
+                <input type="radio" name="payment" value="cash" />
+                <span class="custom-radio"></span>
+                <span>Готівкою при отриманні</span>
+              </label>
+
+              <label class="payment-option">
+                <input type="radio" name="payment" value="paypal" />
+                <span class="custom-radio"></span>
+                <span>PayPal</span>
+              </label>
+            </div>
+
+            <!-- Поля картки -->
+            <div id="card-form" class="card-form">
+              <div class="row">
+                <div class="form-group">
+                  <label for="cardholder-name">Ім’я на картці</label>
+                  <input type="text" id="cardholder-name" />
+                </div>
+                <div class="form-group">
+                  <label for="card-number">Номер картки</label>
+                  <input
+                    type="text"
+                    id="card-number"
+                    placeholder="1234 5678 9012 3456"
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label for="expiry-date">Термін дії</label>
+                  <input type="month" id="expiry-date" />
+                </div>
+                <div class="form-group">
+                  <label for="ccv">CCV</label>
+                  <input type="text" id="ccv" maxlength="4" />
+                </div>
               </div>
             </div>
 
-            <div class="row">
-              <div class="form-group">
-                <label for="phone">Номер телефону</label>
-                <input type="text" id="phone" placeholder="Номер телефону" />
-              </div>
-              <div class="form-group">
-                <label for="email">E-mail</label>
-                <input type="email" id="email" placeholder="e-mail" />
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="form-group small">
-                <label for="city">Місто</label>
-                <input type="text" id="city" placeholder="Місто" />
-              </div>
-              <div class="form-group small">
-                <label for="address">Адреса</label>
-                <input type="text" id="address" placeholder="Адреса" />
-              </div>
-              <div class="form-group small">
-                <label for="index">Індекс</label>
-                <input type="text" id="index" placeholder="Індекс" />
-              </div>
-            </div>
+            <!-- Кнопка -->
+            <button type="submit" class="checkout-btn">
+              Оформити замовлення
+            </button>
           </form>
-
-          <!-- Права частина: деталі замовлення -->
-          <aside class="order-summary">
-            <h2 class="zam">Деталі замовлення</h2>
-            <p>Сума: <span>0.00</span></p>
-            <p>Доставка: <span>0.00</span></p>
-            <div class="check-out">
-              <p class="result">Всього: <span>0.00</span></p>
-              <button class="checkout-btn">Оформити замовлення</button>
-            </div>
-          </aside>
+          <aside
+                class="order-summary"
+                style="
+                  flex: 0 0 400px;
+                  border: 1px solid #ddd;
+                  padding: 1.5rem;
+                "
+              >
+                <h2 class="zam">Ваше замовлення</h2>
+                <p>Сума: <span id="sum">0.00</span> грн</p>
+                <p>Доставка: <span id="ship">0.00</span> грн</p>
+                <div class="check-out">
+                  <p class="result">Всього: <span id="total">0.00</span> грн</p>
+                </div>
+              </aside>
         </div>
-
-        <div class="payment-methods">
-          <h3>Як би ви хотіли здійснити оплату?</h3>
-
-          <label class="payment-option">
-            <input type="radio" name="payment" value="card" checked />
-            <span class="custom-radio"></span>
-            <span>Оплата карткою</span>
-          </label>
-
-          <label class="payment-option">
-            <input type="radio" name="payment" value="cash" />
-            <span class="custom-radio"></span>
-            <span>Оплата при отриманні</span>
-          </label>
-
-          <label class="payment-option">
-            <input type="radio" name="payment" value="paypal" />
-            <span class="custom-radio"></span>
-            <span>Оплата з PayPal</span>
-          </label>
-        </div>
-
-        <form class="checkout-form" id="card-form">
-          <div class="row">
-            <div class="form-group">
-              <label for="cardholder-name">Назва картки</label>
-              <input
-                type="text"
-                id="cardholder-name"
-                placeholder="Назва картки"
-                autocomplete="cc-name"
-              />
-            </div>
-            <div class="form-group">
-              <label for="card-number">Номер картки</label>
-              <input
-                type="tel"
-                id="card-number"
-                placeholder="Введіть номер картки"
-                maxlength="19"
-                pattern="\d{4} \d{4} \d{4} \d{4}"
-                autocomplete="cc-number"
-              />
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="form-group">
-              <label for="expiry-date">Дата дії</label>
-              <input
-                type="month"
-                id="expiry-date"
-                placeholder="MM/YY"
-                autocomplete="cc-exp"
-              />
-            </div>
-            <div class="form-group">
-              <label for="ccv">CCV</label>
-              <input
-                type="text"
-                id="ccv"
-                placeholder="CCV"
-                maxlength="4"
-                pattern="\d{3,4}"
-                autocomplete="cc-csc"
-              />
-            </div>
-          </div></div>
-        </form>
+      </div>
     </section>
     <footer class="footer">
       <div class="container">
         <div class="footer-top">
           <div class="footer-logo-container">
- <a href="./index.html"> <img src="./images/logo-footer.svg" alt="Логотип меблевого магазину" class="footer-logo"></a>            <p>
+            <a href="./index.html">
+              <img
+                src="./images/logo-footer.svg"
+                alt="Логотип меблевого магазину"
+                class="footer-logo"
+            /></a>
+            <p>
               <img
                 src="./images/fi-bs-phone-call--footer.svg"
                 alt=""
@@ -231,71 +233,99 @@
       </div>
     </footer>
     <script>
-      const modal = document.getElementById("modal");
-      const closeBtn = document.getElementById("modal-close");
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("order-form");
+        const summarySpans = document.querySelectorAll(".order-summary span");
+        const cart = JSON.parse(localStorage.getItem("cart") || "[]");
 
-      document
-        .getElementById("subscribe-btn")
-        .addEventListener("click", function () {
-          const emailInput = document.querySelector(".input").value.trim();
+        // 1) Розрахунок сум
+        let subtotal = 0;
+        cart.forEach((i) => (subtotal += i.quantity * i.price));
+        const shipping = 500;
+        const total = subtotal + shipping;
 
-          if (emailInput === "") {
-            alert("Будь ласка, введіть email");
-            return;
+        // Виводимо на сторінку
+        if (summarySpans.length >= 3) {
+          summarySpans[0].textContent = subtotal.toFixed(2);
+          summarySpans[1].textContent = shipping.toFixed(2);
+          summarySpans[2].textContent = total.toFixed(2);
+        }
+
+        // 2) Toggle карткової форми
+        const cardForm = document.getElementById("card-form");
+        document.querySelectorAll('input[name="payment"]').forEach((radio) => {
+          radio.addEventListener("change", () => {
+            cardForm.style.display = radio.value === "card" ? "block" : "none";
+          });
+        });
+        // Виклик щоб показати/сховати при завантаженні
+        document
+          .querySelector('input[name="payment"]:checked')
+          .dispatchEvent(new Event("change"));
+
+        // 3) Сабміт форми
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          // Збираємо поля
+          const data = {
+            name: form.querySelector("#name").value.trim(),
+            surname: form.querySelector("#surname").value.trim(),
+            phone: form.querySelector("#phone").value.trim(),
+            email: form.querySelector("#email").value.trim(),
+            city: form.querySelector("#city").value.trim(),
+            address: form.querySelector("#address").value.trim(),
+            index: form.querySelector("#index").value.trim(),
+            payment: form.querySelector('input[name="payment"]:checked').value,
+            totalSum: subtotal,
+            shipping: shipping,
+            grandTotal: total,
+            cartItems: cart,
+          };
+
+          // Додаткові поля картки якщо потрібно
+          if (data.payment === "card") {
+            data.cardholder = form
+              .querySelector("#cardholder-name")
+              .value.trim();
+            data.cardNumber = form.querySelector("#card-number").value.trim();
+            data.expiryDate = form.querySelector("#expiry-date").value.trim();
+            data.ccv = form.querySelector("#ccv").value.trim();
           }
 
-          modal.classList.add("show");
-          modal.classList.remove("hide");
+          console.log("▶ payload", data);
 
-          setTimeout(() => {
-            closeModal();
-          }, 6000);
+          try {
+            const res = await fetch("/api/order", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(data),
+            });
+            console.log("← status", res.status);
 
-          document.querySelector(".input").value = "";
+            const txt = await res.text();
+            console.log("← raw response", txt);
+
+            let json;
+            try {
+              json = JSON.parse(txt);
+            } catch {
+              return alert("Отримано неприпустиму відповідь від сервера.");
+            }
+
+            if (!res.ok) {
+              return alert(json.error || "Сталась помилка на сервері.");
+            }
+
+            alert(json.message || "Замовлення успішно оформлено!");
+            form.reset();
+            setTimeout(() => (location.href = "/order.html"), 1500);
+          } catch (err) {
+            console.error("❌ fetch error", err);
+            alert("Не вдалося зв’язатися із сервером.");
+          }
         });
-
-      closeBtn.addEventListener("click", closeModal);
-
-      function closeModal() {
-        modal.classList.add("hide");
-        modal.classList.remove("show");
-
-        setTimeout(() => {
-          modal.style.display = "none";
-        }, 300);
-      }
-
-      const observer = new MutationObserver(() => {
-        if (modal.classList.contains("show")) {
-          modal.style.display = "flex";
-        }
       });
-
-      observer.observe(modal, { attributes: true });
-    </script>
-    <script src="./js/details.js"></script>
-    <script>
-      const cardForm = document.getElementById("card-form");
-      const paymentRadios = document.querySelectorAll('input[name="payment"]');
-
-      function toggleCardForm() {
-        const selected = document.querySelector(
-          'input[name="payment"]:checked'
-        ).value;
-        if (selected === "card") {
-          cardForm.style.display = "block";
-        } else {
-          cardForm.style.display = "none";
-        }
-      }
-
-      // Показати/сховати при зміні вибору
-      paymentRadios.forEach((radio) => {
-        radio.addEventListener("change", toggleCardForm);
-      });
-
-      // Викликати при завантаженні сторінки
-      toggleCardForm();
     </script>
   </body>
 </html>

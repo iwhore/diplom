@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const price = rawPrice.replace(/\s/g, '');
       const colorInput = document.querySelector('input[name="color"]:checked');
       const color = colorInput ? colorInput.value : 'Не вибрано';
-      const image = document.querySelector('.product-main-image img')?.getAttribute('src') || '';
+      const image = document.querySelector('.basket img')?.getAttribute('src') || '';
 
       const today = new Date();
       const months = ["січня", "лютого", "березня", "квітня", "травня", "червня", "липня", "серпня", "вересня", "жовтня", "листопада", "грудня"];
