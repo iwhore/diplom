@@ -12,8 +12,6 @@
       href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
@@ -23,33 +21,36 @@
     <header>
       <div class="container">
         <div class="header-bottom">
-        <a href="Catalog_Main.html">
-        <img src="/images/arrow_basket.svg" alt="Повернутись до каталогу" />
-       </a>
+          <a href="Catalog_Main.html">
+            <img src="/images/arrow_basket.svg" alt="Повернутись до каталогу" />
+          </a>
           <h1>Обране</h1>
           <div class="header-icons">
-            <a href="favorites.html" class="icon-link"
-              ><img src="./images/white/heart.svg" alt="Додати в обране"
-            /></a>
-            <a href="basket.html" class="icon-link"
-              ><img src="./images/white/basket.svg" alt="Додати в кошик"
-            /></a>
-            <a href="personalinfo.html" class="icon-link"
-              ><img src="./images/white/user.svg" alt="Особистий кабінет"
-            /></a>
+            <a href="favorites.html" class="icon-link">
+              <img src="./images/white/heart.svg" alt="Додати в обране" />
+            </a>
+            <a href="basket.html" class="icon-link">
+              <img src="./images/white/basket.svg" alt="Додати в кошик" />
+            </a>
+            <a href="personalinfo.html" class="icon-link">
+              <img src="./images/white/user.svg" alt="Особистий кабінет" />
+            </a>
           </div>
         </div>
       </div>
     </header>
-    <div class="container">
-      <div class="favorites-list"></div>
-      <div class="footer-btns">
-        <button class="clear-btn">Очистити обране</button>
-        <button class="add-btn">Додати в кошик</button>
+
+    <div class="main-wrapper">
+      <div class="container">
+        <div class="favorites-list"></div>
+        <div class="footer-btns">
+          <button class="clear-btn">Очистити обране</button>
+          <button class="add-btn">Додати в кошик</button>
+        </div>
       </div>
     </div>
-    </div>
-   <footer class="footer">
+
+    <footer class="footer">
       <div class="container">
         <div class="footer-top">
           <div class="footer-logo-container">
@@ -120,27 +121,28 @@
         </div>
       </div>
     </footer>
+
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const favoritesContainer = document.querySelector(".favorites-list");
         let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
-      
+
         function saveFavorites() {
           localStorage.setItem("favorites", JSON.stringify(favorites));
         }
-      
+
         function saveCart() {
           localStorage.setItem("cart", JSON.stringify(cart));
         }
-      
+
         function renderFavorites() {
           favoritesContainer.innerHTML = "";
           if (favorites.length === 0) {
             favoritesContainer.innerHTML = "<p>Список обраного порожній.</p>";
             return;
           }
-      
+
           favorites.forEach((item, index) => {
             const element = document.createElement("div");
             element.className = "item";
@@ -165,28 +167,28 @@
             favoritesContainer.appendChild(element);
           });
         }
-      
+
         // Додавання в кошик
         favoritesContainer.addEventListener("click", (e) => {
           if (e.target.classList.contains("btn")) {
             const index = e.target.dataset.index;
             const favoriteItem = favorites[index];
-      
+
             const cartItem = {
               id: Date.now(),
               name: favoriteItem.name,
               price: parseFloat(favoriteItem.price),
               quantity: 1,
               color: favoriteItem.color,
-              image: favoriteItem.image
+              image: favoriteItem.image,
             };
-      
+
             cart.push(cartItem);
             saveCart();
             alert("Товар додано до кошика");
           }
         });
-      
+
         // Видалення з обраного
         favoritesContainer.addEventListener("click", (e) => {
           if (e.target.classList.contains("remove-btn")) {
@@ -196,9 +198,9 @@
             renderFavorites();
           }
         });
-      
+
         renderFavorites();
-      
+
         // Очистити всі
         const clearBtn = document.querySelector(".clear-btn");
         if (clearBtn) {
@@ -208,19 +210,19 @@
             renderFavorites();
           });
         }
-      
+
         // Додати всі до кошика
         const addAllBtn = document.querySelector(".add-btn");
         if (addAllBtn) {
           addAllBtn.addEventListener("click", () => {
-            favorites.forEach(item => {
+            favorites.forEach((item) => {
               const cartItem = {
                 id: Date.now(),
                 name: item.name,
                 price: parseFloat(item.price),
                 quantity: 1,
                 color: item.color,
-                image: item.image
+                image: item.image,
               };
               cart.push(cartItem);
             });

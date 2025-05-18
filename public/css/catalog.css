@@ -124,7 +124,28 @@
   top: 18px;
   z-index: 2;
 }
+.subfilters {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
+}
 
+.subfilters h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.subfilters label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.subfilters input[type="checkbox"] {
+  margin-right: 8px;
+}
 /* Товари */
 .products {
   flex: 1;
@@ -257,7 +278,6 @@
   cursor: pointer;
   transition: 0.3s ease;
 }
-
 
 .product-card .icon {
   width: 24px;
