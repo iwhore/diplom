@@ -284,8 +284,8 @@ section {
 }
 
 .payment-methods input[type="radio"] + .custom-radio {
-  width: 60px;
-  height: 60px;
+  width: 30px;
+  height: 30px;
   border: 1px solid #534139;
   border-radius: 50%;
   display: inline-block;
@@ -296,12 +296,13 @@ section {
 .payment-methods input[type="radio"]:checked + .custom-radio::before {
   content: "";
   position: absolute;
-  top: 9px;
-  left: 9px;
-  width: 40px;
-  height: 40px;
+  top: 50%;
+  left: 50%;
+  width: 15px;
+  height: 15px;
   background: #534139;
   border-radius: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .payment-methods h3 {
@@ -406,7 +407,7 @@ label {
 
 .form-group label {
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .form-group input {
@@ -414,4 +415,73 @@ label {
   border: 1px solid #ccc;
   border-radius: 30px;
   font-size: 14px;
+}
+/*------------*/
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 800px;
+  margin-top: 1rem;
+}
+
+.input-pair {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-pair label {
+  margin-bottom: 10px;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.input-pair input {
+  padding: 20px 20px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.payment-info > div {
+  color: #000;
+  font-size: 24px;
+  line-height: 1.6;
+  margin-top: 18px;
+  padding-left: 12px;
+  border-left: 4px solid #534139;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.4s ease, max-height 0.4s ease;
+}
+
+.payment-info > div.show {
+  opacity: 1;
+  max-height: 200px;
+}
+
+.paypal-btn {
+  margin-top: 15px;
+  background-color: #534139;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  cursor: pointer;
+  border-radius: 60px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.paypal-btn:hover {
+  background-color: #000;
+  box-shadow: none;
+}
+
+.form-wrapper {
+  margin-bottom: 60px;
 }

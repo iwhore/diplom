@@ -92,73 +92,67 @@
 
         <div class="payment-methods">
           <h3>Як би ви хотіли здійснити оплату?</h3>
-
+      
           <label class="payment-option">
             <input type="radio" name="payment" value="card" checked />
             <span class="custom-radio"></span>
             <span>Оплата карткою</span>
           </label>
-
+      
           <label class="payment-option">
             <input type="radio" name="payment" value="cash" />
             <span class="custom-radio"></span>
             <span>Оплата при отриманні</span>
           </label>
-
+      
           <label class="payment-option">
             <input type="radio" name="payment" value="paypal" />
             <span class="custom-radio"></span>
             <span>Оплата з PayPal</span>
           </label>
         </div>
-
-        <form class="checkout-form" id="card-form">
-          <div class="row">
-            <div class="form-group">
-              <label for="cardholder-name">Назва картки</label>
-              <input
-                type="text"
-                id="cardholder-name"
-                placeholder="Назва картки"
-                autocomplete="cc-name"
-              />
-            </div>
-            <div class="form-group">
-              <label for="card-number">Номер картки</label>
-              <input
-                type="tel"
-                id="card-number"
-                placeholder="Введіть номер картки"
-                maxlength="19"
-                pattern="\d{4} \d{4} \d{4} \d{4}"
-                autocomplete="cc-number"
-              />
-            </div>
+      
+        <div class="payment-info">
+          <div class="card-info show">
+            <p>Введіть дані картки для оплати.</p>
           </div>
-
-          <div class="row">
-            <div class="form-group">
-              <label for="expiry-date">Дата дії</label>
-              <input
-                type="month"
-                id="expiry-date"
-                placeholder="MM/YY"
-                autocomplete="cc-exp"
-              />
+      
+          <div class="cash-info">
+            <p>Ви сплатите замовлення готівкою або карткою при отриманні кур'єру або на пошті.</p>
+          </div>
+      
+          <div class="paypal-info">
+            <p>Вас буде перенаправлено на PayPal для завершення оплати.</p>
+            <button class="paypal-btn" type="button">Перейти до PayPal</button>
+          </div>
+        </div>
+        
+        <div class="form-wrapper">
+          <form class="checkout-form" id="card-form">
+            <div class="form-grid">
+              <div class="input-pair">
+                <label for="cardholder-name">Назва картки</label>
+                <input type="text" id="cardholder-name" placeholder="Назва картки" autocomplete="cc-name" />
+              </div>
+            
+              <div class="input-pair">
+                <label for="card-number">Номер картки</label>
+                <input type="tel" id="card-number" placeholder="Введіть номер картки" maxlength="19" autocomplete="cc-number" />
+              </div>
+            
+              <div class="input-pair">
+                <label for="expiry-date">Дата дії</label>
+                <input type="month" id="expiry-date" autocomplete="cc-exp" />
+              </div>
+            
+              <div class="input-pair">
+                <label for="ccv">CCV</label>
+                <input type="text" id="ccv" placeholder="CCV" maxlength="4" autocomplete="cc-csc" />
+              </div>
             </div>
-            <div class="form-group">
-              <label for="ccv">CCV</label>
-              <input
-                type="text"
-                id="ccv"
-                placeholder="CCV"
-                maxlength="4"
-                pattern="\d{3,4}"
-                autocomplete="cc-csc"
-              />
-            </div>
-          </div></div>
-        </form>
+          </form>
+        </div>
+        
     </section>
     <footer class="footer">
       <div class="container">
@@ -230,6 +224,23 @@
         </div>
       </div>
     </footer>
+    <script>
+      const paymentOptions = document.querySelectorAll('input[name="payment"]');
+      const cardInfo = document.querySelector('.card-info');
+      const cashInfo = document.querySelector('.cash-info');
+      const paypalInfo = document.querySelector('.paypal-info');
+    
+      paymentOptions.forEach(option => {
+        option.addEventListener('change', () => {
+          // Приховуємо всі
+          document.querySelectorAll('.payment-info > div').forEach(div => div.classList.remove('show'));
+          
+          // Показуємо потрібний
+          const selected = document.querySelector(`.${option.value}-info`);
+          if (selected) selected.classList.add('show');
+        });
+      });
+    </script>
     <script>
       const modal = document.getElementById("modal");
       const closeBtn = document.getElementById("modal-close");
