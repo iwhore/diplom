@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Фільтри товарів</title>
+    <style>
+      .product-card {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+        display: block;
+      }
+      #subfilters label {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Категорія</h2>
+    <label
+      ><input type="checkbox" name="category" value="livingroom" checked />
+      Вітальня</label
+    >
+    <label
+      ><input type="checkbox" name="category" value="bedroom" /> Спальня</label
+    >
+    <label
+      ><input type="checkbox" name="category" value="kitchen" /> Кухня</label
+    >
+    <label><input type="checkbox" name="category" value="office" /> Офіс</label>
+    <label
+      ><input type="checkbox" name="category" value="hallway" />
+      Передпокій</label
+    >
+
+    <h2>Колір</h2>
+    <label
+      ><input type="checkbox" name="color" value="червоний" /> Червоний</label
+    >
+    <label><input type="checkbox" name="color" value="синій" /> Синій</label>
+    <label
+      ><input type="checkbox" name="color" value="зелений" /> Зелений</label
+    >
+    <label><input type="checkbox" name="color" value="білий" /> Білий</label>
+
+    <h2>Комплектація</h2>
+    <div id="subfilters"></div>
+
+    <h2>Ціна</h2>
+    <span id="price-range"></span><br />
+    <input
+      type="range"
+      id="min-range"
+      min="0"
+      max="100000"
+      value="0"
+      step="1000"
+    />
+    <input
+      type="range"
+      id="max-range"
+      min="0"
+      max="100000"
+      value="100000"
+      step="1000"
+    />
+
+    <h2>Товари</h2>
+    <div id="products">
+      <div
+        class="product-card"
+        data-category="livingroom"
+        data-color="червоний"
+        data-price="25000"
+        data-complect="Дивани"
+      >
+        Вітальня - Диван, Червоний, 25000 грн
+      </div>
+      <div
+        class="product-card"
+        data-category="livingroom"
+        data-color="синій"
+        data-price="15000"
+        data-complect="Стільці"
+      >
+        Вітальня - Стілець, Синій, 15000 грн
+      </div>
+      <div
+        class="product-card"
+        data-category="bedroom"
+        data-color="зелений"
+        data-price="30000"
+        data-complect="Ліжка"
+      >
+        Спальня - Ліжко, Зелений, 30000 грн
+      </div>
+      <div
+        class="product-card"
+        data-category="kitchen"
+        data-color="білий"
+        data-price="10000"
+        data-complect="Стільниці"
+      >
+        Кухня - Стільниця, Білий, 10000 грн
+      </div>
+      <div
+        class="product-card"
+        data-category="office"
+        data-color="червоний"
+        data-price="50000"
+        data-complect="Робочі столи"
+      >
+        Офіс - Робочий стіл, Червоний, 50000 грн
+      </div>
+      <div
+        class="product-card"
+        data-category="hallway"
+        data-color="білий"
+        data-price="20000"
+        data-complect="Вішалки"
+      >
+        Передпокій - Вішалка, Білий, 20000 грн
+      </div>
+    </div>
+
+    <script>
+      const categoryCheckboxes = document.querySelectorAll(
+        'input[name="category"]'
+      );
+      const colorCheckboxes = document.querySelectorAll('input[name="color"]');
+      const subfiltersContainer = document.getElementById("subfilters");
+      const minRange = document.getElementById("min-range");
+      const maxRange = document.getElementById("max-range");
+      const priceRangeText = document.getElementById("price-range");
+
+      function renderSubfilters(selectedCategories) {
+        subfiltersContainer.innerHTML = "";
+
+        // Зібрати всі комплектації для вибраних категорій в один набір без повторів
+        const allFilters = {};
+
+        selectedCategories.forEach((category) => {
+          const filters = subfiltersData[category];
+          if (!filters) return;
+
+          for (const title in filters) {
+            if (!allFilters[title]) {
+              allFilters[title] = new Set();
+            }
+            filters[title].forEach((option) => allFilters[title].add(option));
+          }
+        });
+
+        for (const title in allFilters) {
+          const block = document.createElement("div");
+          const heading = document.createElement("h4");
+          heading.textContent = title;
+          block.appendChild(heading);
+
+          Array.from(allFilters[title]).forEach((option) => {
+            const label = document.createElement("label");
+            label.style.display = "block";
+            label.innerHTML = `<input type="checkbox" name="subfilter" value="${option}"> ${option}`;
+            block.appendChild(label);
+          });
+
+          subfiltersContainer.appendChild(block);
+        }
+      }
+
+      function getSelectedCategories() {
+        return Array.from(categoryCheckboxes)
+          .filter((cb) => cb.checked)
+          .map((cb) => cb.value);
+      }
+
+      function getSelectedColors() {
+        return Array.from(colorCheckboxes)
+          .filter((cb) => cb.checked)
+          .map((cb) => cb.value.toLowerCase());
+      }
+
+      function getSelectedSubfilters() {
+        return Array.from(
+          document.querySelectorAll('input[name="subfilter"]:checked')
+        ).map((cb) => cb.value);
+      }
+
+      function applyFilters() {
+        const selectedCategories = getSelectedCategories();
+        const selectedColors = getSelectedColors();
+        const selectedSubfilters = getSelectedSubfilters();
+        const minPrice = parseInt(minRange.value);
+        const maxPrice = parseInt(maxRange.value);
+
+        const cards = document.querySelectorAll(".product-card");
+
+        cards.forEach((card) => {
+          const cardCategory = card.dataset.category;
+          const cardColor = card.dataset.color.toLowerCase();
+          const cardPrice = parseInt(card.dataset.price);
+          const cardComplect = card.dataset.complect;
+
+          let isVisible = true;
+
+          // Фільтр по категоріях (якщо вибрано хоча б одну категорію)
+          if (
+            selectedCategories.length > 0 &&
+            !selectedCategories.includes(cardCategory)
+          ) {
+            isVisible = false;
+          }
+
+          // Фільтр по кольору (якщо вибрано хоч один колір)
+          if (
+            selectedColors.length > 0 &&
+            !selectedColors.includes(cardColor)
+          ) {
+            isVisible = false;
+          }
+
+          // Фільтр по підфільтру комплектації (якщо вибрано хоч один варіант)
+          if (
+            selectedSubfilters.length > 0 &&
+            !selectedSubfilters.includes(cardComplect)
+          ) {
+            isVisible = false;
+          }
+
+          // Фільтр по ціні
+          if (cardPrice < minPrice || cardPrice > maxPrice) {
+            isVisible = false;
+          }
+
+          card.style.display = isVisible ? "block" : "none";
+        });
+
+        updatePriceText(minPrice, maxPrice);
+      }
+
+      // Події
+      categoryCheckboxes.forEach((cb) => {
+        cb.addEventListener("change", () => {
+          renderSubfilters(getSelectedCategories());
+          applyFilters();
+        });
+      });
+
+      colorCheckboxes.forEach((cb) => {
+        cb.addEventListener("change", applyFilters);
+      });
+
+      subfiltersContainer.addEventListener("change", applyFilters);
+
+      minRange.addEventListener("input", applyFilters);
+      maxRange.addEventListener("input", applyFilters);
+
+      // Ініціалізація
+      renderSubfilters(getSelectedCategories());
+      applyFilters();
+    </script>
+  </body>
+</html>
