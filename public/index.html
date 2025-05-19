@@ -554,7 +554,7 @@
         </div>
       </div>
     </footer>
-    <script src="./js/auth-check.js" defer></script>
+
     <script>
       const modal = document.getElementById('modal');
       const closeBtn = document.getElementById('modal-close');
@@ -672,16 +672,13 @@
       
           document.getElementById("logout-link").addEventListener("click", e => {
             e.preventDefault();
-            // чистимо збережене
             localStorage.removeItem("isLoggedIn");
             localStorage.removeItem("userName");
             sessionStorage.removeItem("isLoggedIn");
             sessionStorage.removeItem("userName");
-            // оновлюємо меню
             location.reload();
           });
         }
-        // інакше — дефолтні лінки з HTML лишаються
       });
       </script>
   </body>

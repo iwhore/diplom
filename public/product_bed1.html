@@ -186,17 +186,6 @@
             <div class="product-name">
               Диван Grafit, Темно-сірий / графітовий 215×165×95 см
             </div>
-            <form id="review-form">
-              <div class="testimonial-header">
-                <div class="star-rating" id="star-rating">
-                  <span data-value="1">☆</span>
-                  <span data-value="2">☆</span>
-                  <span data-value="3">☆</span>
-                  <span data-value="4">☆</span>
-                  <span data-value="5">☆</span>
-                </div>
-              </div>
-            </form>
             <div class="product-price">18 999грн</div>
             <div class="product-color">
               <div class="selected-color">
@@ -362,39 +351,44 @@
       </div>
     </div>
 
-    <!-- <section class="review-section">
-      <h2>Додайте свій відгук *</h2>
-      <form class="review-form">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Ім’я</label>
-            <input type="text" id="name" placeholder="Ваше ім’я" />
-          </div>
-          <div class="form-group">
-            <label for="email">Електронна пошта</label>
-            <input type="email" id="email" placeholder="example@mail.com" />
-          </div>
-        </div>
-
-        <form id="review-form">
-          <div class="testimonial-header">
-            <label for="rating" class="testimonial-title">Ваша оцінка</label>
-            <div class="star-rating" id="star-rating">
-              <span data-value="1">☆</span>
-              <span data-value="2">☆</span>
-              <span data-value="3">☆</span>
-              <span data-value="4">☆</span>
-              <span data-value="5">☆</span>
+    <section class="review-section container">
+      <h2>Додайте свій відгук</h2>
+      <form id="review-form">
+        <div class="info-cont">
+            <div style="width: 48%;">
+              <label
+                ><p style="margin-left: 20px;">Ім'я</p><br />
+                <input type="text" name="name" required />
+              </label>
             </div>
-          </div>
-        </form>
-
-        <div class="form-group">
-          <label for="review">Відгук</label>
-          <textarea id="review" placeholder="Пишіть тут"></textarea>
+            <div style="width: 48%;">
+              <label
+                ><p style="margin-left: 20px;">Пошта</p><br />
+                <input type="email" name="email" required />
+              </label>
+            </div>
         </div>
-        <button type="submit" class="submit-button">Надіслати</button>
+        <p style="margin-bottom: 30px; ">
+             Ваша оцінка: <br />
+          <span id="star-rating" class="stars">
+            <span data-value="1">☆</span>
+            <span data-value="2">☆</span>
+            <span data-value="3">☆</span>
+            <span data-value="4">☆</span>
+            <span data-value="5">☆</span>
+          </span>
+          <input type="hidden" name="rating" id="rating" value="0" required />
+        </p>
+        <div>
+          <label
+            ><p style="margin-left: 20px;">Відгук</p><br />
+            <textarea name="message" required></textarea>
+          </label>
+        </div>
+        <button type="submit" class="submit">Надіслати</button>
       </form>
+
+      <div id="status" style="margin-top: 1em; font-weight: bold"></div>
     </section>
     <footer class="footer">
       <div class="container">
@@ -568,4 +562,5 @@
     });
   </script>
   <script src="./js/product.js"></script>
+  <script src="/js/review.js"></script>
 </html>

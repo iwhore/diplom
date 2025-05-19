@@ -61,8 +61,15 @@ header h1 {
 .image-placeholder {
   border: 1px solid #534139;
   border-radius: 16px;
-  width: 100px;
+  width: 140px;
+  height: 110px;
+}
+
+.image-placeholder img{
   height: 100px;
+  width: 130px;
+  margin-left: 4px;
+  margin-top: 4px;
 }
 
 .info {
