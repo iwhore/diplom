@@ -31,7 +31,7 @@
           <nav class="menu" id="menu">
             <ul>
               <li><a href="./about-us.html">Про нас</a></li>
-              <li><a href="./catalog.html">Каталог</a></li>
+              <li><a href="./cataloog.html">Каталог</a></li>
               <li><a href="./contact-us.html">Контакти</a></li>
               <li><a href="./blog.html">Блог</a></li>
               <li><a href="./faqs.html">FAQ</a></li>
@@ -85,7 +85,7 @@
       document.addEventListener("DOMContentLoaded", function () {
         const togglePassword = document.getElementById("togglePassword");
         const passwordInput = document.getElementById("password");
-    
+
         togglePassword.addEventListener("click", function () {
           if (passwordInput.type === "password") {
             passwordInput.type = "text";
@@ -95,25 +95,25 @@
             togglePassword.src = "images/closed eye.svg";
           }
         });
-    
+
         const loginForm = document.getElementById("signup-form");
         loginForm.addEventListener("submit", async function (e) {
           e.preventDefault();
-    
+
           const identifier = document.getElementById("identifier").value;
           const password = document.getElementById("password").value;
-    
+
           try {
             const response = await fetch("/api/login", {
               method: "POST",
               headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
               },
-              body: JSON.stringify({ identifier, password })
+              body: JSON.stringify({ identifier, password }),
             });
-    
+
             const data = await response.json();
-    
+
             if (response.ok) {
               alert("Вхід успішний!");
               window.location.href = "index.html";
