@@ -13,13 +13,14 @@ h1 {
   position: relative;
   animation: textAppear 0.8s ease-out;
   margin-bottom: 30px;
+  position: relative;
 }
 
 h1::before,
 h1::after {
   content: "";
   position: absolute;
-  width: 40%;
+  width: 30%;
   height: 2px;
   background-color: #534139;
   top: 50%;

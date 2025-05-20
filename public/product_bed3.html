@@ -325,7 +325,7 @@
             </tr>
             <tr>
               <td>Бренд</td>
-              <td>Verde</td>
+              <td>AliyaStore</td>
             </tr>
           </tbody>
         </table>
@@ -334,19 +334,19 @@
       <div class="tab-content" id="reviews">
         <div class="review">
           <img
-            src="./images/avatar_reviews2.jpg"
+            src="./images/avatar_reviews8.svg"
             alt="Фото користувача"
             class="review-avatar"
           />
           <div class="review-content">
             <div class="review-header">
-              <div><strong>Світлана Д.</strong> <span>· Львів</span></div>
-              <span class="review-date">3 тижні тому</span>
+              <div><strong>Володимир С.</strong> <span>· Тернопіль</span></div>
+              <span class="review-date">8 днів тому</span>
             </div>
             <div class="review-stars">★★★★☆</div>
             <p class="review-text">
-              Дуже стильний диван, чудово вписався в інтер'єр! Шкіра виглядає
-              дорого.
+              Дуже комфортне ліжко! Тканина приємна, колір ідеально підійшов до
+              нашого інтер'єру. Доставка була вчасною.
             </p>
           </div>
         </div>
@@ -371,7 +371,48 @@
         </div>
       </div>
     </div>
+    <section class="review-section container">
+      <h2>Додайте свій відгук</h2>
+      <form id="review-form">
+        <div class="info-cont">
+          <div style="width: 48%">
+            <label
+              ><p style="margin-left: 20px">Ім'я</p>
+              <br />
+              <input type="text" name="name" required />
+            </label>
+          </div>
+          <div style="width: 48%">
+            <label
+              ><p style="margin-left: 20px">Пошта</p>
+              <br />
+              <input type="email" name="email" required />
+            </label>
+          </div>
+        </div>
+        <p style="margin-bottom: 30px">
+          Ваша оцінка: <br />
+          <span id="star-rating" class="stars">
+            <span data-value="1">☆</span>
+            <span data-value="2">☆</span>
+            <span data-value="3">☆</span>
+            <span data-value="4">☆</span>
+            <span data-value="5">☆</span>
+          </span>
+          <input type="hidden" name="rating" id="rating" value="0" required />
+        </p>
+        <div>
+          <label
+            ><p style="margin-left: 20px">Відгук</p>
+            <br />
+            <textarea name="message" required></textarea>
+          </label>
+        </div>
+        <button type="submit" class="submit">Надіслати</button>
+      </form>
 
+      <div id="status" style="margin-top: 1em; font-weight: bold"></div>
+    </section>
     <!-- <section class="review-section">
       <h2>Додайте свій відгук *</h2>
       <form class="review-form">
