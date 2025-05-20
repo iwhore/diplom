@@ -292,14 +292,14 @@
 }
 
 /*форма для відгуку*/
-.review-section p{
-  font-weight: 500;
+.review-section p {
+  font-weight: 600;
   font-size: 24px;
   line-height: 100%;
   letter-spacing: 0%;
 }
 
-.info-cont{
+.info-cont {
   display: flex;
   flex-direction: row;
   width: 100;
@@ -310,34 +310,20 @@ label input {
   width: 530px;
   height: 60px;
   border-radius: 60px;
-  border: 1px solid #BFBBAF;
+  border: 1px solid #bfbbaf;
 }
 
-.submit{
-  width: 220px;
-  height: 60px;
-  border-radius: 60px;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 100%;
-  color: white;
-  background-color: #534139;
-  border: none;
-}
-
-.review-stars{
+.review-stars {
   font-family: Poppins;
-font-weight: 600;
-font-size: 32px;
-line-height: 100%;
-
-
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 100%;
 }
 
 .review-section h2 {
-  font-family: "Poppins", sans-serif;
+  font-family: "Lora", sans-serif;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 36px;
   color: #000;
   margin-bottom: 30px;
   text-align: left;
@@ -398,19 +384,30 @@ line-height: 100%;
 }
 
 input[type="text"],
-input[type="email"],
-textarea {
+input[type="email"] {
   width: 100%;
   height: 54px;
   border: 1px solid #bfbbaf;
   padding: 10px 14px;
   border: 1px solid #bfbbaf;
   border-radius: 30px;
-  font-size: 14px;
+  font-size: 16px;
   transition: border 0.3s, box-shadow 0.3s;
   margin-bottom: 40px;
   border-radius: 60px;
 }
+textarea {
+  width: 100%;
+  height: 54px;
+  border: 1px solid #bfbbaf;
+  border-radius: 30px;
+  font-size: 24px;
+  transition: border 0.3s, box-shadow 0.3s;
+  margin-bottom: 40px;
+  border-radius: 60px;
+  padding: 20px 10px 10px 30px;
+}
+
 input[type="text"]:focus,
 input[type="email"]:focus,
 textarea:focus {
@@ -443,7 +440,7 @@ textarea {
   cursor: pointer;
   font-family: "Lora", sans-serif;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 18px;
   color: #bfbbaf;
   gap: 10px;
 }
@@ -474,7 +471,8 @@ textarea {
   align-self: flex-start;
   width: 220px;
   height: 60px;
-  margin-top: 40px;
+  margin-top: 1px;
+  margin-left: 20px;
 }
 
 .submit-button:hover {
@@ -482,7 +480,7 @@ textarea {
   color: #fff;
 }
 
-/*форма для відгуку*/
+/*форма для відгуку
 .testimonial-quote {
   font-style: italic;
   color: #333;
@@ -507,7 +505,7 @@ textarea {
   margin-left: 10px;
 }
 
-/* Зірочки для форми */
+/* Зірочки для форми 
 .star-rating {
   display: flex;
   gap: 6px;
@@ -526,6 +524,7 @@ textarea {
 .star-rating span.hovered {
   color: #ee9c19;
 }
+*/
 
 /*зірочки для товару*/
 .stars2 {
@@ -689,4 +688,113 @@ textarea {
 .review-section {
   margin-top: 40px;
   padding-top: 20px;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.modal-overlay.show {
+  display: flex;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.modal-overlay.hide {
+  animation: fadeOut 0.3s ease forwards;
+  animation-fill-mode: forwards;
+}
+
+.modal-message.fancy {
+  background-color: #ffffff;
+  padding: 20px 40px 40px 40px;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+  max-width: 400px;
+  width: 100%;
+  animation: slideUp 0.4s ease forwards;
+  position: relative;
+  color: #534139;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: "Inter", sans-serif;
+}
+
+.modal-icon {
+  margin: 0 0 2px 0;
+  animation: popIn 0.5s ease forwards;
+  color: #534139;
+  font-size: 40px;
+}
+
+.modal-title {
+  font-family: "Lora", serif;
+  font-weight: 600;
+  font-size: 22px;
+  color: #000;
+  margin: 0 0 10px 0;
+  text-align: center !important;
+  display: block;
+  width: 100%;
+  word-break: break-word;
+  white-space: normal;
+  line-height: 1.4;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #534139;
+  cursor: pointer;
 }

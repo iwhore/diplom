@@ -274,7 +274,20 @@
         <p>
           Grafit — це лаконічний диван у темно-сірому (графітовому) кольорі з
           дерев’яним декором. Підходить для сучасних та скандинавських
-          інтер'єрів. Має міцну конструкцію та великі подушки.
+          інтер'єрів. Має міцну конструкцію та великі подушки. Каркас дивана
+          виготовлений із натуральної деревини, що забезпечує надійність і
+          довговічність навіть при інтенсивному використанні. Дерев’яні елементи
+          декору додають тепла та затишку, створюючи гармонійний баланс між
+          стриманістю та домашнім комфортом.
+        </p>
+        <p>
+          Оббивка виконана з зносостійкої тканини, приємної на дотик та легкої в
+          догляді. Завдяки широким м’яким подушкам, Grafit ідеально підходить як
+          для щоденного відпочинку, так і для прийому гостей. Диван чудово
+          виглядає як у просторих вітальнях, так і в компактних апартаментах.
+          Завдяки продуманому дизайну та стриманій естетиці, Grafit легко
+          інтегрується в будь-який сучасний інтер’єр, надаючи приміщенню стилю,
+          елегантності та функціональності.
         </p>
       </div>
 
@@ -352,27 +365,41 @@
     </div>
 
     <section class="review-section container">
-      <h2>Додайте свій відгук</h2>
+      <h2>Додайте свій відгук *</h2>
       <form id="review-form">
         <div class="info-cont">
           <div style="width: 48%">
             <label
               ><p style="margin-left: 20px">Ім'я</p>
               <br />
-              <input type="text" name="name" required />
+              <input
+                type="text"
+                name="name"
+                placeholder="Введіть ваше ім’я"
+                required
+              />
             </label>
           </div>
           <div style="width: 48%">
             <label
               ><p style="margin-left: 20px">Пошта</p>
               <br />
-              <input type="email" name="email" required />
+              <input
+                type="email"
+                name="email"
+                placeholder="Введіть вашу електронну пошту"
+                required
+              />
             </label>
           </div>
         </div>
-        <p style="margin-bottom: 30px">
+        <p style="margin-bottom: 30px; margin-left: 20px">
           Ваша оцінка: <br />
-          <span id="star-rating" class="stars">
+          <span
+            id="star-rating"
+            class="stars"
+            style="margin-top: 20px; display: inline-block"
+          >
             <span data-value="1">☆</span>
             <span data-value="2">☆</span>
             <span data-value="3">☆</span>
@@ -388,10 +415,45 @@
             <textarea name="message" required></textarea>
           </label>
         </div>
-        <button type="submit" class="submit">Надіслати</button>
+        <button type="submit" class="submit-button">Надіслати</button>
       </form>
-
       <div id="status" style="margin-top: 1em; font-weight: bold"></div>
+      <!-- Модальне вікно -->
+      <div id="modal-overlay" class="modal-overlay">
+        <div class="modal-message fancy">
+          <button
+            id="modal-close"
+            class="modal-close"
+            aria-label="Закрити модальне вікно"
+          >
+            &times;
+          </button>
+          <p class="modal-icon"><img src="./images/checkmark.svg" /></p>
+          <h2 class="modal-title">Дякуємо за ваш відгук!</h2>
+        </div>
+      </div>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const modalOverlay = document.getElementById("modal-overlay");
+          const modalClose = document.getElementById("modal-close");
+          const form = document.getElementById("review-form");
+
+          form.addEventListener("submit", (event) => {
+            event.preventDefault(); // Зупиняємо реальну відправку форми
+            modalOverlay.style.display = "flex"; // Показати модалку
+          });
+
+          modalClose.addEventListener("click", () => {
+            modalOverlay.style.display = "none"; // Закрити модалку по кнопці ×
+          });
+
+          modalOverlay.addEventListener("click", (event) => {
+            if (event.target === modalOverlay) {
+              modalOverlay.style.display = "none"; // Закрити модалку при кліку на фон
+            }
+          });
+        });
+      </script>
     </section>
     <footer class="footer">
       <div class="container">
@@ -471,81 +533,26 @@
     </footer>
   </body>
   <script>
-    const slidesContainer = document.getElementById("slides-container");
-    const prevButton = document.getElementById("prev-btn");
-    const nextButton = document.getElementById("next-btn");
-    const form = document.getElementById("review-form");
-    const starRating = document.getElementById("star-rating");
+    document.addEventListener("DOMContentLoaded", () => {
+      const modalOverlay = document.getElementById("modal-overlay");
+      const modalClose = document.getElementById("modal-close");
+      const form = document.getElementById("review-form");
 
-    let currentSlide = 0;
-    let selectedStars = 0;
-
-    // Показ слайдів
-    function showSlide(index) {
-      const slides = document.querySelectorAll(".testimonial-slide");
-      const totalSlides = slides.length;
-
-      if (index >= totalSlides) currentSlide = 0;
-      else if (index < 0) currentSlide = totalSlides - 1;
-      else currentSlide = index;
-
-      slidesContainer.style.transform = `translateX(${-currentSlide * 100}%)`;
-    }
-
-    // Навігація по слайдах
-    prevButton?.addEventListener("click", () => showSlide(currentSlide - 1));
-    nextButton?.addEventListener("click", () => showSlide(currentSlide + 1));
-
-    // Обробка кліку по зірках
-    starRating.addEventListener("click", (e) => {
-      if (e.target.tagName === "SPAN") {
-        selectedStars = Number(e.target.dataset.value);
-        updateStars();
-      }
-    });
-
-    // Підсвічування активних зірок
-    function updateStars() {
-      document.querySelectorAll("#star-rating span").forEach((star) => {
-        const value = Number(star.dataset.value);
-        star.classList.toggle("active", value <= selectedStars);
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        modalOverlay.style.display = "flex";
       });
-    }
 
-    // Обробка відправки форми
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
+      modalClose.addEventListener("click", () => {
+        modalOverlay.style.display = "none";
+      });
 
-      const name = document.getElementById("name").value.trim();
-      const message = document.getElementById("message").value.trim();
-
-      if (selectedStars === 0) {
-        alert("Будь ласка, оберіть оцінку!");
-        return;
-      }
-
-      if (!name || !message) {
-        alert("Будь ласка, заповніть всі поля.");
-        return;
-      }
-
-      const newSlide = document.createElement("div");
-      newSlide.classList.add("testimonial-slide");
-      newSlide.innerHTML = `
-      <p class="testimonial-quote">“${message}”</p>
-      <div class="testimonial-author">${name}</div>
-      <div class="testimonial-stars">${"★".repeat(selectedStars)}${"☆".repeat(
-        5 - selectedStars
-      )}</div>
-    `;
-
-      slidesContainer.appendChild(newSlide);
-      form.reset();
-      selectedStars = 0;
-      updateStars();
+      modalOverlay.addEventListener("click", (event) => {
+        if (event.target === modalOverlay) {
+          modalOverlay.style.display = "none";
+        }
+      });
     });
-
-    showSlide(currentSlide);
   </script>
   <script>
     const tabs = document.querySelectorAll(".tab-btn");
@@ -564,6 +571,7 @@
       });
     });
   </script>
+
   <script src="./js/product.js"></script>
   <script src="/js/review.js"></script>
 </html>
