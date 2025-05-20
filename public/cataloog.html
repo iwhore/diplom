@@ -70,7 +70,7 @@
             <img src="./images/LOGO NEW.svg" alt="Логотип меблевого магазину" />
           </a>
            <div class="search-container">
-            <input type="text" class="search-bar" placeholder="Введіть категорію, назву">
+            <input type="text"   id="searchInput" class="search-bar" placeholder="Введіть категорію, назву">
            <!-- <button class="search-btn">
               <svg width="28" height="28" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_1238_685)">
@@ -99,16 +99,16 @@
             <!-- Фільтри -->
             <aside class="filters">
               <div class="filter-block">
-    <h3>Категорія</h3>
-    <label><input type="checkbox" name="category" value="livingroom"  /> Вітальня</label>
-    <label><input type="checkbox" name="category" value="bedroom" /> Спальня</label>
-    <label><input type="checkbox" name="category" value="kitchen" /> Кухня</label>
-    <label><input type="checkbox" name="category" value="office" /> Офіс</label>
-    <label><input type="checkbox" name="category" value="hallway" /> Передпокій</label>
-
-    <div class="subfilters" id="subfilters">
-    </div>
-  </div>
+                <h3>Категорія</h3>
+                <label><input type="checkbox" name="category" value="livingroom" /> Вітальня</label>
+                <label><input type="checkbox" name="category" value="bedroom" /> Спальня</label>
+                <label><input type="checkbox" name="category" value="kitchen" /> Кухня</label>
+                <label><input type="checkbox" name="category" value="office" /> Офіс</label>
+                <label><input type="checkbox" name="category" value="hallway" /> Передпокій</label>
+            
+                <div class="subfilters" id="subfilters">
+                </div>
+              </div>
               <div class="filter-block">
                 <h3>Ціна</h3>
                 <span id="price-range">1 000 -80 000 грн</span>
@@ -772,9 +772,7 @@
             <!-- Пагінація -->
             <div class="pagination">
               <button class="arrow-left"><img src="./images/fi-br-angle-left.svg"></button>
-              <button class="active">1</button>
-              <button>2</button>
-              <button>3</button>
+              <button class="page-numbers">1</button>
               <button class="arrow-right"><img src="./images/fi-br-angle-right.svg"></i></button>
             </div>
           </div>
@@ -1042,6 +1040,105 @@ applyFilters();
   });
 
   observer.observe(modal, { attributes: true });
+</script>
+<script>
+  document.getElementById("searchInput").addEventListener("input", function () {
+    const query = this.value.toLowerCase().trim();
+    const productCards = document.querySelectorAll(".product-card");
+
+    productCards.forEach(card => {
+      const titleElement = card.querySelector(".title");
+      const titleText = titleElement?.textContent.toLowerCase() || "";
+
+      if (titleText.includes(query)) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const cardsPerPage = 12;
+  const searchInput = document.getElementById("searchInput");
+  const productsContainer = document.querySelector(".products");
+  const allCards = Array.from(productsContainer.querySelectorAll(".product-card"));
+  const pagination = document.querySelector(".pagination");
+  const pageNumbersContainer = pagination.querySelector(".page-numbers");
+  const leftArrow = pagination.querySelector(".arrow-left");
+  const rightArrow = pagination.querySelector(".arrow-right");
+
+  let filteredCards = [...allCards];
+  let currentPage = 1;
+
+  function renderPage() {
+    const totalPages = Math.ceil(filteredCards.length / cardsPerPage);
+    const startIndex = (currentPage - 1) * cardsPerPage;
+    const endIndex = startIndex + cardsPerPage;
+
+    // Ховати всі картки
+    allCards.forEach(card => card.style.display = "none");
+
+    // Показати лише ті, що на поточній сторінці
+    filteredCards.slice(startIndex, endIndex).forEach(card => {
+      card.style.display = "block";
+    });
+
+    updatePagination(totalPages);
+  }
+
+  function updatePagination(totalPages) {
+    pageNumbersContainer.innerHTML = "";
+
+    for (let i = 1; i <= totalPages; i++) {
+      const btn = document.createElement("button");
+      btn.textContent = i;
+      btn.classList.add("page-btn");
+      if (i === currentPage) btn.classList.add("active");
+
+      btn.addEventListener("click", () => {
+        currentPage = i;
+        renderPage();
+      });
+
+      pageNumbersContainer.appendChild(btn);
+    }
+
+    leftArrow.disabled = currentPage === 1;
+    rightArrow.disabled = currentPage === totalPages || totalPages === 0;
+  }
+
+  searchInput.addEventListener("input", () => {
+    const query = searchInput.value.toLowerCase().trim();
+
+    filteredCards = allCards.filter(card => {
+      const title = card.querySelector(".title")?.textContent.toLowerCase() || "";
+      return title.includes(query);
+    });
+
+    currentPage = 1;
+    renderPage();
+  });
+
+  leftArrow.addEventListener("click", () => {
+    if (currentPage > 1) {
+      currentPage--;
+      renderPage();
+    }
+  });
+
+  rightArrow.addEventListener("click", () => {
+    const totalPages = Math.ceil(filteredCards.length / cardsPerPage);
+    if (currentPage < totalPages) {
+      currentPage++;
+      renderPage();
+    }
+  });
+
+  // Початковий запуск
+  renderPage();
+});
 </script>
   </body>
 </html>
