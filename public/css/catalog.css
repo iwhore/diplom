@@ -242,13 +242,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  border-radius: 50%;
 }
 
-.pagination button:hover {
-  background-color: #5b4433;
-  color: #fff;
-  border-radius: 30px;
+
+.pagination .page-btn.active {
+  background-color: #534139;
+  color: white;
+  border-radius: 5px;
 }
 
 .pagination .active {
@@ -472,4 +473,11 @@
 
 .dot.active {
   background: #534139;
+}
+
+
+.pagination .page-btn.active {
+  background-color: #534139;
+  color: white;
+  border-radius: 50%;
 }
