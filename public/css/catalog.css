@@ -262,14 +262,23 @@
   font-size: 24px;
   line-height: 0;
 }
-.product-card .favorite,
-.product-card .add-to-cart {
+.product-card {
+  position: relative;
+}
+
+.product-card .favorite {
   position: absolute;
-  background: none;
+  top: 20px;
+  right: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.8 24.1C9.9 20.6 6.8 17.9 4.7 15.3C2.5 12.7 1.5 10.5 1.5 8.2C1.5 4.4 4.4 1.5 8.3 1.5C10.4 1.5 12.5 2.5 13.9 4.1L15 5.4L16.1 4.1C17.5 2.5 19.6 1.5 21.8 1.5C25.6 1.5 28.5 4.4 28.5 8.2C28.5 10.5 27.5 12.7 25.3 15.3C23.2 17.9 20.1 20.6 16.2 24.1L15 25.2L13.8 24.1Z' stroke='%23534139' stroke-width='3'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
   border: none;
   border-radius: 0;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -278,67 +287,27 @@
   cursor: pointer;
   transition: 0.3s ease;
 }
-
-.product-card .icon {
-  width: 24px;
-  height: 24px;
-  transition: fill 0.3s ease, stroke 0.3s ease;
-}
-
-/* Для кнопки "favorite" */
-.product-card .favorite path {
-  transition: fill 0.3s ease, stroke 0.3s ease;
-}
-
-.product-card .favorite:hover path {
-  fill: #5b4433;
-}
-
-.product-card .favorite.active path {
-  fill: #5b4433;
-  stroke: #5b4433;
+.product-card .favorite.active {
+  background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='%23534139' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.75 1.5C25.4243 1.5 28.5 4.6465 28.5 8.99219C28.4999 11.6213 27.424 14.1115 25.2842 16.9648C23.6646 19.1244 21.5079 21.4005 18.8896 24.0254L16.1201 26.7754L16.1182 26.7773L15 27.8867L13.8818 26.7773L13.8799 26.7754L11.1104 24.0254C8.49208 21.4005 6.33538 19.1244 4.71582 16.9648C2.57599 14.1115 1.5001 11.6213 1.5 8.99219C1.5 4.6465 4.57569 1.5 8.25 1.5C10.3563 1.5 12.4424 2.57732 13.8213 4.32812L15 5.8252L16.1787 4.32812C17.5576 2.57732 19.6437 1.5 21.75 1.5Z'/%3E%3C/svg%3E");
 }
 
 /* Для кнопки "add-to-cart" */
-.product-card .add-to-cart path {
-  transition: fill 0.3s ease, stroke 0.3s ease;
-}
 
-.product-card .add-to-cart:hover path {
-  fill: #5b4433;
+.product-card .add-to-cart {
+  width: 40px;
+  height: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1229_1218)'%3E%3Cpath d='M9.33317 32.0013C10.8059 32.0013 11.9998 30.8074 11.9998 29.3346C11.9998 27.8619 10.8059 26.668 9.33317 26.668C7.86041 26.668 6.6665 27.8619 6.6665 29.3346C6.6665 30.8074 7.86041 32.0013 9.33317 32.0013Z' fill='%23534139'/%3E%3Cpath d='M22.6667 32.0013C24.1394 32.0013 25.3333 30.8074 25.3333 29.3346C25.3333 27.8619 24.1394 26.668 22.6667 26.668C21.1939 26.668 20 27.8619 20 29.3346C20 30.8074 21.1939 32.0013 22.6667 32.0013Z' fill='%23534139'/%3E%3Cpath d='M7.53867 6.66667L7.188 3.91733C7.06067 2.83826 6.54184 1.84341 5.72987 1.12138C4.9179 0.399358 3.86923 0.000349169 2.78267 0L0 0V4H2.78267C2.89174 4.00117 2.99652 4.04269 3.07679 4.11656C3.15706 4.19042 3.20712 4.2914 3.21733 4.4L5.21733 20.0787C5.34348 21.1586 5.86183 22.1546 6.67396 22.8775C7.48608 23.6004 8.53541 23.9998 9.62267 24H27.2L31.9653 6.66667H7.53867ZM24.1493 20H9.62267C9.51365 19.9991 9.40887 19.9576 9.32876 19.8837C9.24864 19.8097 9.19894 19.7086 9.18933 19.6L8.04933 10.6667H26.716L24.1493 20Z' fill='%23534139'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1229_1218'%3E%3Crect width='32' height='32' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  transition: background-image 0.3s ease;
+  bottom: 20px;
+  right: 18px;
 }
-
-.product-card .add-to-cart.active path {
-  fill: #5b4433;
-}
-
-.add-to-cart svg {
-  position: absolute;
-  transition: opacity 0.3s ease;
-}
-
-.add-to-cart .icon-default {
-  opacity: 1;
-}
-
-.add-to-cart .icon-active {
-  opacity: 0;
-}
-
-.add-to-cart:hover .icon-default {
-  opacity: 0;
-}
-
-.add-to-cart:hover .icon-active {
-  opacity: 1;
-}
-
-.add-to-cart.active .icon-default {
-  opacity: 0;
-}
-
-.add-to-cart.active .icon-active {
-  opacity: 1;
+.product-card .add-to-cart.active {
+  background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 50 50' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_39_497)'%3E%3Cpath d='M14.5832 50.0013C16.8843 50.0013 18.7498 48.1358 18.7498 45.8347C18.7498 43.5335 16.8843 41.668 14.5832 41.668C12.282 41.668 10.4165 43.5335 10.4165 45.8347C10.4165 48.1358 12.282 50.0013 14.5832 50.0013Z' fill='%23534139'/%3E%3Cpath d='M35.4167 50.0013C37.7178 50.0013 39.5833 48.1358 39.5833 45.8347C39.5833 43.5335 37.7178 41.668 35.4167 41.668C33.1155 41.668 31.25 43.5335 31.25 45.8347C31.25 48.1358 33.1155 50.0013 35.4167 50.0013Z' fill='%23534139'/%3E%3Cpath d='M37.7333 31.25H15.0354C14.8651 31.2486 14.7014 31.1838 14.5762 31.0683C14.451 30.9527 14.3733 30.7947 14.3583 30.625L12.575 16.6667H22.9167V10.4167H11.7771L11.2313 6.12292C11.0332 4.4363 10.2229 2.88109 8.95402 1.75241C7.68517 0.623737 6.04612 0.000152088 4.34792 0L0 0V6.25H4.34792C4.51826 6.25141 4.68198 6.3162 4.80715 6.43175C4.93233 6.54729 5.00999 6.70531 5.025 6.875L8.15 31.375C8.34762 33.0623 9.15805 34.6184 10.4274 35.7475C11.6967 36.8766 13.3365 37.5003 15.0354 37.5H42.5L45.9375 25H39.4542L37.7333 31.25Z' fill='%23534139'/%3E%3Cpath d='M35.5606 20.9225H35.644C36.9645 20.9192 38.2304 20.3951 39.1669 19.4641L50.1273 8.50373L45.7064 4.08498L35.6648 14.1287L31.7273 10.0287L27.2211 14.3621L32.0127 19.3621C32.4705 19.8452 33.0201 20.2321 33.6293 20.5C34.2386 20.768 34.8952 20.9116 35.5606 20.9225Z' fill='%23534139'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_39_497'%3E%3Crect width='50' height='50' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
 }
 
 .stars {
