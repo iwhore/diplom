@@ -93,13 +93,21 @@
             </div>
           </div>
         </div>
-    
+      
         <div class="container">
           <div class="header-bottom">
             <a href="./index.html" class="logo">
               <img src="./images/logo-black.svg" alt="Логотип меблевого магазину" />
             </a>
-            <nav class="nav-menu">
+      
+            <!-- Бургер-меню -->
+            <div class="burger" id="burger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+      
+            <nav class="nav-menu" id="navMenu">
               <ul>
                 <li><a class="link" href="./about-us.html">Про нас</a></li>
                 <li><a class="link" href="./Catalog_Main.html">Каталог</a></li>
@@ -108,6 +116,7 @@
                 <li><a class="link" href="./faqs.html">FAQ</a></li>
               </ul>
             </nav>
+      
             <div class="header-icons">
               <a href="favorites.html" class="icon-link"><img src="./images/icon-heart.svg" alt="Додати в обране" /></a>
               <a href="basket.html" class="icon-link"><img src="./images/icon-shopping-cart.svg" alt="Додати в кошик" /></a>
@@ -402,9 +411,6 @@
     </div>
   </div>
 </section>
-
-
- 
 <section class="reviews-section">
   <div class="container">
     <h2>Відгуки</h2>
@@ -756,6 +762,15 @@
           });
         }
       });
+      </script>
+      <script>
+        const burger = document.getElementById('burger');
+        const navMenu = document.getElementById('navMenu');
+      
+        burger.addEventListener('click', () => {
+          navMenu.classList.toggle('active');
+          burger.classList.toggle('active'); 
+        });
       </script>
   </body>
 </html>
