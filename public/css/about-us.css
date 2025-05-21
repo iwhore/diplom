@@ -138,10 +138,14 @@ h1::after {
   }
 }
 
+/* галерея виробництва */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .gallery-item {
@@ -149,9 +153,63 @@ h1::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
-  font-weight: bold;
   border-radius: 30px;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.large {
+  grid-row: span 2;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  max-width: 800px;
+}
+
+.small {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  max-width: 520px;
+}
+
+/* Media — планшети */
+@media (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .large,
+  .small {
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    grid-row: auto;
+  }
+
+  .with-line {
+    font-size: 44px;
+  }
+}
+
+/* Media — мобільні */
+@media (max-width: 768px) {
+  .large,
+  .small {
+    aspect-ratio: 1 / 1;
+  }
+  .with-line {
+    font-size: 36px;
+  }
+}
+
+/* Media — дуже малі екрани */
+@media (max-width: 480px) {
+  .with-line {
+    font-size: 28px;
+  }
 }
 
 .section-title {
@@ -170,17 +228,30 @@ h1::after {
   line-height: 1.2;
 }
 
-.large {
-  grid-column: span 1;
-  grid-row: span 2;
-  height: 480px;
-  width: 740px;
+/* Мобільні */
+@media (max-width: 600px) {
+  .large,
+  .small {
+    aspect-ratio: 4 / 3;
+  }
+
+  .with-line {
+    font-size: 32px;
+  }
 }
 
-.small {
-  height: 230px;
-  width: 520px;
+/* Дуже малі */
+@media (max-width: 400px) {
+  .large,
+  .small {
+    aspect-ratio: 1 / 1;
+  }
+
+  .with-line {
+    font-size: 26px;
+  }
 }
+
 /*----------------*/
 .team {
   padding: 50px 0;
@@ -343,10 +414,12 @@ h1::after {
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  margin: 20px auto;
-  max-width: 1000;
+  max-width: 1000px;
   width: 100%;
-  margin-left: 50px;
+  margin: 20px auto;
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .video-wrapper video,
@@ -359,8 +432,24 @@ h1::after {
   border: none;
   display: block;
 }
+
 .video-wrapper video {
   object-fit: cover;
+}
+
+/* Планшети */
+@media (max-width: 1024px) {
+  .video-wrapper {
+    max-width: 100%;
+    padding-bottom: 56.25%;
+  }
+}
+
+/* Мобільні */
+@media (max-width: 768px) {
+  .video-wrapper {
+    padding-bottom: 62.5%;
+  }
 }
 /* ----------- Адаптивність для мобільних (телефони) ----------- */
 @media (max-width: 600px) {
@@ -381,7 +470,7 @@ h1::after {
     margin: 5px 0;
   }
 }
-/* Стилі для бургер-меню */
+/*бургер*/
 .burger {
   display: none;
   flex-direction: column;
@@ -400,7 +489,7 @@ h1::after {
   transition: 0.3s;
 }
 
-/* Медіа для мобільних */
+/*  для мобільних */
 @media (max-width: 768px) {
   .burger {
     display: flex;
@@ -453,6 +542,11 @@ h1::after {
 }
 @media (max-width: 768px) {
   .header-top {
-    display: none;
+    display: none !important;
+  }
+}
+@media (max-width: 768px) {
+  .header-icons {
+    display: none !important;
   }
 }
