@@ -61,7 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const json = await res.json();
 
       if (res.ok) {
-        status.textContent = "✅ Відгук успішно надіслано!";
         status.classList.add("success");
       } else {
         status.textContent = `❌ Помилка: ${json.error || "Спробуйте пізніше"}`;

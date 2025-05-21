@@ -1140,5 +1140,36 @@ document.addEventListener("DOMContentLoaded", () => {
   renderPage();
 });
 </script>
+<script>
+document.querySelectorAll('.add-to-cart').forEach(button => {
+  button.addEventListener('click', function () {
+    const productCard = this.closest('.product-card');
+
+    const item = {
+      name: productCard.querySelector('.title').textContent,
+      image: productCard.querySelector('img').getAttribute('src'),
+      color: productCard.dataset.color,
+      quantity: 1,
+      price: parseInt(productCard.dataset.price.replace(/\D/g, '')) // без пробілів і "грн"
+    };
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    const existingItem = cart.find(
+      (cartItem) => cartItem.name === item.name && cartItem.color === item.color
+    );
+
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      cart.push(item);
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    // Переходимо на сторінку кошика
+  });
+});
+</script>
   </body>
 </html>
