@@ -14,7 +14,66 @@
       href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
       rel="stylesheet"
     />
+
+    <style>
+      .subscribe-box {
+        position: relative;
+        max-width: 260px;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .footer-input {
+        width: 100%;
+        height: 42px;
+        padding: 0 50px 0 12px;
+        border-radius: 8px;
+        border: 1px solid #534139;
+        font-size: 14px;
+        font-weight: 500;
+        box-sizing: border-box;
+        color: #0d0d0d;
+      }
+
+      .footer-input::placeholder {
+        color: #aaa;
+        font-size: 13px;
+      }
+
+      .footer-input:focus {
+        border-color: #534139;
+        box-shadow: 0 0 6px #534139;
+        outline: none;
+      }
+
+      .send-btn {
+        position: absolute;
+        top: 1px;
+        right: 1px;
+        width: 52px;
+        height: 53px;
+        border-radius: 10%;
+        background-color: #534139;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        transition: background-color 0.3s;
+      }
+
+      .send-btn:hover {
+        background-color: #6b5146;
+      }
+
+      .send-btn img {
+        width: 30x;
+        height: 30px;
+      }
+    </style>
   </head>
+
   <body>
     <header>
       <div class="header-top">
@@ -434,28 +493,6 @@
           <h2 class="modal-title">Дякуємо за ваш відгук!</h2>
         </div>
       </div>
-      <script>
-        document.addEventListener("DOMContentLoaded", () => {
-          const modalOverlay = document.getElementById("modal-overlay");
-          const modalClose = document.getElementById("modal-close");
-          const form = document.getElementById("review-form");
-
-          form.addEventListener("submit", (event) => {
-            event.preventDefault(); // Зупиняємо реальну відправку форми
-            modalOverlay.style.display = "flex"; // Показати модалку
-          });
-
-          modalClose.addEventListener("click", () => {
-            modalOverlay.style.display = "none"; // Закрити модалку по кнопці ×
-          });
-
-          modalOverlay.addEventListener("click", (event) => {
-            if (event.target === modalOverlay) {
-              modalOverlay.style.display = "none"; // Закрити модалку при кліку на фон
-            }
-          });
-        });
-      </script>
     </section>
     <footer class="footer">
       <div class="container">
@@ -479,6 +516,7 @@
               проспект В'ячеслава Чорновола, 101, Львів, Україна
             </p>
           </div>
+
           <div class="footer-links">
             <ul>
               <li><a href="./about-us.html">Про нас</a></li>
@@ -491,159 +529,173 @@
               <li><a href="./faqs.html">FAQ</a></li>
             </ul>
           </div>
+
           <div class="footer-subscribe">
             <p>Підписатися на електронну пошту</p>
             <div class="subscribe-box">
               <input
-                class="input"
+                class="footer-input"
                 type="email"
-                placeholder="       your email..."
+                placeholder="your email..."
               />
               <button class="send-btn" id="subscribe-btn">
                 <img src="./images/send.svg" alt="send" />
               </button>
             </div>
-            <div class="modal-overlay" id="modal">
-              <div class="modal-message fancy">
-                <button class="modal-close" id="modal-close">×</button>
-                <div class="modal-icon">
-                  <img src="./images/checkmark.svg" />
-                </div>
-                <h2 class="modal-title">Дякуємо за підписку!</h2>
-              </div>
-            </div>
 
             <div class="social-icons">
               <div class="icon-container">
-                <img class="dsh" src="./images/icon-instagram.svg" alt="" />
+                <img src="./images/icon-instagram.svg" alt="Instagram" />
               </div>
               <div class="icon-container">
-                <img src="./images/icon-facebook.svg" alt="" />
+                <img src="./images/icon-facebook.svg" alt="Facebook" />
               </div>
               <div class="icon-container">
-                <img src="./images/icon-twitter.svg" alt="" />
+                <img src="./images/icon-twitter.svg" alt="Twitter" />
               </div>
             </div>
           </div>
         </div>
       </div>
     </footer>
-  </body>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const modalOverlay = document.getElementById("modal-overlay");
-      const modalClose = document.getElementById("modal-close");
-      const form = document.getElementById("review-form");
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const modalOverlay = document.getElementById("modal-overlay");
+        const modalClose = document.getElementById("modal-close");
+        const form = document.getElementById("review-form");
 
-      form.addEventListener("submit", (event) => {
-        event.preventDefault();
-        modalOverlay.style.display = "flex";
+        form.addEventListener("submit", (event) => {
+          event.preventDefault(); // Зупиняємо реальну відправку форми
+          modalOverlay.style.display = "flex"; // Показати модалку
+        });
+
+        modalClose.addEventListener("click", () => {
+          modalOverlay.style.display = "none"; // Закрити модалку по кнопці ×
+        });
+
+        modalOverlay.addEventListener("click", (event) => {
+          if (event.target === modalOverlay) {
+            modalOverlay.style.display = "none"; // Закрити модалку при кліку на фон
+          }
+        });
       });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const modalOverlay = document.getElementById("modal-overlay");
+        const modalClose = document.getElementById("modal-close");
+        const form = document.getElementById("review-form");
 
-      modalClose.addEventListener("click", () => {
-        modalOverlay.style.display = "none";
-      });
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          modalOverlay.style.display = "flex";
+        });
 
-      modalOverlay.addEventListener("click", (event) => {
-        if (event.target === modalOverlay) {
+        modalClose.addEventListener("click", () => {
           modalOverlay.style.display = "none";
+        });
+
+        modalOverlay.addEventListener("click", (event) => {
+          if (event.target === modalOverlay) {
+            modalOverlay.style.display = "none";
+          }
+        });
+      });
+    </script>
+    <script>
+      const slidesContainer = document.getElementById("slides-container");
+      const prevButton = document.getElementById("prev-btn");
+      const nextButton = document.getElementById("next-btn");
+      const form = document.getElementById("review-form");
+      const starRating = document.getElementById("star-rating");
+
+      let currentSlide = 0;
+      let selectedStars = 0;
+
+      // Показ слайдів
+      function showSlide(index) {
+        const slides = document.querySelectorAll(".testimonial-slide");
+        const totalSlides = slides.length;
+
+        if (index >= totalSlides) currentSlide = 0;
+        else if (index < 0) currentSlide = totalSlides - 1;
+        else currentSlide = index;
+
+        slidesContainer.style.transform = `translateX(${-currentSlide * 100}%)`;
+      }
+
+      // Навігація по слайдах
+      prevButton?.addEventListener("click", () => showSlide(currentSlide - 1));
+      nextButton?.addEventListener("click", () => showSlide(currentSlide + 1));
+
+      // Обробка кліку по зірках
+      starRating.addEventListener("click", (e) => {
+        if (e.target.tagName === "SPAN") {
+          selectedStars = Number(e.target.dataset.value);
+          updateStars();
         }
       });
-    });
-  </script>
-  <script>
-    const slidesContainer = document.getElementById("slides-container");
-    const prevButton = document.getElementById("prev-btn");
-    const nextButton = document.getElementById("next-btn");
-    const form = document.getElementById("review-form");
-    const starRating = document.getElementById("star-rating");
 
-    let currentSlide = 0;
-    let selectedStars = 0;
-
-    // Показ слайдів
-    function showSlide(index) {
-      const slides = document.querySelectorAll(".testimonial-slide");
-      const totalSlides = slides.length;
-
-      if (index >= totalSlides) currentSlide = 0;
-      else if (index < 0) currentSlide = totalSlides - 1;
-      else currentSlide = index;
-
-      slidesContainer.style.transform = `translateX(${-currentSlide * 100}%)`;
-    }
-
-    // Навігація по слайдах
-    prevButton?.addEventListener("click", () => showSlide(currentSlide - 1));
-    nextButton?.addEventListener("click", () => showSlide(currentSlide + 1));
-
-    // Обробка кліку по зірках
-    starRating.addEventListener("click", (e) => {
-      if (e.target.tagName === "SPAN") {
-        selectedStars = Number(e.target.dataset.value);
-        updateStars();
-      }
-    });
-
-    // Підсвічування активних зірок
-    function updateStars() {
-      document.querySelectorAll("#star-rating span").forEach((star) => {
-        const value = Number(star.dataset.value);
-        star.classList.toggle("active", value <= selectedStars);
-      });
-    }
-
-    // Обробка відправки форми
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const name = document.getElementById("name").value.trim();
-      const message = document.getElementById("message").value.trim();
-
-      if (selectedStars === 0) {
-        alert("Будь ласка, оберіть оцінку!");
-        return;
+      // Підсвічування активних зірок
+      function updateStars() {
+        document.querySelectorAll("#star-rating span").forEach((star) => {
+          const value = Number(star.dataset.value);
+          star.classList.toggle("active", value <= selectedStars);
+        });
       }
 
-      if (!name || !message) {
-        alert("Будь ласка, заповніть всі поля.");
-        return;
-      }
+      // Обробка відправки форми
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
 
-      const newSlide = document.createElement("div");
-      newSlide.classList.add("testimonial-slide");
-      newSlide.innerHTML = `
+        const name = document.getElementById("name").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        if (selectedStars === 0) {
+          alert("Будь ласка, оберіть оцінку!");
+          return;
+        }
+
+        if (!name || !message) {
+          alert("Будь ласка, заповніть всі поля.");
+          return;
+        }
+
+        const newSlide = document.createElement("div");
+        newSlide.classList.add("testimonial-slide");
+        newSlide.innerHTML = `
       <p class="testimonial-quote">“${message}”</p>
       <div class="testimonial-author">${name}</div>
       <div class="testimonial-stars">${"★".repeat(selectedStars)}${"☆".repeat(
-        5 - selectedStars
-      )}</div>
+          5 - selectedStars
+        )}</div>
     `;
 
-      slidesContainer.appendChild(newSlide);
-      form.reset();
-      selectedStars = 0;
-      updateStars();
-    });
-
-    showSlide(currentSlide);
-  </script>
-  <script>
-    const tabs = document.querySelectorAll(".tab-btn");
-    const contents = document.querySelectorAll(".tab-content");
-
-    tabs.forEach((tab) => {
-      tab.addEventListener("click", () => {
-        // Зняти активність з усіх
-        tabs.forEach((t) => t.classList.remove("active"));
-        contents.forEach((c) => c.classList.remove("active"));
-
-        // Додати активність до обраного
-        tab.classList.add("active");
-        const selected = tab.getAttribute("data-tab");
-        document.getElementById(selected).classList.add("active");
+        slidesContainer.appendChild(newSlide);
+        form.reset();
+        selectedStars = 0;
+        updateStars();
       });
-    });
-  </script>
-  <script src="./js/product.js"></script>
+
+      showSlide(currentSlide);
+    </script>
+    <script>
+      const tabs = document.querySelectorAll(".tab-btn");
+      const contents = document.querySelectorAll(".tab-content");
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          // Зняти активність з усіх
+          tabs.forEach((t) => t.classList.remove("active"));
+          contents.forEach((c) => c.classList.remove("active"));
+
+          // Додати активність до обраного
+          tab.classList.add("active");
+          const selected = tab.getAttribute("data-tab");
+          document.getElementById(selected).classList.add("active");
+        });
+      });
+    </script>
+    <script src="./js/product.js"></script>
+  </body>
 </html>

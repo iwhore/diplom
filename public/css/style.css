@@ -643,6 +643,223 @@ body {
   width: 50px;
   height: 50px;
 }
+/*---адаптація----*/
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding-bottom: 50px;
+}
+
+@media (max-width: 1024px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .products {
+    grid-template-columns: 1fr;
+    padding: 0 15px;
+  }
+}
+
+.product {
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+}
+
+.disc-img {
+  width: 100%;
+  height: 220px;
+  max-width: 250px;
+  border-radius: 8px;
+  margin: 20px auto 40px;
+  display: block;
+}
+
+.discount {
+  position: absolute;
+  width: 83px;
+  height: 28px;
+  top: 10px;
+  left: 10px;
+  background: #534139;
+  color: white;
+  padding: 8px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.price-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  margin: 10px 0;
+}
+
+.price-container span {
+  text-decoration: line-through;
+  text-decoration-color: #000;
+  color: #534139;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 100%;
+  margin: 10px 0;
+}
+
+.icons {
+  position: absolute;
+  top: 10px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.product:hover .icons {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.icons button {
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.icons img {
+  width: 50px;
+  height: 50px;
+}
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding-bottom: 50px;
+}
+
+@media (max-width: 1024px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .products {
+    grid-template-columns: 1fr;
+    padding: 0 15px;
+  }
+}
+
+.product {
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+}
+
+.disc-img {
+  width: 100%;
+  height: 220px;
+  max-width: 250px;
+  border-radius: 8px;
+  margin: 20px auto 40px;
+  display: block;
+}
+
+.discount {
+  position: absolute;
+  width: 83px;
+  height: 28px;
+  top: 10px;
+  left: 10px;
+  background: #534139;
+  color: white;
+  padding: 8px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.price-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  margin: 10px 0;
+}
+
+.price-container span {
+  text-decoration: line-through;
+  text-decoration-color: #000;
+  color: #534139;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 100%;
+  margin: 10px 0;
+}
+
+.icons {
+  position: absolute;
+  top: 10px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.product:hover .icons {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.icons button {
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.icons img {
+  width: 50px;
+  height: 50px;
+}
 
 /*------------ГАЛЕРЕЯ-------------*/
 .gallery h2 {
@@ -714,6 +931,53 @@ body {
 .gallery-item.small {
   height: 255px;
   width: 620px;
+}
+/*----------адаптація */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+/* Для планшетів */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr; /* одна колонка */
+  }
+
+  .gallery-item.large {
+    height: 400px; /* трохи зменшуємо висоту */
+    width: 100%; /* ширина під контейнер */
+    grid-row: span 1; /* прибираємо span 2 */
+  }
+
+  .gallery-item.small {
+    height: 200px;
+    width: 100%;
+  }
+}
+
+/* Для мобільних */
+@media (max-width: 480px) {
+  .gallery h2 {
+    font-size: 36px;
+    padding: 30px 0;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-item.large {
+    height: 300px;
+    width: 100%;
+    grid-row: span 1;
+  }
+
+  .gallery-item.small {
+    height: 150px;
+    width: 100%;
+  }
 }
 
 /*------------ВІДГУКИ-------------*/
@@ -1202,4 +1466,98 @@ p {
 .icon-link.dropdown img {
   display: block;
   margin-top: -8px;
+}
+/* ----------- Адаптивність для мобільних (телефони) ----------- */
+@media (max-width: 600px) {
+  .contact-info a {
+    font-size: 16px;
+  }
+
+  .nav-menu ul li a {
+    font-size: 18px;
+  }
+
+  .icon-link img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .liner {
+    margin: 5px 0;
+  }
+}
+/* Стилі для бургер-меню */
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 18px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.burger span {
+  height: 3px;
+  width: 100%;
+  background-color: #000;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Медіа для мобільних */
+@media (max-width: 768px) {
+  .burger {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    top: 90px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-menu ul li a {
+    font-size: 18px;
+    color: #000;
+  }
+
+  .header-icons {
+    display: none;
+  }
+}
+
+.burger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+@media (max-width: 768px) {
+  .header-top {
+    display: none;
+  }
 }
