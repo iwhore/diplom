@@ -21,8 +21,7 @@ mongoose.connect(
 // 2. Middleware
 app.use(cors());
 app.use(express.json());
-app.use('/three', express.static(path.join(__dirname, 'node_modules/three')));
-app.use('/examples', express.static(path.join(__dirname, 'node_modules/three/examples/jsm')));
+
 
 // 3. API-роути
 
@@ -91,10 +90,6 @@ app.post('/api/order', async (req, res) => {
     console.error(err);
     return res.status(500).json({ error: 'Не вдалося оформити замовлення' });
   }
-});
-
-app.get('/product/:productId', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/product.html'));
 });
 
 

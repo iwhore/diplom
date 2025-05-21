@@ -1172,5 +1172,36 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
   });
 });
 </script>
+<script>
+  document.querySelectorAll('.favorite').forEach(button => {
+    button.addEventListener('click', function () {
+      const productCard = this.closest('.product-card');
+
+      const item = {
+        name: productCard.querySelector('.title').textContent,
+        image: productCard.querySelector('img').getAttribute('src'),
+        color: productCard.dataset.color,
+        price: parseInt(productCard.dataset.price.replace(/\D/g, '')),
+        date: new Date().toLocaleDateString('uk-UA')
+      };
+
+      let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+      const alreadyExists = favorites.find(fav =>
+        fav.name === item.name && fav.color === item.color
+      );
+
+      if (alreadyExists) {
+        alert("Цей товар вже в обраному.");
+        return;
+      }
+
+      favorites.push(item);
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+
+      alert("Додано до улюбленого.");
+    });
+  });
+</script>
   </body>
 </html>
