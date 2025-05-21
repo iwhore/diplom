@@ -1073,6 +1073,25 @@ document.addEventListener("DOMContentLoaded", () => {
   let filteredCards = [...allCards];
   let currentPage = 1;
 
+  function filterProductsByPrice() {
+    const minPrice = parseInt(minRange.value);
+    const maxPrice = parseInt(maxRange.value);
+
+    products.forEach(product => {
+      const price = parseInt(product.dataset.price);
+
+      if (price >= minPrice && price <= maxPrice) {
+        product.style.display = 'block';
+      } else {
+        product.style.display = 'none';
+      }
+    });
+  }
+
+  // Обробка подій при зміні слайдера
+  minRange.addEventListener('input', filterProductsByPrice);
+  maxRange.addEventListener('input', filterProductsByPrice);
+
   function renderPage() {
     const totalPages = Math.ceil(filteredCards.length / cardsPerPage);
     const startIndex = (currentPage - 1) * cardsPerPage;
@@ -1203,5 +1222,6 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
     });
   });
 </script>
+
   </body>
 </html>
