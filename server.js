@@ -22,6 +22,7 @@ mongoose.connect(
 app.use(cors());
 app.use(express.json());
 
+
 // 3. API-роути
 
 // 3.1 Реєстрація
@@ -90,6 +91,7 @@ app.post('/api/order', async (req, res) => {
     return res.status(500).json({ error: 'Не вдалося оформити замовлення' });
   }
 });
+
 
 app.use(express.static('public'));
 
