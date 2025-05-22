@@ -265,23 +265,23 @@ body {
 
 @media (max-width: 768px) {
   .hero {
-    height: 600px;
+    height: auto;
   }
 
   .hero-content {
-    padding-top: 30px;
+    padding-top: 0;
+    margin-top: 0;
   }
 
   .hero-text h1 {
-    font-size: 40px;
-    margin-bottom: 15px;
+    font-size: 14px;
+    margin-top: -90px;
+    margin-bottom: 8px;
   }
-
+}
+@media (max-width: 768px) {
   .header-btn {
-    width: 300px;
-    height: 70px;
-    font-size: 24px;
-    margin-top: 15px;
+    display: none;
   }
 }
 
@@ -942,13 +942,13 @@ body {
 /* Для планшетів */
 @media (max-width: 768px) {
   .gallery-grid {
-    grid-template-columns: 1fr; /* одна колонка */
+    grid-template-columns: 1fr;
   }
 
   .gallery-item.large {
-    height: 400px; /* трохи зменшуємо висоту */
-    width: 100%; /* ширина під контейнер */
-    grid-row: span 1; /* прибираємо span 2 */
+    height: 400px;
+    width: 100%;
+    grid-row: span 1;
   }
 
   .gallery-item.small {
@@ -1255,7 +1255,7 @@ p {
   background-color: #534139;
 }
 
-/**/
+/*-------*/
 .modal-overlay {
   position: fixed;
   top: 0;

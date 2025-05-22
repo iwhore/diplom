@@ -53,7 +53,18 @@ h1::after {
   100% {
     opacity: 1;
   }
+} /* Адаптація для мобільних */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 42px;
+  }
+
+  h1::before,
+  h1::after {
+    width: 20%;
+  }
 }
+
 .contacts h2 {
   font-size: 32px;
   margin-bottom: 10px;
@@ -213,4 +224,243 @@ textarea:focus {
 .form-content h2 {
   margin-top: 0;
   margin-bottom: 30px;
+}
+
+/* ----------- Адаптивність для мобільних (телефони) ----------- */
+@media (max-width: 600px) {
+  .contact-info a {
+    font-size: 16px;
+  }
+
+  .nav-menu ul li a {
+    font-size: 18px;
+  }
+
+  .icon-link img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .liner {
+    margin: 5px 0;
+  }
+}
+@media (max-width: 600px) {
+  .liner::before,
+  .liner::after {
+    margin: 0 5px;
+  }
+}
+
+/*бургер*/
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 18px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.burger span {
+  height: 3px;
+  width: 100%;
+  background-color: #000;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/*  для мобільних */
+@media (max-width: 768px) {
+  .burger {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    top: 90px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-menu ul li a {
+    font-size: 18px;
+    color: #000;
+  }
+
+  .header-icons {
+    display: none;
+  }
+}
+
+.burger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+@media (max-width: 768px) {
+  .header-top {
+    display: none !important;
+  }
+}
+@media (max-width: 768px) {
+  .header-icons {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .contacts-content {
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+    max-width: 100vw;
+  }
+
+  .contact-i {
+    height: auto;
+    gap: 20px;
+    max-width: 100%;
+  }
+
+  .contact-i p {
+    font-size: 20px;
+    max-width: 100%;
+    word-wrap: break-word;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    margin-bottom: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+  }
+}
+@media (max-width: 480px) {
+  .contacts-content {
+    gap: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .contact-i {
+    gap: 15px;
+  }
+
+  .contact-i p {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .contacts-content {
+    gap: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .contact-i p {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  .subtitle {
+    font-size: 13px;
+    margin-bottom: 15px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+@media (max-width: 768px) {
+  .contact-form {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    padding: 16px;
+    border-radius: 20px;
+    box-sizing: border-box;
+  }
+
+  .contact-form p {
+    font-size: 20px;
+  }
+
+  .input-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    height: 44px;
+    font-size: 15px;
+    padding: 10px 10px 10px 16px;
+  }
+
+  .contact-form textarea {
+    height: 160px;
+  }
+
+  .contact-form button {
+    height: 70px;
+    font-size: 24px;
+    border-radius: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-form {
+    padding: 12px;
+    border-radius: 16px;
+  }
+
+  .contact-form p {
+    font-size: 18px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 14px;
+    padding: 8px 8px 8px 14px;
+  }
+
+  .contact-form button {
+    height: 60px;
+    font-size: 20px;
+  }
 }

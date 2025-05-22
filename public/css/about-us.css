@@ -11,35 +11,39 @@ h1 {
   text-align: center;
   position: relative;
   animation: textAppear 0.8s ease-out;
+  display: inline-block;
+  padding: 0 20px;
 }
 
 h1::before,
 h1::after {
   content: "";
   position: absolute;
-  width: 30%;
+  top: 50%;
+  width: 170%;
   height: 2px;
   background-color: #534139;
-  top: 50%;
-  transform: scaleX(0);
+  transform: translateY(-50%) scaleX(0);
   transform-origin: center;
   animation: lineExpand 0.6s ease-out forwards;
 }
 
 h1::before {
-  left: 0;
+  right: 100%;
+  margin-right: 10px;
 }
 
 h1::after {
-  right: 0;
+  left: 100%;
+  margin-left: 10px;
 }
 
 @keyframes lineExpand {
   0% {
-    transform: scaleX(0);
+    transform: translateY(-50%) scaleX(0);
   }
   100% {
-    transform: scaleX(1);
+    transform: translateY(-50%) scaleX(1);
   }
 }
 
@@ -49,6 +53,18 @@ h1::after {
   }
   100% {
     opacity: 1;
+  }
+}
+
+/* Адаптація для мобільних */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 42px;
+  }
+
+  h1::before,
+  h1::after {
+    width: 50%;
   }
 }
 
@@ -470,6 +486,13 @@ h1::after {
     margin: 5px 0;
   }
 }
+@media (max-width: 600px) {
+  .liner::before,
+  .liner::after {
+    margin: 0 5px;
+  }
+}
+
 /*бургер*/
 .burger {
   display: none;

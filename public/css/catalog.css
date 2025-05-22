@@ -245,7 +245,6 @@
   border-radius: 50%;
 }
 
-
 .pagination .page-btn.active {
   background-color: #534139;
   color: white;
@@ -443,7 +442,6 @@
 .dot.active {
   background: #534139;
 }
-
 
 .pagination .page-btn.active {
   background-color: #534139;
