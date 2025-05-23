@@ -176,6 +176,14 @@ aside.sidebar {
 .tags button:hover {
   background-color: #000;
 }
+@media (max-width: 768px) {
+  .filter-box,
+  .toc-box,
+  .secondary-image,
+  .tags button {
+    display: none !important;
+  }
+}
 
 /* ЗМІСТ */
 .toc-box ul {
@@ -284,8 +292,8 @@ aside.sidebar {
   object-fit: contain;
   flex-shrink: 0;
   margin-top: 10px;
-  margin-right: 12px; 
-  flex-shrink: 0; 
+  margin-right: 12px;
+  flex-shrink: 0;
   object-fit: contain;
 }
 
@@ -323,7 +331,7 @@ aside.sidebar {
 
 .blog-image-secondary {
   display: grid;
-  grid-template-columns: 413px 325px; 
+  grid-template-columns: 413px 325px;
   grid-template-rows: 352px 215px;
   gap: 16px;
   justify-content: center;
@@ -338,7 +346,6 @@ aside.sidebar {
   height: 583px;
   object-fit: cover;
   border-radius: 30px;
-
 }
 
 .blog-image-secondary img:nth-child(2) {
@@ -357,26 +364,86 @@ aside.sidebar {
   height: 215px;
   object-fit: cover;
   border-radius: 30px;
-  
 }
-.check-styles{
+.check-styles {
   font-family: "Poppins", sans-serif;
-font-weight: 600;
-font-size: 24px;
-line-height: 1.6;
-text-align: justify;
-color: #000;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.6;
+  text-align: justify;
+  color: #000;
 }
+@media (max-width: 768px) {
+  .blog-image-secondary {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .blog-image-secondary img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 20px;
+  }
+}
+
 /* styles blog_d3*/
 .blog-image-third {
   display: flex;
-  gap: 20px; 
+  gap: 20px;
 }
 
 .blog-image-third img {
   width: 380px;
   height: 380px;
   border-radius: 30px;
-  object-fit: cover; 
+  object-fit: cover;
+}
+@media (max-width: 768px) {
+  .blog-image-third {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .blog-image-third img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+  }
 }
 
+/* Адаптація для мобільних */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 42px;
+  }
+
+  h1::before,
+  h1::after {
+    width: 25%;
+  }
+}
+@media (max-width: 768px) {
+  .blog-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .post-title {
+    font-size: 32px;
+  }
+
+  .post-text {
+    font-size: 18px;
+    margin-top: 60px;
+  }
+
+  .tag {
+    width: auto;
+    padding: 0 20px;
+    font-size: 16px;
+    height: 48px;
+  }
+}
