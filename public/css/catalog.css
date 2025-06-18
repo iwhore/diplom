@@ -449,3 +449,32 @@
   color: white;
   border-radius: 50%;
 }
+
+
+
+@media (max-width: 992px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .search-container input{
+    width: 450px;
+  }
+}
+
+@media (max-width: 576px) {
+  .products {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .search-container input{
+    width: 270px;
+  }
+  .header-icons{
+     display: none !important;
+  }
+
+  .pagination{
+    padding-left: 150px;
+  }
+}
