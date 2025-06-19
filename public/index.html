@@ -530,14 +530,12 @@
     </div>
   </div>
 </section>
-
     <section class="news-section"> 
       <div class="container">
        <div class="news-upper">
   <h3>Наші останні новини</h3>
   <a href="./blog.html" class="news-btn">Переглянути все</a>
 </div>
-
         <div class="card-container">
           <div class="news-card">
               <img src="./images/1news-image.png" alt="Новина 1" class="news-img">
@@ -760,14 +758,39 @@
         }
       });
       </script>
-      <script>
-        const burger = document.getElementById('burger');
-        const navMenu = document.getElementById('navMenu');
+   <script>
+    const burger = document.getElementById('burger');
+    const navMenu = document.getElementById('navMenu'); // ← правильний селектор по id
+  
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+  
+    // Автоматичне закриття після кліку на пункт меню
+    document.querySelectorAll('#navMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        burger.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    });
+  </script>
+  
+    
+      <script>document.addEventListener('DOMContentLoaded', () => {
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if(entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.2 });
       
-        burger.addEventListener('click', () => {
-          navMenu.classList.toggle('active');
-          burger.classList.toggle('active'); 
+        document.querySelectorAll('.gallery-item').forEach(item => {
+          observer.observe(item);
         });
+      });
       </script>
   </body>
 </html>

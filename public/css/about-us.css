@@ -573,3 +573,37 @@ h1::after {
     display: none !important;
   }
 }
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+/*Анімацію для галереї на сторінці "про нас"*/
+.gallery-item {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  animation: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item.visible {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item img {
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}

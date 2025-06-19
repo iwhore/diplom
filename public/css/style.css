@@ -209,7 +209,7 @@ body {
   padding-bottom: 50px;
   text-align: center;
   background-color: #f3f3f3;
-  height: 900px;
+  height: 736px;
   margin-bottom: 50px;
 }
 
@@ -236,7 +236,7 @@ body {
   line-height: 1.4;
   color: #000;
   text-align: center;
-  margin-top: -40px;
+  margin-top: -60px;
 }
 
 .header-btn {
@@ -252,7 +252,7 @@ body {
   font-weight: 500;
   font-size: 28px;
   line-height: 150%;
-  margin-top: 60px;
+  margin-top: 40px;
   text-decoration: none;
   border: 1px solid #000;
   color: inherit;
@@ -274,9 +274,7 @@ body {
   }
 
   .hero-text h1 {
-    font-size: 14px;
-    margin-top: -90px;
-    margin-bottom: 8px;
+    display: none;
   }
 }
 @media (max-width: 768px) {
@@ -495,7 +493,7 @@ body {
 .sales h2::after {
   content: "";
   position: absolute;
-  width: 25%;
+  width: 12%;
   height: 2px;
   background-color: #534139;
   top: 50%;
@@ -878,7 +876,7 @@ body {
 .gallery h2::after {
   content: "";
   position: absolute;
-  width: 30%;
+  width: 12%;
   height: 2px;
   background-color: #534139;
   top: 50%;
@@ -932,6 +930,48 @@ body {
   height: 255px;
   width: 620px;
 }
+@keyframes fadeScaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.gallery-item {
+  opacity: 0;
+  transform: scale(0.95) translateY(20px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 20px;
+  border: 1px solid #534139;
+  overflow: hidden;
+}
+
+.gallery-item.visible {
+  animation: fadeScaleIn 0.6s ease forwards;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(83, 65, 57, 0.3);
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
 /*----------адаптація */
 .gallery-grid {
   display: grid;
@@ -1434,6 +1474,62 @@ p {
 
 .icon-link.dropdown {
   position: relative;
+}
+@media (max-width: 768px) {
+  .section-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  .section-title {
+    font-size: 26px;
+    margin-bottom: 15px;
+  }
+
+  .section-label {
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+
+  .section-arrows {
+    gap: 8px;
+  }
+
+  .arrow-btn {
+    width: 60px;
+    height: 60px;
+  }
+
+  .arrow-btn svg {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 22px;
+  }
+
+  .section-label {
+    font-size: 14px;
+  }
+
+  .section-arrows {
+    gap: 6px;
+  }
+
+  .arrow-btn {
+    width: 50px;
+    height: 50px;
+  }
+
+  .arrow-btn svg {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 .icon-link.dropdown .dropdown-content {

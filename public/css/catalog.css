@@ -220,6 +220,66 @@
   height: 240px;
   border-radius: 15px;
 }
+/* Планшети (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr); /* 2 товари в ряд */
+    gap: 16px;
+  }
+
+  .product-card {
+    height: 300px;
+    padding: 18px 12px;
+  }
+
+  .product-card img {
+    width: 200px;
+    height: 140px;
+  }
+
+  .product-card .title {
+    font-size: 15px;
+  }
+
+  .product-card .price {
+    font-size: 14px;
+  }
+}
+
+/* Мобільні (до 767px) */
+@media (max-width: 767px) {
+  .products {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 14px;
+  }
+
+  .product-card {
+    height: auto;
+    padding: 16px 10px;
+  }
+
+  .product-card img {
+    width: 100%;
+    height: auto;
+    max-height: 160px;
+    object-fit: contain;
+    border-radius: 20px;
+  }
+
+  .product-card .title {
+    font-size: 14px;
+  }
+
+  .product-card .price {
+    font-size: 13px;
+  }
+
+  .product-card .favorite,
+  .product-card .add-to-cart {
+    width: 36px;
+    height: 36px;
+  }
+}
 
 /* Пагінація */
 .pagination {
@@ -229,8 +289,10 @@
   gap: 6px;
   padding-left: 300px;
   margin-top: 40px;
+  flex-wrap: wrap;
 }
 
+/* Кнопки пагінації */
 .pagination button {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
@@ -263,6 +325,42 @@
   font-size: 24px;
   line-height: 0;
 }
+
+/* ======= Адаптивність ======= */
+
+/* Планшети */
+@media (max-width: 1024px) {
+  .pagination {
+    padding-left: 0;
+    justify-content: center;
+  }
+
+  .pagination button {
+    font-size: 26px;
+    padding: 8px 16px;
+  }
+}
+
+/* Мобільні пристрої */
+@media (max-width: 767px) {
+  .pagination {
+    padding-left: 0;
+    justify-content: center;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+
+  .pagination button {
+    font-size: 20px;
+    padding: 6px 12px;
+  }
+
+  .pagination .arrow-left i,
+  .pagination .arrow-right i {
+    font-size: 20px;
+  }
+}
+
 .product-card {
   position: relative;
 }
@@ -354,7 +452,34 @@
   height: 28px;
   fill: #534139;
 }
+/* Медіа-запити для адаптації */
+@media (max-width: 1024px) {
+  .search-container {
+    justify-content: space-between;
+  }
 
+  .search-container input {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .search-container {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 15px;
+    margin-bottom: -260px;
+  }
+
+  .search-container input {
+    width: 100%;
+    margin: 0;
+  }
+
+  .search-btn {
+    margin-left: 10px;
+  }
+}
 /*slidebar*/
 
 .sale-container {
@@ -450,12 +575,9 @@
   border-radius: 50%;
 }
 
-
-
+/*
 @media (max-width: 992px) {
-  .products {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  
 
   .search-container input{
     width: 450px;
@@ -476,5 +598,86 @@
 
   .pagination{
     padding-left: 150px;
+  }
+}
+*/
+.catalog-wrapper {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.filters {
+  width: 260px;
+}
+
+/* Кнопка фільтрів схована на десктопі */
+.filter-toggle-btn {
+  display: none;
+  background-color: #534139;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(83, 65, 57, 0.3);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.filter-toggle-btn:hover {
+  background-color: #000;
+  box-shadow: 0 6px 8px rgba(63, 42, 29, 0.5);
+}
+
+/* Медіа для мобільних */
+@media (max-width: 1024px) {
+  .catalog-wrapper {
+    flex-direction: column;
+  }
+
+  .filter-toggle-btn {
+    display: inline-block;
+  }
+
+  .filters {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 260px;
+    height: 100vh;
+    background: white;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    overflow-y: auto;
+    transition: left 0.3s ease;
+    z-index: 1000;
+  }
+
+  .filters.active {
+    left: 0;
+  }
+
+  /* Кнопка закриття */
+  .filters .close-btn {
+    display: block;
+    margin-left: auto;
+    margin-bottom: 20px;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.close-btn {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .close-btn {
+    display: block;
   }
 }
