@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .preview-catalog {
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+      }
+
+      /* Ліва колонка - блок акцій */
+      .promo-block {
+        width: 300px;
+        background: #f5f7fa;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .promo-item {
+        background: white;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 1px 5px rgb(0 0 0 / 0.05);
+        text-align: center;
+      }
+
+      .promo-item img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+
+      .promo-item .product-name {
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 5px;
+      }
+
+      .promo-item .price-old {
+        text-decoration: line-through;
+        color: #999;
+        margin-right: 10px;
+      }
+
+      .promo-item .price-new {
+        color: #e63946;
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      .promo-banner {
+        background: #2a9d8f;
+        color: white;
+        border-radius: 10px;
+        padding: 30px 20px;
+        font-size: 22px;
+        font-weight: 700;
+        text-align: center;
+        box-shadow: 0 2px 6px rgb(0 0 0 / 0.15);
+      }
+
+      /* Права колонка - кнопка переходу до каталогу */
+      .catalog-preview {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .catalog-preview a {
+        display: inline-block;
+        background: #457b9d;
+        color: white;
+        padding: 18px 30px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 20px;
+        width: max-content;
+        box-shadow: 0 4px 12px rgb(69 123 157 / 0.5);
+        transition: background-color 0.3s ease;
+      }
+
+      .catalog-preview a:hover {
+        background: #1d3557;
+      }
+    </style>
+
+    <div class="preview-catalog">
+      <div class="promo-block">
+        <!-- Товар дня -->
+        <div class="promo-item">
+          <img
+            src="https://via.placeholder.com/280x180?text=Товар+дня"
+            alt="Товар дня"
+          />
+          <div class="product-name">Стілець Retro</div>
+          <div>
+            <span class="price-old">2500 грн</span>
+            <span class="price-new">1800 грн</span>
+          </div>
+        </div>
+
+        <!-- Банер акції -->
+        <div class="promo-banner">-25% на серію Eco</div>
+      </div>
+
+      <div class="catalog-preview">
+        <a href="/catalog.html">Перейти до повного каталогу з фільтрами →</a>
+      </div>
+    </div>
+  </body>
+</html>
