@@ -14,6 +14,63 @@
     />
     <script type="module" src="https://unpkg.com/@google/model-viewer"></script>
   </head>
+  <style>
+    .subscribe-box {
+      position: relative;
+      max-width: 260px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .footer-input {
+      width: 100%;
+      height: 42px;
+      padding: 0 50px 0 12px;
+      border-radius: 8px;
+      border: 1px solid #534139;
+      font-size: 14px;
+      font-weight: 500;
+      box-sizing: border-box;
+      color: #0d0d0d;
+    }
+
+    .footer-input::placeholder {
+      color: #aaa;
+      font-size: 13px;
+    }
+
+    .footer-input:focus {
+      border-color: #534139;
+      box-shadow: 0 0 6px #534139;
+      outline: none;
+    }
+
+    .send-btn {
+      position: absolute;
+      top: -1px;
+      right: 1px;
+      width: 50px;
+      height: 54px;
+      border-radius: 10%;
+      background-color: #534139;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      transition: background-color 0.3s;
+    }
+
+    .send-btn:hover {
+      background-color: #6b5146;
+    }
+
+    .send-btn img {
+      width: 30x;
+      height: 30px;
+    }
+  </style>
   <body>
     <header>
       <div class="header-top">
@@ -776,51 +833,82 @@
             </div>
           </div>
         </section>
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-top">
-          <div class="footer-logo-container">
- <a href="./index.html"> <img src="./images/logo-footer.svg" alt="Логотип меблевого магазину" class="footer-logo"></a>            <p> <img src="./images/fi-bs-phone-call--footer.svg" alt="" class="footer-contacts"> +38 (067) 478 12 54</p>
-            <p> <img src="./images/fi-bs-marker--footer.svg" alt="" class="footer-contacts"> проспект В'ячеслава Чорновола,
-              101, Львів, Україна</p>
-          </div>
-          <div class="footer-links">
-            <ul>
-              <li><a href="./about-us.html">Про нас</a></li>
-              <li><a href="./catalog.html">Каталог</a></li>
-              <li><a href="./contact-us.html">Контакти</a></li>
-            </ul>
-            <ul>
-              <li><a href="./personalinfo.html">Особистий кабінет</a></li>
-              <li><a href="./blog.html">Блог</a></li>
-              <li><a href="./faqs.html">FAQ</a></li>
-            </ul>
-          </div>
-          <div class="footer-subscribe">
-            <p>Підписатися на електронну пошту</p>
-            <div class="subscribe-box">
-              <input class="input" type="email" placeholder="       your email..." />
-              <button class="send-btn" id="subscribe-btn">
-                <img src="./images/send.svg" alt="send" />
-              </button>
-            </div>
-            <div class="modal-overlay" id="modal">
-              <div class="modal-message fancy">
-                <button class="modal-close" id="modal-close">×</button>
-                <div class="modal-icon"><img src="./images/checkmark.svg"></div>
-                <h2 class="modal-title">Дякуємо за підписку!</h2>
+        <footer class="footer">
+          <div class="container">
+            <div class="footer-top">
+              <div class="footer-logo-container">
+                <a href="./index.html">
+                  <img
+                    src="./images/logo-footer.svg"
+                    alt="Логотип меблевого магазину"
+                    class="footer-logo"
+                /></a>
+                <p>
+                  <img
+                    src="./images/fi-bs-phone-call--footer.svg"
+                    alt=""
+                    class="footer-contacts"
+                  />
+                  +38 (067) 478 12 54
+                </p>
+                <p>
+                  <img
+                    src="./images/fi-bs-marker--footer.svg"
+                    alt=""
+                    class="footer-contacts"
+                  />
+                  проспект В'ячеслава Чорновола, 101, Львів, Україна
+                </p>
+              </div>
+              <div class="footer-links">
+                <ul>
+                  <li><a href="./about-us.html">Про нас</a></li>
+                  <li><a href="./catalog.html">Каталог</a></li>
+                  <li><a href="./contact-us.html">Контакти</a></li>
+                </ul>
+                <ul>
+                  <li><a href="./personalinfo.html">Особистий кабінет</a></li>
+                  <li><a href="./blog.html">Блог</a></li>
+                  <li><a href="./faqs.html">FAQ</a></li>
+                </ul>
+              </div>
+              <div class="footer-subscribe">
+                <p>Підписатися на електронну пошту</p>
+                <div class="subscribe-box">
+                  <input
+                    class="input"
+                    type="email"
+                    placeholder="       your email..."
+                  />
+                  <button class="send-btn" id="subscribe-btn">
+                    <img src="./images/send.svg" alt="send" />
+                  </button>
+                </div>
+                <div class="modal-overlay" id="modal">
+                  <div class="modal-message fancy">
+                    <button class="modal-close" id="modal-close">×</button>
+                    <div class="modal-icon">
+                      <img src="./images/checkmark.svg" />
+                    </div>
+                    <h2 class="modal-title">Дякуємо за підписку!</h2>
+                  </div>
+                </div>
+    
+                <div class="social-icons">
+                  <div class="icon-container">
+                    <img class="dsh" src="./images/icon-instagram.svg" alt="" />
+                  </div>
+                  <div class="icon-container">
+                    <img src="./images/icon-facebook.svg" alt="" />
+                  </div>
+                  <div class="icon-container">
+                    <img src="./images/icon-twitter.svg" alt="" />
+                  </div>
+                </div>
               </div>
             </div>
-    
-            <div class="social-icons">
-              <div class="icon-container"><img class="dsh" src="./images/icon-instagram.svg" alt=""></div>
-              <div class="icon-container"><img src="./images/icon-facebook.svg" alt=""></div>
-              <div class="icon-container"><img src="./images/icon-twitter.svg" alt=""></div>
-            </div>
           </div>
-        </div>
-      </div>
-    </footer>
+        </footer>
     <script>
       const subfiltersData = {
   livingroom: {

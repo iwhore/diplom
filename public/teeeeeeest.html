@@ -1,37 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
+    <title>Акції дня</title>
     <style>
-      .preview-catalog {
-        display: flex;
-        gap: 20px;
-        padding: 20px;
+      body {
+        margin: 0;
         font-family: Arial, sans-serif;
+        background: #f8f5f2;
+        color: #534139;
       }
 
-      /* Ліва колонка - блок акцій */
-      .promo-block {
-        width: 300px;
-        background: #f5f7fa;
-        border-radius: 12px;
-        box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+      .promo-section {
+        max-width: 420px;
+        margin: 40px auto;
         padding: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+      }
+
+      .promo-header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .promo-header h2 {
+        font-size: 24px;
+        margin-bottom: 8px;
+      }
+
+      .countdown {
+        font-size: 15px;
+        font-weight: bold;
+        color: #b25028;
       }
 
       .promo-item {
-        background: white;
-        border-radius: 10px;
+        background: #f3ede7;
+        border-radius: 12px;
         padding: 15px;
-        box-shadow: 0 1px 5px rgb(0 0 0 / 0.05);
         text-align: center;
+        margin-bottom: 20px;
+        transition: transform 0.3s;
+      }
+
+      .promo-item:hover {
+        transform: translateY(-4px);
       }
 
       .promo-item img {
@@ -40,84 +56,192 @@
         margin-bottom: 10px;
       }
 
-      .promo-item .product-name {
-        font-weight: bold;
+      .product-name {
+        font-weight: 600;
         font-size: 18px;
         margin-bottom: 5px;
       }
 
-      .promo-item .price-old {
+      .price-old {
         text-decoration: line-through;
         color: #999;
-        margin-right: 10px;
+        margin-right: 5px;
       }
 
-      .promo-item .price-new {
-        color: #e63946;
-        font-weight: bold;
-        font-size: 20px;
-      }
-
-      .promo-banner {
-        background: #2a9d8f;
-        color: white;
-        border-radius: 10px;
-        padding: 30px 20px;
-        font-size: 22px;
+      .price-new {
+        color: #b25028;
         font-weight: 700;
-        text-align: center;
-        box-shadow: 0 2px 6px rgb(0 0 0 / 0.15);
+        font-size: 18px;
       }
 
-      /* Права колонка - кнопка переходу до каталогу */
-      .catalog-preview {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-
-      .catalog-preview a {
-        display: inline-block;
-        background: #457b9d;
+      .buy-btn {
+        margin-top: 10px;
+        background: #534139;
         color: white;
-        padding: 18px 30px;
-        border-radius: 12px;
-        text-decoration: none;
+        border: none;
+        padding: 10px 16px;
+        border-radius: 8px;
         font-weight: 600;
-        font-size: 20px;
-        width: max-content;
-        box-shadow: 0 4px 12px rgb(69 123 157 / 0.5);
-        transition: background-color 0.3s ease;
+        cursor: pointer;
+        transition: background 0.3s;
       }
 
-      .catalog-preview a:hover {
-        background: #1d3557;
+      .buy-btn:hover {
+        background: #3f2d24;
+      }
+
+      .banner {
+        background: #a68a6d;
+        color: white;
+        padding: 18px;
+        border-radius: 12px;
+        margin: 30px 0 20px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .catalog-cta {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .catalog-cta a {
+        background: #b25028;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        box-shadow: 0 4px 10px rgba(178, 80, 40, 0.3);
+        transition: background 0.3s;
+      }
+
+      .catalog-cta a:hover {
+        background: #a1411f;
+      }
+
+      @media (max-width: 480px) {
+        .promo-section {
+          margin: 20px;
+        }
       }
     </style>
+  </head>
+  <body>
+    <section class="promo-section">
+      <div class="promo-header">
+        <h2>🔥 Гарячі пропозиції дня</h2>
+        <div class="countdown" id="timer">Залишилось: 03:00:00</div>
+      </div>
 
-    <div class="preview-catalog">
-      <div class="promo-block">
-        <!-- Товар дня -->
-        <div class="promo-item">
-          <img
-            src="https://via.placeholder.com/280x180?text=Товар+дня"
-            alt="Товар дня"
-          />
-          <div class="product-name">Стілець Retro</div>
-          <div>
-            <span class="price-old">2500 грн</span>
-            <span class="price-new">1800 грн</span>
-          </div>
+      <!-- 6 вертикальних товарів -->
+      <div class="promo-item">
+        <img
+          src="https://via.placeholder.com/300x180?text=Товар+1"
+          alt="Товар 1"
+        />
+        <div class="product-name">Стілець Retro</div>
+        <div>
+          <span class="price-old">2500 грн</span>
+          <span class="price-new">1800 грн</span>
         </div>
-
-        <!-- Банер акції -->
-        <div class="promo-banner">-25% на серію Eco</div>
+        <button class="buy-btn">Купити зараз</button>
       </div>
 
-      <div class="catalog-preview">
-        <a href="/catalog.html">Перейти до повного каталогу з фільтрами →</a>
+      <div class="promo-item">
+        <img
+          src="https://via.placeholder.com/300x180?text=Товар+2"
+          alt="Товар 2"
+        />
+        <div class="product-name">Крісло Soft</div>
+        <div>
+          <span class="price-old">4000 грн</span>
+          <span class="price-new">2999 грн</span>
+        </div>
+        <button class="buy-btn">Купити зараз</button>
       </div>
-    </div>
+
+      <div class="promo-item">
+        <img
+          src="https://via.placeholder.com/300x180?text=Товар+3"
+          alt="Товар 3"
+        />
+        <div class="product-name">Стіл Loft</div>
+        <div>
+          <span class="price-old">3200 грн</span>
+          <span class="price-new">2300 грн</span>
+        </div>
+        <button class="buy-btn">Купити зараз</button>
+      </div>
+
+      <div class="promo-item">
+        <img
+          src="https://via.placeholder.com/300x180?text=Товар+4"
+          alt="Товар 4"
+        />
+        <div class="product-name">Диван Comfy</div>
+        <div>
+          <span class="price-old">8000 грн</span>
+          <span class="price-new">6400 грн</span>
+        </div>
+        <button class="buy-btn">Купити зараз</button>
+      </div>
+
+      <div class="promo-item">
+        <img
+          src="https://via.placeholder.com/300x180?text=Товар+5"
+          alt="Товар 5"
+        />
+        <div class="product-name">Ліжко Minimal</div>
+        <div>
+          <span class="price-old">9200 грн</span>
+          <span class="price-new">7900 грн</span>
+        </div>
+        <button class="buy-btn">Купити зараз</button>
+      </div>
+
+      <div class="promo-item">
+        <img
+          src="https://via.placeholder.com/300x180?text=Товар+6"
+          alt="Товар 6"
+        />
+        <div class="product-name">Комод Style</div>
+        <div>
+          <span class="price-old">4500 грн</span>
+          <span class="price-new">3700 грн</span>
+        </div>
+        <button class="buy-btn">Купити зараз</button>
+      </div>
+
+      <div class="banner">🎁 -25% на всю серію Eco до кінця місяця!</div>
+
+      <div class="catalog-cta">
+        <p>🔎 Хочеш побачити більше? Перейди до повного каталогу:</p>
+        <a href="/catalog.html">Переглянути весь каталог</a>
+      </div>
+    </section>
+
+    <script>
+      // Таймер: 3 години
+      const timerEl = document.getElementById("timer");
+      let remainingSeconds = 3 * 60 * 60;
+
+      function updateTimer() {
+        const hours = String(Math.floor(remainingSeconds / 3600)).padStart(
+          2,
+          "0"
+        );
+        const minutes = String(
+          Math.floor((remainingSeconds % 3600) / 60)
+        ).padStart(2, "0");
+        const seconds = String(remainingSeconds % 60).padStart(2, "0");
+        timerEl.textContent = `Залишилось: ${hours}:${minutes}:${seconds}`;
+        if (remainingSeconds > 0) remainingSeconds--;
+      }
+
+      setInterval(updateTimer, 1000);
+    </script>
   </body>
 </html>
