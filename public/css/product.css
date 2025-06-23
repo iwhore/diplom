@@ -598,51 +598,6 @@ textarea {
   color: #fff;
 }
 /*--------------------------*/
-/*форма для відгуку
-.testimonial-quote {
-  font-style: italic;
-  color: #333;
-}
-
-.testimonial-author {
-  margin-top: 10px;
-  font-weight: bold;
-  color: #333;
-}
-.testimonial-title {
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-size: 24px;
-  color: #000;
-}
-
-.testimonial-header {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin-left: 10px;
-}
-
-/* Зірочки для форми 
-.star-rating {
-  display: flex;
-  gap: 6px;
-  cursor: pointer;
-  margin-bottom: 30px;
-}
-
-.star-rating span {
-  font-size: 33px;
-  color: #bfbbaf;
-  transition: color 0.3s;
-}
-
-.star-rating span.active,
-.star-rating span:hover,
-.star-rating span.hovered {
-  color: #ee9c19;
-}
-*/
 
 /*зірочки для товару*/
 .stars2 {

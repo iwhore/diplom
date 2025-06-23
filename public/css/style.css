@@ -1657,3 +1657,8 @@ p {
     display: none;
   }
 }
+.product-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
