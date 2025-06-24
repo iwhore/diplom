@@ -243,6 +243,10 @@
             <div class="product-name">
               Диван Verde, Оливково-зелений 205×155×90
             </div>
+            <div class="product-rating">
+    <span class="stars">★★★★★</span>
+    <span class="rating-text">4.8 (20 відгуків)</span>
+  </div>
             <div class="product-price">25 300грн</div>
             <div class="product-color">
               <div class="selected-color">
@@ -487,6 +491,28 @@
           <h2 class="modal-title">Дякуємо за ваш відгук!</h2>
         </div>
       </div>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const modalOverlay = document.getElementById("modal-overlay");
+          const modalClose = document.getElementById("modal-close");
+          const form = document.getElementById("review-form");
+
+          form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            modalOverlay.style.display = "flex";
+          });
+
+          modalClose.addEventListener("click", () => {
+            modalOverlay.style.display = "none";
+          });
+
+          modalOverlay.addEventListener("click", (event) => {
+            if (event.target === modalOverlay) {
+              modalOverlay.style.display = "none";
+            }
+          });
+        });
+      </script>
     </section>
     <footer class="footer">
       <div class="container">
