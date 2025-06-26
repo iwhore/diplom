@@ -43,11 +43,12 @@
         <div class="form-content">
           <h2>Реєстрація</h2>
           <form id="signup-form">
-            <input type="text" id="name" placeholder="ім'я" required />
-            <input type="email" id="email" placeholder="e-mail" required />
+            <input type="text" name="name" id="name" placeholder="ім'я" required />
+            <input type="email" name="email" id="email" placeholder="e-mail" required />
             <div class="password-container">
               <input
                 type="password"
+                name="password"
                 id="password"
                 placeholder="пароль"
                 required
@@ -74,48 +75,61 @@
     </div>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const form = document.getElementById("signup-form");
-    
-        form.addEventListener("submit", async function (event) {
-          event.preventDefault();
-    
-          const name = document.getElementById("name").value.trim();
-          const email = document.getElementById("email").value.trim();
-          const password = document.getElementById("password").value.trim();
-    
-          if (!name || !email || !password) {
-            alert("Будь ласка, заповніть усі поля.");
-            return;
-          }
-    
-          try {
-            const response = await fetch("/api/signup", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ name, email, password })
-            });
-    
-            const data = await response.json();
-    
-            if (response.ok) {
-              localStorage.setItem("isLoggedIn", "true");
-          localStorage.setItem("userName", data.user?.name || identifier); // якщо name не повертається — зберігаємо email/login
-          localStorage.setItem("user", JSON.stringify(data.user || {}));
-              alert("Реєстрація успішна!");
-              window.location.href = "index.html";
-            } else {
-              alert(data.error || "Помилка при реєстрації.");
-            }
-          } catch (error) {
-            console.error("Помилка запиту:", error);
-            alert("Помилка сервера. Спробуйте пізніше.");
-          }
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("signup-form");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const payload = {
+        name: formData.get("name").trim(),
+        email: formData.get("email").trim(),
+        password: formData.get("password").trim(),
+      };
+
+      // Валідація
+      if (!payload.name || !payload.email || !payload.password) {
+        alert("Будь ласка, заповніть усі поля.");
+        return;
+      }
+
+      try {
+        const res = await fetch("/api/signup", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
         });
-      });
-    </script>
+
+        const data = await res.json();
+
+        if (res.ok) {
+          alert(data.message || "Реєстрація успішна!");
+          form.reset();
+        } else {
+          alert(data.error || "Помилка при реєстрації.");
+        }
+      } catch (err) {
+        console.error("Помилка запиту:", err);
+        alert("Не вдалося з’єднатися із сервером. Спробуйте пізніше.");
+      }
+    });
+  });
+
+  // Бургер-меню
+  document.getElementById("burger-btn").addEventListener("click", () => {
+    document.getElementById("menu").classList.toggle("active");
+  });
+  document.addEventListener("click", (event) => {
+    const menu = document.getElementById("menu");
+    const btn = document.getElementById("burger-btn");
+    if (!menu.contains(event.target) && !btn.contains(event.target)) {
+      menu.classList.remove("active");
+    }
+  });
+</script>
 
     <script>
       document.getElementById("burger-btn").addEventListener("click", function () {

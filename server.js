@@ -29,12 +29,14 @@ app.use(express.json());
 app.post('/api/signup', async (req, res) => {
   try {
     const { name, email, password } = req.body;
+
     const user = new User({ name, email, password });
     await user.save();
+
     res.status(201).json({ message: 'Користувач зареєстрований!' });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Помилка сервера' });
+    res.status(500).json({ error: 'Не вдалося зареєструвати користувача' });
   }
 });
 

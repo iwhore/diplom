@@ -115,7 +115,6 @@
             <button class="add-address">Додати адресу</button>
           </div>
 
-          <!-- Address Section -->
           <div class="section" id="address">
             <div class="address-container">
               <div class="column">
@@ -259,7 +258,7 @@
           <!-- Payment method ----------------------------------------->
 
           <div class="section" id="payment-method">
-            <div class="payment-container">
+            <div class="payment-container" id="cards-container">
               <div class="saved-card">
                 <span class="card-logo">
                   <svg
@@ -372,7 +371,7 @@
                   <label for="save-card" class="checkmark"></label>
                   <span>Зберегти картку для майбутніх платежів</span>
                 </div>
-                <button class="add-card">Додати картку</button>
+                <button class="add-card"  id="add-card-btn">Додати картку</button>
               </div>
             </div>
           </div>
@@ -457,5 +456,158 @@
           }
         });
     </script>
+     <!--карти -->
+      <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const cardBtn = document.getElementById('add-card-btn');
+    const container = document.getElementById('cards-container');
+    const addCardForm = container.querySelector('.add-card-form');
+
+    // Функція визначення типу карти
+    function getCardType(num) {
+      if (/^4/.test(num)) return "visa";
+      if (/^5[1-5]/.test(num) || /^2(2[2-9]|[3-6]|7[01]|720)/.test(num)) return "mastercard";
+      return "unknown";
+    }
+
+    // Функція для створення SVG
+    function getCardSVG(type) {
+      if (type === 'visa') {
+        return `
+          <svg width="60" height="40" xmlns="http://www.w3.org/2000/svg">
+            <rect width="60" height="40" fill="#1A1F71" rx="5"/>
+            <text x="30" y="25" text-anchor="middle" fill="white" font-size="14" font-family="Arial, sans-serif">VISA</text>
+          </svg>`;
+      } else if (type === 'mastercard') {
+        return `
+          <svg width="60" height="40" xmlns="http://www.w3.org/2000/svg">
+            <rect width="60" height="40" fill="#fff" rx="5"/>
+            <circle cx="23" cy="20" r="12" fill="#EB001B"/>
+            <circle cx="37" cy="20" r="12" fill="#F79E1B"/>
+            <text x="30" y="35" text-anchor="middle" fill="#000" font-size="10" font-family="Arial, sans-serif">MasterCard</text>
+          </svg>`;
+      } else {
+        return `
+          <svg width="60" height="40" xmlns="http://www.w3.org/2000/svg">
+            <rect width="60" height="40" rx="5" fill="#ccc"/>
+            <text x="30" y="25" text-anchor="middle" fill="#666" font-size="12" font-family="Arial">Card</text>
+          </svg>`;
+      }
+    }
+
+    // Збереження карт у localStorage
+    function saveCards(cards) {
+      localStorage.setItem('savedCards', JSON.stringify(cards));
+    }
+
+    // Завантаження карт із localStorage
+    function loadCards() {
+      const saved = localStorage.getItem('savedCards');
+      return saved ? JSON.parse(saved) : [];
+    }
+
+    // Рендер однієї карти
+    function renderCard(card) {
+      const cardDiv = document.createElement('div');
+      cardDiv.className = 'saved-card';
+      cardDiv.innerHTML = `
+        <span class="card-logo">${getCardSVG(card.type)}</span>
+        <span class="card-number">${card.maskedNumber}</span>
+        <span class="delete-card">Видалити</span>
+      `;
+
+      // Видалення картки
+      cardDiv.querySelector('.delete-card').addEventListener('click', () => {
+        cardDiv.remove();
+        const updatedCards = loadCards().filter(c => c.maskedNumber !== card.maskedNumber);
+        saveCards(updatedCards);
+      });
+
+      container.insertBefore(cardDiv, addCardForm);
+    }
+
+    // Додавання нової картки
+    cardBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('cardholder-name').value.trim();
+      let number = document.getElementById('card-number').value.trim();
+
+      if (!name || !number) {
+        alert('Введіть ім’я власника та номер картки');
+        return;
+      }
+
+      number = number.replace(/\s+/g, '');
+      if (number.length < 4) {
+        alert('Номер картки занадто короткий');
+        return;
+      }
+
+      const last4 = number.slice(-4);
+      const maskedNumber = '**** **** **** ' + last4;
+      const type = getCardType(number);
+
+      const newCard = { maskedNumber, type };
+      renderCard(newCard);
+
+      // Зберігаємо
+      const currentCards = loadCards();
+      currentCards.push(newCard);
+      saveCards(currentCards);
+
+      // Очищення форми
+      document.getElementById('cardholder-name').value = '';
+      document.getElementById('card-number').value = '';
+    });
+
+    // Завантажити всі карти при відкритті
+    loadCards().forEach(renderCard);
+  });
+</script>
+<script>
+  // Перевірка форми адреси
+  document.querySelector('.add-address').addEventListener('click', function (e) {
+    e.preventDefault();
+
+    const fields = [
+      'first-name', 'last-name', 'country', 'city',
+      'street', 'zip', 'email', 'phone'
+    ];
+
+    const allFilled = fields.every(id => {
+      const value = document.getElementById(id).value.trim();
+      return value !== '';
+    });
+
+    if (!allFilled) {
+      alert('Будь ласка, заповніть усі поля адреси');
+      return;
+    }
+
+    alert('Адресу оновлено!');
+  });
+
+  // Перевірка форми паролю
+  document.querySelector('.password-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const current = document.getElementById('current-password').value.trim();
+    const newPass = document.getElementById('new-password').value.trim();
+    const confirmPass = document.getElementById('confirm-password').value.trim();
+
+    if (!current || !newPass || !confirmPass) {
+      alert('Будь ласка, заповніть усі поля паролю');
+      return;
+    }
+
+    if (newPass !== confirmPass) {
+      alert('Новий пароль і підтвердження не збігаються');
+      return;
+    }
+
+    alert('Пароль оновлено!');
+  });
+</script>
   </body>
 </html>

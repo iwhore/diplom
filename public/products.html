@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Адмін-панель - Товари</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        display: flex;
+        height: 100vh;
+        background: #0f172a;
+        color: #fff;
+      }
+
+      .sidebar {
+        width: 220px;
+        background-color: #1e293b;
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem;
+      }
+
+      .sidebar h2 {
+        margin-bottom: 2rem;
+        font-size: 1.5rem;
+        color: #fff;
+      }
+
+      .sidebar a {
+        color: #94a3b8;
+        text-decoration: none;
+        margin: 1rem 0;
+        transition: color 0.2s;
+      }
+
+      .sidebar a.active {
+        color: #38bdf8;
+        font-weight: bold;
+      }
+
+      .sidebar a:hover {
+        color: #fff;
+      }
+
+      .main {
+        flex: 1;
+        padding: 2rem;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .admin-info-bar {
+        display: flex;
+        align-items: center;
+        background: #1e293b;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .admin-info-bar img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin-right: 1rem;
+      }
+
+      .admin-info-bar .details {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .admin-info-bar .details h2 {
+        color: #fff;
+        font-size: 1.25rem;
+      }
+
+      .admin-info-bar .details p {
+        color: #cbd5e1;
+        font-size: 0.9rem;
+      }
+
+      .filters {
+        display: flex;
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+
+      .filters input {
+        padding: 0.5rem;
+        border-radius: 5px;
+        border: none;
+        font-size: 1rem;
+        flex: 1;
+      }
+
+      .search {
+        background-color: #22c55e;
+        color: #fff;
+        padding: 0.5rem 1.5rem;
+        border-radius: 30px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .products-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+      }
+
+      .products-table th,
+      .products-table td {
+        padding: 1rem;
+        text-align: left;
+        border: 1px solid #ddd;
+      }
+
+      .products-table th {
+        background-color: #1e293b;
+      }
+
+      .products-table tbody tr:nth-child(even) {
+        background-color: #2d3748;
+      }
+
+      .view-btn,
+      .edit-btn {
+        color: #fff;
+        width: 100px;
+        height: 35px;
+        border-radius: 30px;
+        font-family: "Poppins", sans-serif;
+        font-size: 14px;
+        border: none;
+        cursor: pointer;
+        margin-right: 0.5rem;
+      }
+
+      .view-btn {
+        background-color: #0ea5e9;
+      }
+
+      .edit-btn {
+        background-color: #f97316;
+      }
+
+      .add-product {
+        margin-top: 2rem;
+      }
+
+      .add-product form {
+        display: grid;
+        gap: 1rem;
+        margin-top: 1rem;
+        max-width: 400px;
+      }
+
+      .add-product input {
+        padding: 0.75rem;
+        font-size: 1rem;
+        border-radius: 5px;
+        border: none;
+      }
+
+      .add-product button {
+        background-color: #22c55e;
+        color: #fff;
+        padding: 0.75rem;
+        border-radius: 10px;
+        cursor: pointer;
+        border: none;
+        font-size: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2>Admin</h2>
+      <a href="./main.html">Інформаційна панель</a>
+      <a href="./products.html" class="active">Товари</a>
+      <a href="./orders.html">Замовлення</a>
+      <a href="./clients.html">Клієнти</a>
+      <a href="./message.html">Повідомлення</a>
+    </div>
+
+    <div class="main">
+      <div class="admin-info-bar">
+        <img src="admin-profile.jpg" alt="Admin" />
+        <div class="details">
+          <h2>Адміністратор</h2>
+          <p>Сторінка товарів</p>
+        </div>
+      </div>
+
+      <div class="filters">
+        <input type="text" id="search" placeholder="Пошук за назвою або ID" />
+        <button class="search" onclick="renderProducts()">Пошук</button>
+      </div>
+
+      <h2>Список товарів</h2>
+      <table class="products-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Назва</th>
+            <th>Ціна</th>
+            <th>Категорія</th>
+            <th>Дії</th>
+          </tr>
+        </thead>
+        <tbody id="product-list"></tbody>
+      </table>
+
+      <div class="add-product">
+        <h2 id="form-title">Додати новий товар</h2>
+        <form id="product-form">
+          <input type="hidden" id="edit-index" />
+          <input type="text" id="product-id" placeholder="ID товару" required />
+          <input type="text" id="product-name" placeholder="Назва товару" required />
+          <input type="number" id="product-price" placeholder="Ціна" required />
+          <input type="text" id="product-category" placeholder="Категорія" required />
+          <button type="submit">Зберегти</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      let products = JSON.parse(localStorage.getItem("products")) || [];
+
+      const productForm = document.getElementById("product-form");
+      const productList = document.getElementById("product-list");
+      const searchInput = document.getElementById("search");
+
+      function renderProducts() {
+        const searchValue = searchInput.value.toLowerCase();
+        productList.innerHTML = "";
+
+        products
+          .filter(
+            (p) =>
+              p.name.toLowerCase().includes(searchValue) ||
+              p.id.toLowerCase().includes(searchValue)
+          )
+          .forEach((product, index) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+              <td>${product.id}</td>
+              <td>${product.name}</td>
+              <td>${product.price} грн</td>
+              <td>${product.category}</td>
+              <td>
+                <button class="edit-btn" onclick="editProduct(${index})">Редагувати</button>
+              </td>
+            `;
+            productList.appendChild(row);
+          });
+      }
+
+      function editProduct(index) {
+        const product = products[index];
+        document.getElementById("edit-index").value = index;
+        document.getElementById("product-id").value = product.id;
+        document.getElementById("product-name").value = product.name;
+        document.getElementById("product-price").value = product.price;
+        document.getElementById("product-category").value = product.category;
+        document.getElementById("form-title").textContent = "Редагувати товар";
+      }
+
+      productForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const id = document.getElementById("product-id").value;
+        const name = document.getElementById("product-name").value;
+        const price = document.getElementById("product-price").value;
+        const category = document.getElementById("product-category").value;
+        const editIndex = document.getElementById("edit-index").value;
+
+        const product = { id, name, price, category };
+
+        if (editIndex === "") {
+          products.push(product);
+        } else {
+          products[editIndex] = product;
+          document.getElementById("form-title").textContent = "Додати новий товар";
+        }
+
+        localStorage.setItem("products", JSON.stringify(products));
+        productForm.reset();
+        document.getElementById("edit-index").value = "";
+        renderProducts();
+      });
+
+      // Рендер при завантаженні
+      renderProducts();
+    </script>
+  </body>
+</html>

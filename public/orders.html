@@ -235,7 +235,7 @@
       <h2>Admin</h2>
       <a href="./main.html">Інформаційна панель</a>
       <a href="./products.html">Товари</a>
-      <a href="./orders.html">Замовлення</a>
+      <a href="./orders.html" class="active">Замовлення</a>
       <a href="./clients.html">Клієнти</a>
       <a href="./message.html">Повідомлення</a>
     </div>
@@ -250,13 +250,13 @@
       </div>
 
       <div class="filters">
-        <select>
+        <select id="status-filter">
           <option value="all">Усі замовлення</option>
           <option value="pending">Очікують</option>
           <option value="completed">Завершені</option>
         </select>
-        <input type="text" placeholder="Пошук за номером замовлення" />
-        <button class="search">Пошук</button>
+        <input type="text" id="search-input" placeholder="Пошук за номером замовлення" />
+        <button class="search" id="search-btn">Пошук</button>
       </div>
 
       <div class="orders">
@@ -271,7 +271,7 @@
               <th>Дії</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="orders-body">
             <tr>
               <td>1001</td>
               <td>Іван Сенишин</td>
@@ -320,39 +320,118 @@
     </div>
 
     <script>
-      // Обробник для форми додавання замовлення
-      document
-        .getElementById("add-order-form")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
+      const tbody = document.querySelector(".orders-table tbody");
+      const statusFilter = document.querySelector(".filters select");
+      const searchInput = document.querySelector(".filters input");
+      const searchBtn = document.querySelector(".search");
 
-          const orderNumber = document.getElementById("order-number").value;
-          const clientName = document.getElementById("client-name").value;
-          const orderDate = document.getElementById("order-date").value;
-          const status = document.getElementById("status").value;
+      const form = document.getElementById("add-order-form");
+      const orderNumberInput = document.getElementById("order-number");
+      const clientNameInput = document.getElementById("client-name");
+      const orderDateInput = document.getElementById("order-date");
+      const statusInput = document.getElementById("status");
 
-          // Додаємо новий рядок у таблицю замовлень
-          const table = document.querySelector(".orders-table tbody");
-          const newRow = document.createElement("tr");
+      let isEditing = false;
+      let editingIndex = null;
 
-          newRow.innerHTML = `
-        <td>${orderNumber}</td>
-        <td>${clientName}</td>
-        <td>${orderDate}</td>
-        <td><span class="status ${status}">${
-            status === "pending" ? "Очікує" : "Завершено"
+      // Отримуємо замовлення з localStorage або використовуємо початкові
+      let orderData = JSON.parse(localStorage.getItem("orders")) || [
+        {
+          orderNumber: "1001",
+          clientName: "Іван Сенишин",
+          orderDate: "2025-04-28",
+          status: "pending",
+        },
+        {
+          orderNumber: "1002",
+          clientName: "Марія Волошин",
+          orderDate: "2025-04-27",
+          status: "completed",
+        },
+      ];
+
+      function saveToStorage() {
+        localStorage.setItem("orders", JSON.stringify(orderData));
+      }
+
+      function renderTable(data) {
+        tbody.innerHTML = "";
+        data.forEach((order, index) => {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${order.orderNumber}</td>
+            <td>${order.clientName}</td>
+            <td>${order.orderDate}</td>
+            <td><span class="status ${order.status}">${
+            order.status === "pending" ? "Очікує" : "Завершено"
           }</span></td>
-        <td>
-          <button class="view-btn">Переглянути</button>
-          <button class="edit-btn">Редагувати</button>
-        </td>
-      `;
-
-          table.appendChild(newRow);
-
-          // Очищаємо форму
-          document.getElementById("add-order-form").reset();
+            <td>
+              <button class="view-btn">Переглянути</button>
+              <button class="edit-btn" data-index="${index}">Редагувати</button>
+            </td>`;
+          tbody.appendChild(tr);
         });
+
+        // Після рендера додаємо обробники до кнопок "Редагувати"
+        document.querySelectorAll(".edit-btn").forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            const index = e.target.getAttribute("data-index");
+            const order = orderData[index];
+            orderNumberInput.value = order.orderNumber;
+            clientNameInput.value = order.clientName;
+            orderDateInput.value = order.orderDate;
+            statusInput.value = order.status;
+            isEditing = true;
+            editingIndex = index;
+            form.querySelector("button[type='submit']").textContent = "Оновити замовлення";
+          });
+        });
+      }
+
+      function applyFilters() {
+        const statusValue = statusFilter.value;
+        const searchValue = searchInput.value.trim();
+
+        const filtered = orderData.filter((order) => {
+          const matchStatus =
+            statusValue === "all" ? true : order.status === statusValue;
+          const matchSearch = order.orderNumber.includes(searchValue);
+          return matchStatus && matchSearch;
+        });
+
+        renderTable(filtered);
+      }
+
+      statusFilter.addEventListener("change", applyFilters);
+      searchBtn.addEventListener("click", applyFilters);
+      searchInput.addEventListener("input", applyFilters);
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const newOrder = {
+          orderNumber: orderNumberInput.value,
+          clientName: clientNameInput.value,
+          orderDate: orderDateInput.value,
+          status: statusInput.value,
+        };
+
+        if (isEditing) {
+          orderData[editingIndex] = newOrder;
+          isEditing = false;
+          editingIndex = null;
+          form.querySelector("button[type='submit']").textContent = "Додати замовлення";
+        } else {
+          orderData.push(newOrder);
+        }
+
+        saveToStorage();
+        applyFilters();
+        form.reset();
+      });
+
+      // Показати всі при завантаженні
+      applyFilters();
     </script>
   </body>
 </html>
